@@ -16,12 +16,14 @@ export const Terminal: React.FC = () => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
 
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Auto-scroll to the bottom of terminal
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalBodyRef.current) {
+      // Scroll the container internally without affecting window scroll
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [history]);
 
   const handleTerminalClick = () => {
@@ -184,7 +186,11 @@ export const Terminal: React.FC = () => {
             <div style={{ width: '42px' }}></div> {/* Spacer */}
           </div>
 
-          <div className="terminal-body" style={{ minHeight: '320px', maxHeight: '420px' }}>
+          <div 
+            ref={terminalBodyRef} 
+            className="terminal-body" 
+            style={{ minHeight: '320px', maxHeight: '420px', overflowY: 'auto' }}
+          >
             {history.map((line, idx) => (
               <div 
                 key={idx} 
@@ -222,7 +228,6 @@ export const Terminal: React.FC = () => {
                 style={{ caretColor: 'var(--accent-cyan)' }}
               />
             </div>
-            <div ref={terminalEndRef} />
           </div>
         </div>
 
