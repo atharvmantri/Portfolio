@@ -76,6 +76,8 @@ export const Terminal: React.FC = () => {
           { text: '  hackathons - Display competitive achievements and prizes', type: 'output' },
           { text: '  stats      - Stream telemetry statistics', type: 'output' },
           { text: '  contact    - Retrieve access endpoints', type: 'output' },
+          { text: '  info       - Show portfolio compilation data', type: 'output' },
+          { text: '  source     - Display git repository source nodes', type: 'output' },
           { text: '  clear      - Purge terminal terminal history', type: 'output' }
         );
         break;
@@ -130,6 +132,37 @@ export const Terminal: React.FC = () => {
           { text: '  Email: work@atharv.me', type: 'success' },
           { text: '  GitHub: https://github.com/atharvmantri', type: 'success' },
           { text: '  LinkedIn: https://linkedin.com/in/atharv-mantri (Simulated)', type: 'success' }
+        );
+        break;
+      case 'info':
+      case 'cat info.txt':
+        newHistory.push(
+          { text: 'PORTFOLIO ARCHITECTURE METRIC:', type: 'success' },
+          { text: '  Stack   : React 19.2 + TypeScript 6.0 + Vite 8.0 (No heavy UI frameworks)', type: 'output' },
+          { text: '  Bundle  : ~268kB compressed production build', type: 'output' },
+          { text: '  Assets  : 100% self-contained local inline SVGs for performance & stability', type: 'output' },
+          { text: '  Styling : Modular encapsulated layout variables & CSS keyframes', type: 'output' }
+        );
+        break;
+      case 'source':
+      case 'code':
+        newHistory.push(
+          { text: 'GIT REPOSITORY TREE ACTIVE:', type: 'success' },
+          { text: '  Repository URL: https://github.com/atharvmantri/Portfolio', type: 'output' },
+          { text: '  Core Components:', type: 'output' },
+          { text: '    - Hero.tsx             => Glowing Neural Core & mpath animation', type: 'output' },
+          { text: '    - Terminal.tsx         => Interactive command-line loop shell', type: 'output' },
+          { text: '    - ArchitectureDiagram.tsx => Bezier path data stream pipelines', type: 'output' },
+          { text: '    - Skills.tsx           => Customized vector branded SVG chips', type: 'output' }
+        );
+        break;
+      case 'secret':
+      case 'easteregg':
+        newHistory.push(
+          { text: 'ACCESS GRANTED // INITIALIZING EASTER_EGG...', type: 'success' },
+          { text: '  "I enjoy building products that feel slightly ahead of their time."', type: 'output' },
+          { text: '  - Under the hood: Custom 3D tilt algorithms, cubic-bezier curves, and SVG paths.', type: 'output' },
+          { text: '  - Keep exploring the system! Try running "sudo" to get started.', type: 'output' }
         );
         break;
       case 'clear':
