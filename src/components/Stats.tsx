@@ -81,7 +81,7 @@ export const Stats: React.FC = () => {
     {
       icon: <GitCommit size={28} style={{ color: 'var(--accent-blue)' }} />,
       title: "Commits This Year",
-      value: <Counter end={540} suffix="+" />,
+      value: <Counter end={140} suffix="+" />,
       description: "Continuous leverage deployment and open-source contributions"
     },
     {
