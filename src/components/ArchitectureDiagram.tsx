@@ -23,50 +23,50 @@ export const ArchitectureDiagram: React.FC = () => {
 
   // Nodes for ShadowKey
   const shadowkeyNodes: ArchitectureNode[] = [
-    { id: 'sk-client', label: 'Tauri / React App', type: 'client', description: 'Desktop User Interface written in React & TypeScript, packaged with Tauri.', x: 100, y: 150 },
-    { id: 'sk-ipc', label: 'IPC / RPC Bridge', type: 'gateway', description: 'Cross-process Inter-Process Communication gateway conveying events secure-side.', x: 300, y: 150 },
-    { id: 'sk-core', label: 'Rust Core Agent', type: 'compute', description: 'Background service listening to keystroke telemetry & low-level events.', x: 500, y: 150 },
-    { id: 'sk-crypto', label: 'AES-256 Engine', type: 'security', description: 'Hardware-accelerated envelope cryptography operations (AES-GCM).', x: 700, y: 90 },
-    { id: 'sk-db', label: 'SQLite (Encrypted)', type: 'database', description: 'SQLCipher local relational storage, keeping system history encrypted at rest.', x: 700, y: 210 },
+    { id: 'sk-client', label: 'React 19 Frontend', type: 'client', description: 'Browser UI built with React, Framer Motion, and Tailwind CSS. Collects inputs and triggers proof workflows.', x: 100, y: 150 },
+    { id: 'sk-wallet', label: 'Lace Wallet SDK', type: 'gateway', description: 'Dapp-to-wallet communication gateway. Manages transaction signing and connects to the Midnight Network.', x: 300, y: 150 },
+    { id: 'sk-circuits', label: 'Compact ZK Engine', type: 'compute', description: 'Executes 9 Groth16 zero-knowledge circuits (submit, prove, delete, login, etc.) locally in-browser.', x: 500, y: 150 },
+    { id: 'sk-commit', label: 'SHA256 Commitments', type: 'security', description: 'Computes 5-field domain-separated commitments in the browser so raw data never leaves the device.', x: 700, y: 90 },
+    { id: 'sk-ledger', label: 'Midnight Ledger', type: 'database', description: 'Midnight Network ledger storing ZK commitments, verification statuses, tombstones, and session records.', x: 700, y: 210 },
   ];
 
   const shadowkeyPaths: PathLine[] = [
-    { from: 'sk-client', to: 'sk-ipc', animated: true },
-    { from: 'sk-ipc', to: 'sk-core', animated: true },
-    { from: 'sk-core', to: 'sk-crypto', animated: true },
-    { from: 'sk-core', to: 'sk-db', animated: true },
+    { from: 'sk-client', to: 'sk-wallet', animated: true },
+    { from: 'sk-wallet', to: 'sk-circuits', animated: true },
+    { from: 'sk-circuits', to: 'sk-commit', animated: true },
+    { from: 'sk-circuits', to: 'sk-ledger', animated: true },
   ];
 
-  // Nodes for Guardnet
+  // Nodes for GuardNet
   const guardnetNodes: ArchitectureNode[] = [
-    { id: 'gn-tap', label: 'Network Interface (TAP/TUN)', type: 'client', description: 'Raw socket listener capturing local/ingress interface traffic packets.', x: 80, y: 150 },
-    { id: 'gn-ingest', label: 'Go Event Broker', type: 'gateway', description: 'High-speed ingestion layer parsing headers & filtering protocols.', x: 260, y: 150 },
-    { id: 'gn-worker', label: 'ML Threat Classifier', type: 'compute', description: 'Python engine running Isolation Forest & auto-encoders on packet feature vectors.', x: 480, y: 150 },
-    { id: 'gn-influx', label: 'InfluxDB (TSDB)', type: 'database', description: 'Time-series database tracking packet frequencies, alerts, and protocols.', x: 700, y: 90 },
-    { id: 'gn-fw', label: 'Iptables Firewall rule generator', type: 'security', description: 'Generates kernel firewall hooks dynamically to block suspicious IPs.', x: 700, y: 210 },
+    { id: 'gn-sources', label: 'Multi-Source Feeds', type: 'client', description: 'Ingests real-time weather and incident data from Open-Meteo, NASA EONET, USGS, and GDACS.', x: 80, y: 150 },
+    { id: 'gn-engine', label: '0-100 Risk Engine', type: 'gateway', description: 'Aggregates weather, disaster telemetry, elevation, and terrain data to compute risk indexes.', x: 260, y: 150 },
+    { id: 'gn-guardian', label: 'Guardian & Dispatch', type: 'compute', description: 'Handles volunteer registration, vulnerable registry mapping, and incident dispatching.', x: 480, y: 150 },
+    { id: 'gn-cloud', label: 'Firebase / Firestore', type: 'database', description: 'Stores real-time report states, volunteer coordinates, and handles push alerts.', x: 700, y: 90 },
+    { id: 'gn-cache', label: 'Workbox / IndexedDB', type: 'security', description: 'Offline-first caching and submission queue ensuring the application functions in zero-connectivity.', x: 700, y: 210 },
   ];
 
   const guardnetPaths: PathLine[] = [
-    { from: 'gn-tap', to: 'gn-ingest', animated: true },
-    { from: 'gn-ingest', to: 'gn-worker', animated: true },
-    { from: 'gn-worker', to: 'gn-influx', animated: true },
-    { from: 'gn-worker', to: 'gn-fw', animated: true, dashed: true },
+    { from: 'gn-sources', to: 'gn-engine', animated: true },
+    { from: 'gn-engine', to: 'gn-guardian', animated: true },
+    { from: 'gn-guardian', to: 'gn-cloud', animated: true },
+    { from: 'gn-guardian', to: 'gn-cache', animated: true, dashed: true },
   ];
 
   // Nodes for WebSniper
   const websniperNodes: ArchitectureNode[] = [
-    { id: 'ws-trigger', label: 'Trigger Endpoint / Cron', type: 'client', description: 'HTTP REST interface or system scheduler triggering scrapers.', x: 100, y: 150 },
-    { id: 'ws-distributor', label: 'Go Scheduler Coordinator', type: 'gateway', description: 'Go routine channel controller distributing scraping subtasks.', x: 300, y: 150 },
-    { id: 'ws-workers', label: 'Scraper Node Pool', type: 'compute', description: 'Concurrent scraper microservices scraping through proxy rotators.', x: 500, y: 150 },
-    { id: 'ws-redis', label: 'Redis Cache (Deduplication)', type: 'cache', description: 'High-speed Redis key-value cache preventing scraping redundant URLs.', x: 700, y: 90 },
-    { id: 'ws-db', label: 'PostgreSQL Datastore', type: 'database', description: 'Relational data vault storing structured outputs & scraping indices.', x: 700, y: 210 },
+    { id: 'ws-ext', label: 'Chrome Extension', type: 'client', description: 'React-based browser extension UI allowing users to visually build action sequences and timelines.', x: 100, y: 150 },
+    { id: 'ws-runner', label: 'FastAPI Local Runner', type: 'gateway', description: 'Local Python FastAPI coordination server managing scrape tasks and API endpoints.', x: 300, y: 150 },
+    { id: 'ws-browser', label: 'Playwright Headless', type: 'compute', description: 'Runs headless Chromium automation instances to bypass client-rendered dynamic JS structures.', x: 500, y: 150 },
+    { id: 'ws-healing', label: 'AI Selector Solver', type: 'cache', description: 'Auto-healing AI module that dynamically resolves broken CSS/XPath selectors on target pages.', x: 700, y: 90 },
+    { id: 'ws-api', label: 'Local REST Endpoints', type: 'database', description: 'Deploys successfully configured scrapers as standard local REST API paths.', x: 700, y: 210 },
   ];
 
   const websniperPaths: PathLine[] = [
-    { from: 'ws-trigger', to: 'ws-distributor', animated: true },
-    { from: 'ws-distributor', to: 'ws-workers', animated: true },
-    { from: 'ws-workers', to: 'ws-redis', animated: true },
-    { from: 'ws-workers', to: 'ws-db', animated: true },
+    { from: 'ws-ext', to: 'ws-runner', animated: true },
+    { from: 'ws-runner', to: 'ws-browser', animated: true },
+    { from: 'ws-browser', to: 'ws-healing', animated: true },
+    { from: 'ws-browser', to: 'ws-api', animated: true },
   ];
 
   const getActiveNodes = () => {
@@ -117,7 +117,7 @@ export const ArchitectureDiagram: React.FC = () => {
           data-interactive
           style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
         >
-          🔐 ShadowKey Core
+          🔐 ShadowKey ZK
         </button>
         <button 
           onClick={() => setSelectedProject('guardnet')}
@@ -125,7 +125,7 @@ export const ArchitectureDiagram: React.FC = () => {
           data-interactive
           style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
         >
-          🌐 Guardnet Threat Monitor
+          🌐 GuardNet PWA
         </button>
         <button 
           onClick={() => setSelectedProject('websniper')}
@@ -133,7 +133,7 @@ export const ArchitectureDiagram: React.FC = () => {
           data-interactive
           style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
         >
-          🕷 WebSniper Scraper
+          🕷 WebSniper Extension
         </button>
       </div>
 

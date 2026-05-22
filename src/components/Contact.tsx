@@ -114,28 +114,7 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <hr style={{ border: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }} />
 
-            {/* Simulated Live status */}
-            <div style={{ textAlign: 'left' }}>
-              <h4 style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem', fontWeight: 600 }}>
-                Response Diagnostics
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.78rem', color: 'var(--text-main)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Ping Latency:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)' }}>14ms (Indore)</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Response Rate:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-purple)' }}>100% (&lt;24h)</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)' }}>Encryption:</span>
-                  <span style={{ fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.4)' }}>TLS 1.3 // SMTP</span>
-                </div>
-              </div>
-            </div>
 
           </div>
 

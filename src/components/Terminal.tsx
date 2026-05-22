@@ -8,7 +8,7 @@ interface TerminalLine {
 export const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState<TerminalLine[]>([
-    { text: 'ATHARV_CORE v2.5.8 // SECURE CONNECTION ESTABLISHED', type: 'success' },
+    { text: 'ATHARV_CORE // SECURE CONNECTION ESTABLISHED', type: 'success' },
     { text: 'Initial port handshake: 200 OK', type: 'output' },
     { text: 'System Uptime: 99.98% // Location: Indore, India', type: 'output' },
     { text: 'Type "help" for a list of available command directives.', type: 'output' },
@@ -92,18 +92,18 @@ export const Terminal: React.FC = () => {
       case 'skills':
         newHistory.push(
           { text: 'CAPABILITY CLASSIFICATIONS:', type: 'success' },
-          { text: '  [Languages]       Go, TypeScript, Python, C++, Rust, SQL, Bash', type: 'output' },
-          { text: '  [Frontend]        React, Next.js, HTML5/CSS3, Tailwind, WebGL', type: 'output' },
-          { text: '  [Backend & Infra] Node.js, PostgreSQL, Redis, Docker, gRPC, Linux', type: 'output' },
-          { text: '  [AI / Intelligence] LLM Agentic Pipelines, LangChain, PyTorch, Embeddings', type: 'output' }
+          { text: '  [Languages]       TypeScript, Python, Compact (ZK), SQL, Bash', type: 'output' },
+          { text: '  [Frontend]        React, Framer Motion, HTML5/CSS3, Tailwind, Lace SDK', type: 'output' },
+          { text: '  [Backend & Infra] FastAPI, Node.js, Firebase, Redis, Docker, PWA', type: 'output' },
+          { text: '  [AI / Intelligence] Autonomous Agents, Auto-healing selectors, LLM Pipelines', type: 'output' }
         );
         break;
       case 'projects':
         newHistory.push(
           { text: 'HIGHLIGHTED SOURCE PIPELINES:', type: 'success' },
-          { text: '  ShadowKey  - Security core protecting sensitive keystrokes/data patterns.', type: 'output' },
-          { text: '  Guardnet   - Cyber threat isolation engine utilizing ML classifiers.', type: 'output' },
-          { text: '  WebSniper  - High-concurrency scraper and crawler engineered in Go.', type: 'output' },
+          { text: '  ShadowKey  - Zero-knowledge identity verification protocol built on Midnight Network.', type: 'output' },
+          { text: '  GuardNet   - Community disaster intelligence network built for WeatherWise 2026.', type: 'output' },
+          { text: '  WebSniper  - Visual extraction timeline and auto-healing browser scraper with local REST APIs.', type: 'output' },
           { text: '  (Hint: Type "projects" or click below in the Project section to toggle layout)', type: 'output' }
         );
         break;

@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { CustomCursor } from './components/CustomCursor';
 import { Hero } from './components/Hero';
 import { Terminal } from './components/Terminal';
 import { Stats } from './components/Stats';
 import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
-import { Timeline } from './components/Timeline';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -15,7 +13,7 @@ function App() {
   // Track active section on scroll to update navigation items
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'terminal', 'stats', 'projects', 'skills', 'experience', 'contact'];
+      const sections = ['hero', 'terminal', 'stats', 'projects', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -90,13 +88,6 @@ function App() {
               Skills
             </button>
             <button 
-              onClick={() => handleScrollTo('experience')} 
-              className={`nav-link-btn ${activeSection === 'experience' ? 'active' : ''}`}
-              data-interactive
-            >
-              Ledger
-            </button>
-            <button 
               onClick={() => handleScrollTo('contact')} 
               className={`nav-link-btn ${activeSection === 'contact' ? 'active' : ''}`}
               data-interactive
@@ -116,12 +107,10 @@ function App() {
         <Stats />
         <Projects />
         <Skills />
-        <Timeline />
         <Contact />
       </main>
 
       <Footer />
-      <CustomCursor />
 
       {/* Inner style overrides specifically for navbar buttons */}
       <style>{`

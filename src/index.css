@@ -29,13 +29,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none; /* Hide default cursor to allow custom cursor */
-}
-
-@media (max-width: 768px) {
-  * {
-    cursor: auto !important; /* Restore normal cursor on mobile */
-  }
 }
 
 body {
@@ -337,30 +330,7 @@ h2 {
   flex: 1;
 }
 
-/* Custom Cursor */
-.custom-cursor {
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
 
-.custom-cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
-}
 
 /* Navigation */
 .navbar {

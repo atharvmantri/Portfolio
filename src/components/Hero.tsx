@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Terminal as TerminalIcon, Shield, Search, ArrowRight, Mail } from 'lucide-react';
+import { Terminal as TerminalIcon, ArrowRight, Mail } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const taglines = [
@@ -134,51 +134,76 @@ export const Hero: React.FC = () => {
             
             {/* Inner Core Glass Sphere */}
             <div className="cyber-core glass-panel">
-              <svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Outer grid */}
-                <circle cx="100" cy="100" r="90" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="5 5" />
-                <circle cx="100" cy="100" r="70" stroke="rgba(0, 242, 254, 0.15)" strokeWidth="1.5" />
-                <circle cx="100" cy="100" r="50" stroke="rgba(168, 85, 247, 0.15)" strokeWidth="1.5" strokeDasharray="10 5" />
+              <svg width="190" height="190" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Outer grid & HUD rings */}
+                <circle cx="100" cy="100" r="95" stroke="rgba(255, 255, 255, 0.03)" strokeWidth="1" strokeDasharray="4 8" />
+                <circle cx="100" cy="100" r="85" stroke="rgba(0, 242, 254, 0.1)" strokeWidth="1.5" />
+                <circle cx="100" cy="100" r="75" stroke="rgba(168, 85, 247, 0.1)" strokeWidth="1.5" strokeDasharray="15 5 2 5" />
+                <circle cx="100" cy="100" r="60" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
                 
-                {/* Glowing Nodes & Connections */}
-                <line x1="100" y1="30" x2="50" y2="100" stroke="rgba(0, 242, 254, 0.3)" strokeWidth="1.5" />
-                <line x1="100" y1="30" x2="150" y2="100" stroke="rgba(0, 242, 254, 0.3)" strokeWidth="1.5" />
-                <line x1="50" y1="100" x2="100" y2="170" stroke="rgba(168, 85, 247, 0.3)" strokeWidth="1.5" />
-                <line x1="150" y1="100" x2="100" y2="170" stroke="rgba(168, 85, 247, 0.3)" strokeWidth="1.5" />
-                <line x1="50" y1="100" x2="150" y2="100" stroke="rgba(236, 72, 153, 0.2)" strokeWidth="1" />
-                <line x1="100" y1="30" x2="100" y2="170" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="1" strokeDasharray="3 3" />
+                {/* Cybernetic Grid Matrix Background */}
+                <line x1="100" y1="5" x2="100" y2="195" stroke="rgba(255, 255, 255, 0.03)" strokeWidth="1" />
+                <line x1="5" y1="100" x2="195" y2="100" stroke="rgba(255, 255, 255, 0.03)" strokeWidth="1" />
+                <line x1="33" y1="33" x2="167" y2="167" stroke="rgba(255, 255, 255, 0.02)" strokeWidth="1" strokeDasharray="5 5" />
+                <line x1="167" y1="33" x2="33" y2="167" stroke="rgba(255, 255, 255, 0.02)" strokeWidth="1" strokeDasharray="5 5" />
 
-                {/* Animated Pulsing Core Node */}
-                <circle cx="100" cy="100" r="16" fill="url(#coreGradient)" style={{ filter: 'drop-shadow(0 0 15px rgba(0, 242, 254, 0.8))' }} />
+                {/* Curved Data Pipelines */}
+                <path id="corePipe1" d="M 100 25 C 140 25, 175 60, 175 100" stroke="rgba(0, 242, 254, 0.15)" strokeWidth="1.5" fill="none" />
+                <path id="corePipe2" d="M 175 100 C 175 140, 140 175, 100 175" stroke="rgba(168, 85, 247, 0.15)" strokeWidth="1.5" fill="none" />
+                <path id="corePipe3" d="M 100 175 C 60 175, 25 140, 25 100" stroke="rgba(236, 72, 153, 0.15)" strokeWidth="1.5" fill="none" />
+                <path id="corePipe4" d="M 25 100 C 25 60, 60 25, 100 25" stroke="rgba(0, 242, 254, 0.15)" strokeWidth="1.5" fill="none" />
+
+                {/* Internal star-like neural structure */}
+                <polygon points="100,45 139,72 124,118 76,118 61,72" stroke="rgba(168, 85, 247, 0.25)" strokeWidth="1" fill="none" />
+                <polygon points="100,155 61,128 76,82 124,82 139,128" stroke="rgba(0, 242, 254, 0.2)" strokeWidth="1" fill="none" />
                 
-                {/* Orbiting nodes */}
-                <circle cx="100" cy="30" r="6" fill="var(--accent-cyan)" />
-                <circle cx="50" cy="100" r="5" fill="var(--accent-purple)" />
-                <circle cx="150" cy="100" r="5" fill="var(--accent-pink)" />
-                <circle cx="100" cy="170" r="6" fill="var(--accent-blue)" />
+                {/* Node connection lines */}
+                <line x1="100" y1="45" x2="100" y2="155" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="2 2" />
+                <line x1="61" y1="72" x2="139" y2="128" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="2 2" />
+                <line x1="139" y1="72" x2="61" y2="128" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" strokeDasharray="2 2" />
+
+                {/* Animated Data Packets (glowing orbs) traveling on outer pipelines */}
+                <circle r="4" fill="var(--accent-cyan)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-cyan))' }}>
+                  <animateMotion dur="4s" repeatCount="indefinite">
+                    <mpath href="#corePipe1" />
+                  </animateMotion>
+                </circle>
+                <circle r="4" fill="var(--accent-purple)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-purple))' }}>
+                  <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.8s">
+                    <mpath href="#corePipe2" />
+                  </animateMotion>
+                </circle>
+                <circle r="4" fill="var(--accent-pink)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-pink))' }}>
+                  <animateMotion dur="4.5s" repeatCount="indefinite" begin="1.6s">
+                    <mpath href="#corePipe3" />
+                  </animateMotion>
+                </circle>
+                <circle r="4" fill="var(--accent-blue)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-blue))' }}>
+                  <animateMotion dur="3.8s" repeatCount="indefinite" begin="2.4s">
+                    <mpath href="#corePipe4" />
+                  </animateMotion>
+                </circle>
+
+                {/* Central System Core */}
+                <circle cx="100" cy="100" r="22" fill="url(#coreGradient)" style={{ filter: 'drop-shadow(0 0 15px rgba(0, 242, 254, 0.6))', animation: 'coreGlowPulse 3s infinite ease-in-out alternate' }} />
+                <circle cx="100" cy="100" r="14" fill="rgba(8, 6, 16, 0.8)" />
+                <circle cx="100" cy="100" r="6" fill="#ffffff" style={{ filter: 'drop-shadow(0 0 5px #ffffff)' }} />
+
+                {/* Orbiting Tech Nodes */}
+                <circle cx="100" cy="45" r="4.5" fill="var(--accent-cyan)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-cyan))' }} />
+                <circle cx="139" cy="72" r="4.5" fill="var(--accent-purple)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-purple))' }} />
+                <circle cx="124" cy="118" r="4.5" fill="var(--accent-pink)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-pink))' }} />
+                <circle cx="76" cy="118" r="4.5" fill="var(--accent-blue)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-blue))' }} />
+                <circle cx="61" cy="72" r="4.5" fill="var(--accent-cyan)" style={{ filter: 'drop-shadow(0 0 4px var(--accent-cyan))' }} />
 
                 <defs>
                   <linearGradient id="coreGradient" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="var(--accent-cyan)" />
-                    <stop offset="100%" stopColor="var(--accent-purple)" />
+                    <stop offset="50%" stopColor="var(--accent-purple)" />
+                    <stop offset="100%" stopColor="var(--accent-pink)" />
                   </linearGradient>
                 </defs>
               </svg>
-              
-              <div className="cyber-core-text">
-                <span className="c-text">SYS_INIT</span>
-                <span className="c-sub">v2.5.8</span>
-              </div>
-            </div>
-
-            {/* Float details */}
-            <div className="cyber-label tag-top">
-              <Shield size={12} style={{ color: 'var(--accent-cyan)' }} />
-              <span>SECURE_SHELL</span>
-            </div>
-            <div className="cyber-label tag-bottom">
-              <Search size={12} style={{ color: 'var(--accent-purple)' }} />
-              <span>AGENT_NET</span>
             </div>
           </div>
 
@@ -256,7 +281,6 @@ export const Hero: React.FC = () => {
           height: 220px;
           border-radius: 50% !important;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
           padding: 0 !important;
@@ -265,57 +289,7 @@ export const Hero: React.FC = () => {
           box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) !important;
           z-index: 2;
           position: relative;
-        }
-
-        .cyber-core-text {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          font-family: var(--font-mono);
-          margin-top: 10px;
-        }
-
-        .c-text {
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: #ffffff;
-          letter-spacing: 0.1em;
-        }
-
-        .c-sub {
-          font-size: 0.55rem;
-          color: var(--text-muted);
-          margin-top: 2px;
-        }
-
-        .cyber-label {
-          position: absolute;
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          font-family: var(--font-mono);
-          font-size: 0.7rem;
-          font-weight: 600;
-          color: #fff;
-          background: rgba(13, 10, 25, 0.8);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 4px;
-          padding: 0.3rem 0.6rem;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-          z-index: 5;
-          animation: floatLabel 6s ease-in-out infinite alternate;
-        }
-
-        .tag-top {
-          top: 15%;
-          left: 5%;
-        }
-
-        .tag-bottom {
-          bottom: 15%;
-          right: 5%;
-          animation-delay: -3s;
+          animation: corePulse 4s ease-in-out infinite alternate;
         }
 
         @keyframes spin {
@@ -323,9 +297,24 @@ export const Hero: React.FC = () => {
           to { transform: rotate(360deg); }
         }
 
-        @keyframes floatLabel {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(-10px); }
+        @keyframes corePulse {
+          0% {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 242, 254, 0.1);
+            border-color: rgba(255, 255, 255, 0.08) !important;
+          }
+          100% {
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.25), 0 0 15px rgba(168, 85, 247, 0.15);
+            border-color: rgba(0, 242, 254, 0.2) !important;
+          }
+        }
+
+        @keyframes coreGlowPulse {
+          0% {
+            opacity: 0.7;
+          }
+          100% {
+            opacity: 1;
+          }
         }
 
         .social-icon-link:hover {
@@ -341,6 +330,7 @@ export const Hero: React.FC = () => {
           .hero-section {
             padding-top: 120px !important;
             padding-bottom: 50px !important;
+            min-height: auto !important;
           }
           h1 {
             font-size: 3.5rem !important;

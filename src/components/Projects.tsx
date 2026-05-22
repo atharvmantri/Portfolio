@@ -21,31 +21,31 @@ export const Projects: React.FC = () => {
     {
       id: 'shadowkey',
       name: 'ShadowKey',
-      tagline: 'Advanced security-focused privacy controller & key telemetry shield.',
-      description: 'Engineered as a core system daemon designed around absolute user privacy, zero-leak keylogging interception, and dynamic hotkey control pipelines.',
+      tagline: 'Zero-Knowledge Identity Verification on Midnight Network.',
+      description: 'A privacy-preserving identity protocol implementing a complete identity lifecycle. Generates Groth16 zero-knowledge proofs locally in-browser so that personal data is never transmitted or stored on centralized servers.',
       features: [
-        'Secure-side kernel hooks intercepting key events directly via DLL injectors.',
-        'Hardware-accelerated AES-GCM local storage encryption with memory zeroing.',
-        'Dynamic script runner engine triggering automated shell leverage actions.',
-        'Ultra-lightweight desktop interface constructed in React and Tauri.'
+        'Nine Groth16 zero-knowledge circuits compiled using Compact 0.31.0 for the identity lifecycle.',
+        'In-browser SHA256 hashing of five identity fields, storing only commitments on-chain.',
+        'Oracle verification workflow approving or rejecting identities via dedicated ZK circuits.',
+        'Privacy-erasure circuit with cryptographic tombstone placement preventing re-registration.'
       ],
-      tech: ['Rust', 'Tauri', 'React', 'TypeScript', 'AES-256', 'SQLite'],
+      tech: ['Midnight Network', 'Compact', 'Cardano', 'React 19', 'Framer Motion', 'Lace Wallet SDK'],
       github: 'https://github.com/atharvmantri/ShadowKey',
       live: '#',
       icon: <Shield size={32} style={{ color: 'var(--accent-cyan)' }} />
     },
     {
       id: 'guardnet',
-      name: 'Guardnet',
-      tagline: 'Real-time cyber threat monitor & intelligence classifier.',
-      description: 'Ingests RAW network interface packets using customized packet capturing rules, translating raw protocols into predictive ML features.',
+      name: 'GuardNet',
+      tagline: 'Community-powered disaster intelligence, delivered in real time.',
+      description: 'Fuses live weather data, NASA/USGS/GDACS disaster feeds, terrain analysis, and community-submitted reports into a unified 0-100 risk score with AI-generated safety guidance and volunteer dispatch systems.',
       features: [
-        'High-speed network interface listeners using raw sockets (TAP/TUN).',
-        'Isolation Forest anomaly detection modeling running classifier pipelines.',
-        'Dynamic shell iptables updates shutting down malicious IP connections.',
-        'Time-series dashboards storing packet telemetries inside InfluxDB.'
+        'Live 0-100 risk gauge fusing weather, NASA EONET, USGS, and GDACS event streams.',
+        'Interactive Leaflet map showing disasters, shelters, and real-time risk heat grids.',
+        'Guardian Mode with registry for vulnerable citizens and real-time volunteer dispatch tracking.',
+        'Offline-first PWA architecture utilizing Workbox service workers and IndexedDB storage.'
       ],
-      tech: ['Python', 'PyTorch', 'TypeScript', 'InfluxDB', 'Docker', 'Go'],
+      tech: ['React 19', 'TypeScript', 'Firebase', 'React Leaflet', 'NASA EONET', 'Workbox PWA'],
       github: 'https://github.com/atharvmantri/Guardnet',
       live: '#',
       icon: <Globe size={32} style={{ color: 'var(--accent-purple)' }} />
@@ -53,15 +53,15 @@ export const Projects: React.FC = () => {
     {
       id: 'websniper',
       name: 'WebSniper',
-      tagline: 'High-speed web scraper & concurrent data crawler.',
-      description: 'Distributed web tool focused on rapid page scraping, HTML node selection pipelines, proxy rotation coordination, and deduplication networks.',
+      tagline: 'Turn any website into a REST API with one click. Local-first. BYOK.',
+      description: 'Replaces brittle scrapers with visual action timelines, LLM-generated Playwright code, and autonomous self-healing capability. Combines a React Chrome Extension UI with a local Python FastAPI runner.',
       features: [
-        'Coordinated worker nodes scraping 100+ requests per second concurrently.',
-        'Redis lock systems ensuring absolute zero-redundant page downloads.',
-        'Flexible custom selectors extracting schema graphs in parallel.',
-        'Headless engine controllers automating multi-step session procedures.'
+        'Visual Action Sequence builder to construct and debug data extractions step-by-step.',
+        'Local Python FastAPI backend executing headless Chromium browser sessions via Playwright.',
+        'Auto-healing selector engine resolving broken CSS/XPath patterns dynamically using AI.',
+        'Instant 1-click local REST API endpoint deployment for successful scrapers.'
       ],
-      tech: ['Go', 'Redis', 'PostgreSQL', 'Docker', 'Colly', 'Puppeteer'],
+      tech: ['FastAPI', 'Python', 'Playwright', 'Chrome Extension', 'React', 'Vite'],
       github: 'https://github.com/atharvmantri/Websniper',
       live: '#',
       icon: <TermIcon size={32} style={{ color: 'var(--accent-pink)' }} />
