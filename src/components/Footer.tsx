@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, ShieldAlert } from 'lucide-react';
+import { Mail} from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -60,10 +60,6 @@ export const Footer: React.FC = () => {
             <a href="mailto:work@atharv.me" className="footer-social" data-interactive>
               <Mail size={16} />
             </a>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', fontFamily: 'var(--font-mono)', fontSize: '0.7rem' }}>
-              <ShieldAlert size={12} style={{ color: 'var(--accent-cyan)' }} />
-              SECURE_SOCKET_OK
-            </span>
           </div>
 
         </div>
