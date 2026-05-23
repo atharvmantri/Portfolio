@@ -66,6 +66,28 @@ npm run build
 
 ---
 
+## 📬 Contact Form Backend (Vercel + Neon)
+
+### 1) Create the database table
+Run the SQL in `db/schema.sql` on your Neon database.
+
+### 2) Configure environment variables
+Set these on Vercel (and locally for testing):
+```bash
+DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DB?sslmode=require
+DATABASE_SSL=true
+ADMIN_USER=your-admin-user
+ADMIN_PASSWORD=your-strong-password
+```
+
+### 3) Deploy
+Vercel will pick up serverless functions from the `/api` directory.
+
+### 4) View submissions
+Open `/admin.html` after deployment and sign in with your admin credentials.
+
+---
+
 ## 🔐 System Project Blueprints (Highlighted)
 
 This portfolio showcases three core architectures:

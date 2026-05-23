@@ -6,6 +6,7 @@ export const Contact: React.FC = () => {
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -34,20 +35,39 @@ export const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
+    setIsSuccess(false);
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
-    // Simulate server communication latency
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        setSubmitError(payload?.error || 'Unable to transmit payload. Please try again.');
+        return;
+      }
+
       setIsSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    } catch {
+      setSubmitError('Network error. Please try again in a moment.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -199,6 +219,12 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Success Message Banner */}
+              {submitError && (
+                <div style={{ background: 'rgba(236, 72, 153, 0.08)', border: '1px solid var(--accent-pink)', color: 'var(--accent-pink)', padding: '0.8rem', borderRadius: '8px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <AlertTriangle size={16} />
+                  <span>{submitError}</span>
+                </div>
+              )}
               {isSuccess && (
                 <div style={{ background: 'rgba(0, 242, 254, 0.08)', border: '1px solid var(--accent-cyan)', color: 'var(--accent-cyan)', padding: '0.8rem', borderRadius: '8px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Check size={16} />
