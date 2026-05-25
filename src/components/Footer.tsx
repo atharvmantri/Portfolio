@@ -1,7 +1,9 @@
 import React from 'react';
-import { Mail} from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const handleScrollTo = (id: string) => {
@@ -22,21 +24,21 @@ export const Footer: React.FC = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
               <span className="logo-dot"></span>
               <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '1.25rem', color: '#ffffff', letterSpacing: '-0.02em' }}>
-                Atharv Mantri
+                {t('logo')}
               </span>
             </div>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-              &gt; Building things most won't understand.
+              {t('footerTagline')}
             </p>
           </div>
 
           {/* Quick links */}
           <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-            <button onClick={() => handleScrollTo('terminal')} className="footer-link-btn" data-interactive>Console</button>
-            <button onClick={() => handleScrollTo('projects')} className="footer-link-btn" data-interactive>Projects</button>
-            <button onClick={() => handleScrollTo('skills')} className="footer-link-btn" data-interactive>Skills</button>
-            <button onClick={() => handleScrollTo('experience')} className="footer-link-btn" data-interactive>Ledger</button>
-            <button onClick={() => handleScrollTo('contact')} className="footer-link-btn" data-interactive>Link</button>
+            <button onClick={() => handleScrollTo('terminal')} className="footer-link-btn" data-interactive>{t('console')}</button>
+            <button onClick={() => handleScrollTo('projects')} className="footer-link-btn" data-interactive>{t('projects')}</button>
+            <button onClick={() => handleScrollTo('skills')} className="footer-link-btn" data-interactive>{t('skills')}</button>
+            <button onClick={() => handleScrollTo('experience')} className="footer-link-btn" data-interactive>{t('ledger')}</button>
+            <button onClick={() => handleScrollTo('contact')} className="footer-link-btn" data-interactive>{t('link')}</button>
           </div>
 
         </div>
@@ -47,7 +49,7 @@ export const Footer: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <span>© {currentYear} Atharv Mantri. All rights reserved.</span>
+            <span>{t('footerCopyright', { year: currentYear })}</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>

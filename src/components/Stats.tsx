@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Award, Code, GitCommit, Calendar, Activity } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CounterProps {
   end: number;
@@ -59,36 +60,38 @@ const Counter: React.FC<CounterProps> = ({ end, suffix = '', prefix = '', durati
 };
 
 export const Stats: React.FC = () => {
+  const { t } = useTranslation();
+
   const statItems = [
     {
       icon: <Award size={28} className="text-gradient" />,
-      title: "Hackathon Prizes",
+      title: t('stat_prizes_title'),
       value: <Counter end={12000} prefix="$" suffix="+" />,
-      description: "Won globally via international hackathons building systems and devtools"
+      description: t('stat_prizes_desc')
     },
     {
       icon: <Calendar size={28} style={{ color: 'var(--accent-purple)' }} />,
-      title: "Developer Age",
+      title: t('stat_age_title'),
       value: <Counter end={15} suffix=" y/o" />,
-      description: "Young-scale engineering, building complex architectures"
+      description: t('stat_age_desc')
     },
     {
       icon: <Code size={28} style={{ color: 'var(--accent-pink)' }} />,
-      title: "Lines of Code Deployed",
+      title: t('stat_loc_title'),
       value: <Counter end={120000} suffix="+" />,
-      description: "Highly optimized codebase written across languages"
+      description: t('stat_loc_desc')
     },
     {
       icon: <GitCommit size={28} style={{ color: 'var(--accent-blue)' }} />,
-      title: "Commits This Year",
+      title: t('stat_commits_title'),
       value: <Counter end={140} suffix="+" />,
-      description: "Continuous leverage deployment and open-source contributions"
+      description: t('stat_commits_desc')
     },
     {
       icon: <Activity size={28} style={{ color: 'var(--accent-cyan)' }} />,
-      title: "Core Architecture Uptime",
+      title: t('stat_uptime_title'),
       value: <Counter end={99} suffix=".9%" duration={1200} />,
-      description: "High-scale engineering with redundancy and fault tolerance"
+      description: t('stat_uptime_desc')
     }
   ];
 
@@ -99,13 +102,13 @@ export const Stats: React.FC = () => {
         {/* Section Header */}
         <div style={{ textAlign: 'left', marginBottom: '3.5rem' }}>
           <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-purple)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-            Metrics &amp; Telemetry
+            {t('statsHeader')}
           </h3>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
-            Real-Time <span className="text-gradient-purple-pink">Leverage Statistics</span>
+            {t('statsTitle')} <span className="text-gradient-purple-pink">{t('statsTitleAccent')}</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginTop: '0.5rem' }}>
-            Hardware specifications and system metrics validating technical leverage. I build systems that scale, and I back it up with data.
+            {t('statsDescription')}
           </p>
         </div>
 

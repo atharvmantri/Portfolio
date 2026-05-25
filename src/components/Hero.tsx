@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Terminal as TerminalIcon, ArrowRight, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
+  
   const taglines = [
-    "Building things most won't understand.",
-    "Building systems, not side projects.",
-    "I don't just write code. I build leverage."
+    t('tagline0'),
+    t('tagline1'),
+    t('tagline2')
   ];
 
   const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
@@ -15,7 +18,7 @@ export const Hero: React.FC = () => {
 
   useEffect(() => {
     let timer: number;
-    const fullText = taglines[currentTaglineIndex];
+    const fullText = taglines.at(currentTaglineIndex) ?? '';
 
     const handleTyping = () => {
       if (!isDeleting) {
@@ -68,15 +71,15 @@ export const Hero: React.FC = () => {
           
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '50px', padding: '0.4rem 1rem', marginBottom: '1.5rem', fontSize: '0.85rem' }}>
             <span style={{ display: 'inline-block', width: '8px', height: '8px', background: 'var(--accent-cyan)', borderRadius: '50%', boxShadow: '0 0 8px var(--accent-cyan)' }}></span>
-            <span style={{ fontWeight: 600, color: 'var(--text-heading)', letterSpacing: '0.05em' }}>OPEN FOR COLLABORATION &amp; CONTRACTS</span>
+            <span style={{ fontWeight: 600, color: 'var(--text-heading)', letterSpacing: '0.05em' }}>{t('openForCollab')}</span>
           </div>
 
           <h1 style={{ fontSize: '4.5rem', fontWeight: 900, lineHeight: 1.05, marginBottom: '1.5rem', letterSpacing: '-0.03em' }}>
-            Atharv <span className="text-gradient">Mantri</span>
+            {t('firstName')} <span className="text-gradient">{t('lastName')}</span>
           </h1>
 
           <h2 style={{ fontSize: '1.8rem', fontWeight: 500, color: 'var(--text-main)', marginBottom: '1.5rem', letterSpacing: '-0.01em' }}>
-            Full-Stack Developer &amp; <span className="text-gradient-purple-pink">AI Systems Architect</span>
+            {t('titleDev')} &amp; <span className="text-gradient-purple-pink">{t('titleArchitect')}</span>
           </h2>
 
           <div style={{ minHeight: '50px', marginBottom: '2.5rem' }}>
@@ -93,7 +96,7 @@ export const Hero: React.FC = () => {
               data-interactive
             >
               <TerminalIcon size={18} />
-              Launch Terminal
+              {t('launchTerminal')}
             </button>
             
             <button 
@@ -101,14 +104,14 @@ export const Hero: React.FC = () => {
               className="btn btn-secondary"
               data-interactive
             >
-              Explore Systems
+              {t('exploreSystems')}
               <ArrowRight size={18} />
             </button>
           </div>
 
           {/* Social Badges */}
           <div style={{ display: 'flex', gap: '1.5rem', marginTop: '3.5rem', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>CONNECT //</span>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>{t('connect')}</span>
             <a href="https://github.com/atharvmantri" target="_blank" rel="noreferrer" className="social-icon-link" data-interactive style={{ color: 'var(--text-muted)', transition: 'color 0.3s', display: 'flex', alignItems: 'center' }}>
               <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />

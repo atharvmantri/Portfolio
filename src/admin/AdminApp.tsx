@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type Submission = {
   id: number;
@@ -18,6 +19,7 @@ const formatDate = (value: string) => {
 };
 
 export const AdminApp = () => {
+  const { t } = useTranslation();
   const [authToken, setAuthToken] = useState<string>(() => {
     return sessionStorage.getItem(AUTH_STORAGE_KEY) ?? '';
   });
@@ -53,16 +55,16 @@ export const AdminApp = () => {
 
       if (response.status === 401) {
         if (isLogin) {
-          setLoginError('Invalid credentials. Try again.');
+          setLoginError(t('invalidCredentials'));
         } else {
-          setLoginError('Session expired. Please sign in again.');
+          setLoginError(t('sessionExpired'));
           clearAuth();
         }
         return false;
       }
 
       if (!response.ok) {
-        setDataError('Unable to load submissions. Try again later.');
+        setDataError(t('unableToLoad'));
         return false;
       }
 
@@ -71,7 +73,7 @@ export const AdminApp = () => {
       setLastUpdated(new Date().toLocaleString());
       return true;
     } catch {
-      setDataError('Network error while loading submissions.');
+      setDataError(t('networkErrorSubmissions'));
       return false;
     } finally {
       setIsLoading(false);
@@ -132,14 +134,13 @@ export const AdminApp = () => {
                 fontSize: '0.85rem',
               }}
             >
-              Admin Control Surface
+              {t('adminHeader')}
             </p>
             <h1 style={{ fontSize: '2.4rem', marginTop: '0.4rem' }}>
-              Contact <span className="text-gradient">Submissions</span>
+              {t('adminTitle')} <span className="text-gradient">{t('adminTitleAccent')}</span>
             </h1>
             <p style={{ color: 'var(--text-muted)', maxWidth: '520px' }}>
-              Secure intake feed for new contact payloads. Refresh to sync the latest
-              messages.
+              {t('adminDescription')}
             </p>
           </div>
 
@@ -151,10 +152,10 @@ export const AdminApp = () => {
                 onClick={() => void fetchSubmissions(authToken)}
                 disabled={isLoading}
               >
-                {isLoading ? 'Syncing...' : 'Refresh'}
+                {isLoading ? t('syncing') : t('refresh')}
               </button>
               <button className="btn btn-secondary" type="button" onClick={handleLogout}>
-                Log out
+                {t('logout')}
               </button>
             </div>
           )}
@@ -162,7 +163,7 @@ export const AdminApp = () => {
 
         {!authToken ? (
           <section className="glass-panel" style={{ maxWidth: '460px', margin: '0 auto' }}>
-            <h2 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>Admin Sign In</h2>
+            <h2 style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>{t('adminSignIn')}</h2>
             <form onSubmit={handleLogin} style={{ display: 'grid', gap: '1rem' }}>
               <div>
                 <label
@@ -173,7 +174,7 @@ export const AdminApp = () => {
                     marginBottom: '0.4rem',
                   }}
                 >
-                  Username
+                  {t('username')}
                 </label>
                 <input
                   className="glass-input"
@@ -193,7 +194,7 @@ export const AdminApp = () => {
                     marginBottom: '0.4rem',
                   }}
                 >
-                  Password
+                  {t('password')}
                 </label>
                 <input
                   className="glass-input"
@@ -219,7 +220,7 @@ export const AdminApp = () => {
                 </div>
               )}
               <button className="btn btn-primary" type="submit" disabled={isLoading}>
-                {isLoading ? 'Connecting...' : 'Access feed'}
+                {isLoading ? t('connecting') : t('accessFeed')}
               </button>
             </form>
           </section>
@@ -250,11 +251,11 @@ export const AdminApp = () => {
               >
                 <div>
                   <h2 style={{ fontSize: '1.4rem', marginBottom: '0.4rem' }}>
-                    Latest submissions
+                    {t('latestSubmissions')}
                   </h2>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                    {submissions.length} total payloads
-                    {lastUpdated ? ` · updated ${lastUpdated}` : ''}
+                    {t('totalPayloads', { count: submissions.length })}
+                    {lastUpdated ? t('updatedAt', { time: lastUpdated }) : ''}
                   </p>
                 </div>
               </div>
@@ -263,7 +264,7 @@ export const AdminApp = () => {
             {submissions.length === 0 ? (
               <div className="glass-panel" style={{ textAlign: 'center' }}>
                 <p style={{ color: 'var(--text-muted)' }}>
-                  No submissions yet. Send a test payload from the contact form.
+                  {t('noSubmissions')}
                 </p>
               </div>
             ) : (
@@ -309,8 +310,8 @@ export const AdminApp = () => {
                         gap: '1rem',
                       }}
                     >
-                      {submission.sourceIp && <span>IP: {submission.sourceIp}</span>}
-                      {submission.userAgent && <span>UA: {submission.userAgent}</span>}
+                      {submission.sourceIp && <span>{t('ipAddress', { ip: submission.sourceIp })}</span>}
+                      {submission.userAgent && <span>{t('userAgent', { ua: submission.userAgent })}</span>}
                     </div>
                   )}
                 </article>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Hero } from './components/Hero';
 import { Terminal } from './components/Terminal';
 import { Stats } from './components/Stats';
@@ -8,6 +9,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 function App() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState('hero');
 
   // Track active section on scroll to update navigation items
@@ -64,35 +66,35 @@ function App() {
               className={`nav-link-btn ${activeSection === 'terminal' ? 'active' : ''}`}
               data-interactive
             >
-              Console
+              {t('console')}
             </button>
             <button 
               onClick={() => handleScrollTo('stats')} 
               className={`nav-link-btn ${activeSection === 'stats' ? 'active' : ''}`}
               data-interactive
             >
-              Stats
+              {t('stats')}
             </button>
             <button 
               onClick={() => handleScrollTo('projects')} 
               className={`nav-link-btn ${activeSection === 'projects' ? 'active' : ''}`}
               data-interactive
             >
-              Projects
+              {t('projects')}
             </button>
             <button 
               onClick={() => handleScrollTo('skills')} 
               className={`nav-link-btn ${activeSection === 'skills' ? 'active' : ''}`}
               data-interactive
             >
-              Skills
+              {t('skills')}
             </button>
             <button 
               onClick={() => handleScrollTo('contact')} 
               className={`nav-link-btn ${activeSection === 'contact' ? 'active' : ''}`}
               data-interactive
             >
-              Contact
+              {t('contact')}
             </button>
           </div>
         </div>

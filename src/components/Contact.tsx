@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Copy, Check, Send, AlertTriangle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Contact: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,18 +19,18 @@ export const Contact: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: typeof errors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.name.trim()) newErrors.name = t('errNameRequired');
     
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t('errEmailRequired');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email domain is invalid';
+      newErrors.email = t('errEmailInvalid');
     }
     
     if (!formData.message.trim()) {
-      newErrors.message = 'Message content cannot be blank';
+      newErrors.message = t('errMessageBlank');
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
+      newErrors.message = t('errMessageShort');
     }
 
     setErrors(newErrors);
@@ -77,19 +79,19 @@ export const Contact: React.FC = () => {
         {/* Toast Copied Notification */}
         <div className={`toast-notification ${copied ? 'show' : ''}`}>
           <Check size={16} />
-          <span>work@atharv.me copied to clipboard!</span>
+          <span>{t('contactCopiedToast')}</span>
         </div>
 
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-            Port Handshake
+            {t('contactHeader')}
           </h3>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
-            Establish <span className="text-gradient">Connection Link</span>
+            {t('contactTitle')} <span className="text-gradient">{t('contactTitleAccent')}</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', maxWidth: '500px', margin: '0.5rem auto 0' }}>
-            Initiate a connection for architectural consultations, contracts, and systems building.
+            {t('contactDescription')}
           </p>
         </div>
 
@@ -99,11 +101,11 @@ export const Contact: React.FC = () => {
           {/* Left Column: Direct Endpoint & Info */}
           <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', height: '100%', borderRight: '2px solid rgba(255,255,255,0.03)' }}>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 700, textAlign: 'left' }}>
-              Direct Endpoint
+              {t('directEndpoint')}
             </h3>
             
             <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', textAlign: 'left', lineHeight: '1.5' }}>
-              If you prefer direct SMTP routing over contact templates, copy my primary address below:
+              {t('smtpNotice')}
             </p>
 
             {/* Email Copier Widget */}
@@ -126,15 +128,13 @@ export const Contact: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', overflow: 'hidden' }}>
                 <Mail size={18} style={{ color: 'var(--accent-cyan)', flexShrink: 0 }} />
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.88rem', color: '#ffffff', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                  work@atharv.me
+                  {t('emailAddress')}
                 </span>
               </div>
               <div style={{ flexShrink: 0 }}>
                 {copied ? <Check size={16} style={{ color: 'var(--accent-cyan)' }} /> : <Copy size={16} style={{ color: 'var(--text-muted)' }} />}
               </div>
             </div>
-
-
 
           </div>
 
@@ -145,11 +145,11 @@ export const Contact: React.FC = () => {
               {/* Name Field */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
-                  Handshake Name
+                  {t('handshakeNameLabel')}
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. John Doe"
+                  placeholder={t('namePlaceholder')}
                   className="glass-input"
                   value={formData.name}
                   onChange={(e) => {
@@ -170,11 +170,11 @@ export const Contact: React.FC = () => {
               {/* Email Field */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
-                  Return Email Path
+                  {t('returnEmailPathLabel')}
                 </label>
                 <input
                   type="email"
-                  placeholder="e.g. john@company.com"
+                  placeholder={t('emailPlaceholder')}
                   className="glass-input"
                   value={formData.email}
                   onChange={(e) => {
@@ -195,11 +195,11 @@ export const Contact: React.FC = () => {
               {/* Message Field */}
               <div>
                 <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginBottom: '0.5rem' }}>
-                  Packet Message Payload
+                  {t('packetPayloadLabel')}
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="Briefly detail your proposal, contract terms, or system request..."
+                  placeholder={t('messagePlaceholder')}
                   className="glass-input"
                   style={{ resize: 'vertical' }}
                   value={formData.message}
@@ -228,7 +228,7 @@ export const Contact: React.FC = () => {
               {isSuccess && (
                 <div style={{ background: 'rgba(0, 242, 254, 0.08)', border: '1px solid var(--accent-cyan)', color: 'var(--accent-cyan)', padding: '0.8rem', borderRadius: '8px', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <Check size={16} />
-                  <span>Payload transmitted successfully. Handshake complete!</span>
+                  <span>{t('successHandshake')}</span>
                 </div>
               )}
 
@@ -245,7 +245,7 @@ export const Contact: React.FC = () => {
                 ) : (
                   <>
                     <Send size={16} />
-                    Transmit Payload
+                    {t('transmitPayload')}
                   </>
                 )}
               </button>

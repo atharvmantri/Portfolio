@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Shield, Globe, Terminal as TermIcon, Cpu, Layers } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ArchitectureDiagram } from './ArchitectureDiagram';
 
 interface ProjectItem {
@@ -15,19 +16,20 @@ interface ProjectItem {
 }
 
 export const Projects: React.FC = () => {
+  const { t } = useTranslation();
   const [viewMode, setViewMode] = useState<'gallery' | 'architecture'>('gallery');
 
   const projectList: ProjectItem[] = [
     {
       id: 'shadowkey',
       name: 'ShadowKey',
-      tagline: 'Zero-Knowledge Identity Verification on Midnight Network.',
-      description: 'A privacy-preserving identity protocol implementing a complete identity lifecycle. Generates Groth16 zero-knowledge proofs locally in-browser so that personal data is never transmitted or stored on centralized servers.',
+      tagline: t('project_shadowkey_tagline'),
+      description: t('project_shadowkey_desc'),
       features: [
-        'Nine Groth16 zero-knowledge circuits compiled using Compact 0.31.0 for the identity lifecycle.',
-        'In-browser SHA256 hashing of five identity fields, storing only commitments on-chain.',
-        'Oracle verification workflow approving or rejecting identities via dedicated ZK circuits.',
-        'Privacy-erasure circuit with cryptographic tombstone placement preventing re-registration.'
+        t('project_shadowkey_feature0'),
+        t('project_shadowkey_feature1'),
+        t('project_shadowkey_feature2'),
+        t('project_shadowkey_feature3')
       ],
       tech: ['Midnight Network', 'Compact', 'Cardano', 'React 19', 'Framer Motion', 'Lace Wallet SDK'],
       github: 'https://github.com/atharvmantri/ShadowKey',
@@ -37,13 +39,13 @@ export const Projects: React.FC = () => {
     {
       id: 'guardnet',
       name: 'GuardNet',
-      tagline: 'Community-powered disaster intelligence, delivered in real time.',
-      description: 'Fuses live weather data, NASA/USGS/GDACS disaster feeds, terrain analysis, and community-submitted reports into a unified 0-100 risk score with AI-generated safety guidance and volunteer dispatch systems.',
+      tagline: t('project_guardnet_tagline'),
+      description: t('project_guardnet_desc'),
       features: [
-        'Live 0-100 risk gauge fusing weather, NASA EONET, USGS, and GDACS event streams.',
-        'Interactive Leaflet map showing disasters, shelters, and real-time risk heat grids.',
-        'Guardian Mode with registry for vulnerable citizens and real-time volunteer dispatch tracking.',
-        'Offline-first PWA architecture utilizing Workbox service workers and IndexedDB storage.'
+        t('project_guardnet_feature0'),
+        t('project_guardnet_feature1'),
+        t('project_guardnet_feature2'),
+        t('project_guardnet_feature3')
       ],
       tech: ['React 19', 'TypeScript', 'Firebase', 'React Leaflet', 'NASA EONET', 'Workbox PWA'],
       github: 'https://github.com/atharvmantri/Guardnet',
@@ -53,13 +55,13 @@ export const Projects: React.FC = () => {
     {
       id: 'websniper',
       name: 'WebSniper',
-      tagline: 'Turn any website into a REST API with one click. Local-first. BYOK.',
-      description: 'Replaces brittle scrapers with visual action timelines, LLM-generated Playwright code, and autonomous self-healing capability. Combines a React Chrome Extension UI with a local Python FastAPI runner.',
+      tagline: t('project_websniper_tagline'),
+      description: t('project_websniper_desc'),
       features: [
-        'Visual Action Sequence builder to construct and debug data extractions step-by-step.',
-        'Local Python FastAPI backend executing headless Chromium browser sessions via Playwright.',
-        'Auto-healing selector engine resolving broken CSS/XPath patterns dynamically using AI.',
-        'Instant 1-click local REST API endpoint deployment for successful scrapers.'
+        t('project_websniper_feature0'),
+        t('project_websniper_feature1'),
+        t('project_websniper_feature2'),
+        t('project_websniper_feature3')
       ],
       tech: ['FastAPI', 'Python', 'Playwright', 'Chrome Extension', 'React', 'Vite'],
       github: 'https://github.com/atharvmantri/Websniper',
@@ -107,13 +109,13 @@ export const Projects: React.FC = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1.5rem' }}>
           <div style={{ textAlign: 'left' }}>
             <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-              System Repository
+              {t('projectsHeader')}
             </h3>
             <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 0 }}>
-              Highlighted <span className="text-gradient">Open Source Systems</span>
+              {t('projectsTitle')} <span className="text-gradient">{t('projectsTitleAccent')}</span>
             </h2>
             <p style={{ color: 'var(--text-muted)', maxWidth: '550px', marginTop: '0.5rem' }}>
-              Real-world software architectures designed for security, analysis, and concurrency. I build pipelines, not side projects.
+              {t('projectsDescription')}
             </p>
           </div>
 
@@ -126,7 +128,7 @@ export const Projects: React.FC = () => {
               style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem', borderRadius: '50px', boxShadow: viewMode === 'gallery' ? '0 4px 15px rgba(0, 242, 254, 0.2)' : 'none', background: viewMode !== 'gallery' ? 'transparent' : undefined, color: viewMode !== 'gallery' ? 'var(--text-muted)' : undefined }}
             >
               <Layers size={14} />
-              Gallery Grid
+              {t('galleryGrid')}
             </button>
             <button 
               onClick={() => setViewMode('architecture')}
@@ -135,7 +137,7 @@ export const Projects: React.FC = () => {
               style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem', borderRadius: '50px', boxShadow: viewMode === 'architecture' ? '0 4px 15px rgba(0, 242, 254, 0.2)' : 'none', background: viewMode !== 'architecture' ? 'transparent' : undefined, color: viewMode !== 'architecture' ? 'var(--text-muted)' : undefined }}
             >
               <Cpu size={14} />
-              Blueprints
+              {t('blueprints')}
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Shield, Layers, Brain, Database } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface SkillItem {
   name: string;
@@ -183,56 +184,57 @@ const getSkillIcon = (name: string): React.ReactNode => {
 };
 
 export const Skills: React.FC = () => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<string>('backend');
   const [hoveredSkill, setHoveredSkill] = useState<SkillItem | null>(null);
 
   const categories: SkillCategory[] = [
     {
       id: 'backend',
-      name: 'Backend & Systems',
+      name: t('cat_backend'),
       icon: <Database size={18} />,
       skills: [
-        { name: 'Node.js', level: 'Expert', detail: 'Created web APIs, real-time WebSockets gateways, and multi-tenant tooling platforms.' },
-        { name: 'Python', level: 'Advanced', detail: 'Created local FastAPI runners for browser automation, structured WebSniper APIs, and AI-based auto-healing selector solvers.' },
-        { name: 'Redis', level: 'Advanced', detail: 'Used as shared locking state for distributed scrapers, session caching, and message queues.' },
-        { name: 'Docker', level: 'Advanced', detail: 'Containerized systems with multi-stage builds, isolated networks, and system redundancies.' },
-        { name: 'System Architectures', level: 'Expert', detail: 'Designed high-throughput data streams, microservices, and fault-tolerant structures.' }
+        { name: 'Node.js', level: 'Expert', detail: t('skill_nodejs_detail') },
+        { name: 'Python', level: 'Advanced', detail: t('skill_python_detail') },
+        { name: 'Redis', level: 'Advanced', detail: t('skill_redis_detail') },
+        { name: 'Docker', level: 'Advanced', detail: t('skill_docker_detail') },
+        { name: 'System Architectures', level: 'Expert', detail: t('skill_sysarch_detail') }
       ]
     },
     {
       id: 'frontend',
-      name: 'Frontend Engineering',
+      name: t('cat_frontend'),
       icon: <Layers size={18} />,
       skills: [
-        { name: 'React', level: 'Expert', detail: 'Built modular component systems, interactive terminal consoles, and complex SPA dashboards.' },
-        { name: 'TypeScript', level: 'Expert', detail: 'Enforced static typings, custom generic types, and robust API contracts across front/back.' },
-        { name: 'Next.js', level: 'Advanced', detail: 'Implemented static site generation, server components, and SEO-optimized routes.' },
-        { name: 'Tailwind CSS', level: 'Expert', detail: 'Created responsive layouts, flexbox utilities, and theme variables.' },
-        { name: 'HTML5 & CSS3', level: 'Expert', detail: 'Crafted semantic document node maps, complex keyframe animations, and HSL grids.' }
+        { name: 'React', level: 'Expert', detail: t('skill_react_detail') },
+        { name: 'TypeScript', level: 'Expert', detail: t('skill_typescript_detail') },
+        { name: 'Next.js', level: 'Advanced', detail: t('skill_nextjs_detail') },
+        { name: 'Tailwind CSS', level: 'Expert', detail: t('skill_tailwind_detail') },
+        { name: 'HTML5 & CSS3', level: 'Expert', detail: t('skill_htmlcss_detail') }
       ]
     },
     {
       id: 'aiml',
-      name: 'AI & Intelligence',
+      name: t('cat_aiml'),
       icon: <Brain size={18} />,
       skills: [
-        { name: 'Autonomous Agents', level: 'Advanced', detail: 'Created self-correcting agent chains executing code sandboxes and web lookups.' },
-        { name: 'Agentic Workflows', level: 'Expert', detail: 'Structured DAG graphs defining agent collaboration pipelines (planner, worker, critic).' },
-        { name: 'PyTorch', level: 'Intermediate', detail: 'Created neural networks, tabular classification layers, and regression model trials.' },
-        { name: 'Model Training', level: 'Intermediate', detail: 'Pre-processed datasets, custom feature extraction, and isolated test/train sets.' },
-        { name: 'Model Fine-Tuning', level: 'Advanced', detail: 'Finetuned LLMs on custom instructions via LoRA/QLoRA for domain task adapters.' }
+        { name: 'Autonomous Agents', level: 'Advanced', detail: t('skill_autoagents_detail') },
+        { name: 'Agentic Workflows', level: 'Expert', detail: t('skill_workflows_detail') },
+        { name: 'PyTorch', level: 'Intermediate', detail: t('skill_pytorch_detail') },
+        { name: 'Model Training', level: 'Intermediate', detail: t('skill_modeltraining_detail') },
+        { name: 'Model Fine-Tuning', level: 'Advanced', detail: t('skill_finetuning_detail') }
       ]
     },
     {
       id: 'infra',
-      name: 'Infrastructure & Security',
+      name: t('cat_infra'),
       icon: <Shield size={18} />,
       skills: [
-        { name: 'Compact (ZK)', level: 'Advanced', detail: 'Authored nine Groth16 zero-knowledge circuits in Compact for identity lifecycle commitments and privacy-preserving deletion.' },
-        { name: 'Linux System Ops', level: 'Advanced', detail: 'Configured systemd service daemons, cron schedulers, bash setups, and security permissions.' },
-        { name: 'Network Security', level: 'Advanced', detail: 'Monitored ports, analyzed packet headers, and blocked malicious connections using iptables.' },
-        { name: 'CI/CD Pipelines', level: 'Advanced', detail: 'Automated test suite execution and continuous deployment via GitHub Actions.' },
-        { name: 'Cryptography', level: 'Advanced', detail: 'Enforced zero-knowledge proof designs, domain-separated hashing commitments, and cryptographic erasure paths.' }
+        { name: 'Compact (ZK)', level: 'Advanced', detail: t('skill_compactzk_detail') },
+        { name: 'Linux System Ops', level: 'Advanced', detail: t('skill_linux_detail') },
+        { name: 'Network Security', level: 'Advanced', detail: t('skill_netsec_detail') },
+        { name: 'CI/CD Pipelines', level: 'Advanced', detail: t('skill_cicd_detail') },
+        { name: 'Cryptography', level: 'Advanced', detail: t('skill_crypto_detail') }
       ]
     }
   ];
@@ -246,13 +248,13 @@ export const Skills: React.FC = () => {
         {/* Section Header */}
         <div style={{ textAlign: 'left', marginBottom: '3.5rem' }}>
           <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-            Capabilities Matrix
+            {t('skillsHeader')}
           </h3>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
-            Technical <span className="text-gradient">Skill Stack</span>
+            {t('skillsTitle')} <span className="text-gradient">{t('skillsTitleAccent')}</span>
           </h2>
           <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginTop: '0.5rem' }}>
-            Classified capability vectors across computer science disciplines. Hover over any skill badge to query real-world implementations.
+            {t('skillsDescription')}
           </p>
         </div>
 
@@ -309,10 +311,10 @@ export const Skills: React.FC = () => {
               ) : (
                 <div>
                   <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
-                    Skill Telemetry
+                    {t('skillTelemetry')}
                   </h4>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                    Hover over any skill chip in the grid to display specific execution diagnostics and system history.
+                    {t('skillHoverHint')}
                   </p>
                 </div>
               )}

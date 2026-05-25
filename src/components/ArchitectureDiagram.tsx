@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Database, Shield, Server, Cpu, Layers, HardDrive, RefreshCw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface ArchitectureNode {
   id: string;
@@ -18,16 +19,17 @@ interface PathLine {
 }
 
 export const ArchitectureDiagram: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedProject, setSelectedProject] = useState<'shadowkey' | 'guardnet' | 'websniper'>('shadowkey');
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   // Nodes for ShadowKey
   const shadowkeyNodes: ArchitectureNode[] = [
-    { id: 'sk-client', label: 'React 19 Frontend', type: 'client', description: 'Browser UI built with React, Framer Motion, and Tailwind CSS. Collects inputs and triggers proof workflows.', x: 100, y: 150 },
-    { id: 'sk-wallet', label: 'Lace Wallet SDK', type: 'gateway', description: 'Dapp-to-wallet communication gateway. Manages transaction signing and connects to the Midnight Network.', x: 300, y: 150 },
-    { id: 'sk-circuits', label: 'Compact ZK Engine', type: 'compute', description: 'Executes 9 Groth16 zero-knowledge circuits (submit, prove, delete, login, etc.) locally in-browser.', x: 500, y: 150 },
-    { id: 'sk-commit', label: 'SHA256 Commitments', type: 'security', description: 'Computes 5-field domain-separated commitments in the browser so raw data never leaves the device.', x: 700, y: 90 },
-    { id: 'sk-ledger', label: 'Midnight Ledger', type: 'database', description: 'Midnight Network ledger storing ZK commitments, verification statuses, tombstones, and session records.', x: 700, y: 210 },
+    { id: 'sk-client', label: t('node_sk_client_label'), type: 'client', description: t('node_sk_client_desc'), x: 100, y: 150 },
+    { id: 'sk-wallet', label: t('node_sk_wallet_label'), type: 'gateway', description: t('node_sk_wallet_desc'), x: 300, y: 150 },
+    { id: 'sk-circuits', label: t('node_sk_circuits_label'), type: 'compute', description: t('node_sk_circuits_desc'), x: 500, y: 150 },
+    { id: 'sk-commit', label: t('node_sk_commit_label'), type: 'security', description: t('node_sk_commit_desc'), x: 700, y: 90 },
+    { id: 'sk-ledger', label: t('node_sk_ledger_label'), type: 'database', description: t('node_sk_ledger_desc'), x: 700, y: 210 },
   ];
 
   const shadowkeyPaths: PathLine[] = [
@@ -39,11 +41,11 @@ export const ArchitectureDiagram: React.FC = () => {
 
   // Nodes for GuardNet
   const guardnetNodes: ArchitectureNode[] = [
-    { id: 'gn-sources', label: 'Multi-Source Feeds', type: 'client', description: 'Ingests real-time weather and incident data from Open-Meteo, NASA EONET, USGS, and GDACS.', x: 80, y: 150 },
-    { id: 'gn-engine', label: '0-100 Risk Engine', type: 'gateway', description: 'Aggregates weather, disaster telemetry, elevation, and terrain data to compute risk indexes.', x: 260, y: 150 },
-    { id: 'gn-guardian', label: 'Guardian & Dispatch', type: 'compute', description: 'Handles volunteer registration, vulnerable registry mapping, and incident dispatching.', x: 480, y: 150 },
-    { id: 'gn-cloud', label: 'Firebase / Firestore', type: 'database', description: 'Stores real-time report states, volunteer coordinates, and handles push alerts.', x: 700, y: 90 },
-    { id: 'gn-cache', label: 'Workbox / IndexedDB', type: 'security', description: 'Offline-first caching and submission queue ensuring the application functions in zero-connectivity.', x: 700, y: 210 },
+    { id: 'gn-sources', label: t('node_gn_sources_label'), type: 'client', description: t('node_gn_sources_desc'), x: 80, y: 150 },
+    { id: 'gn-engine', label: t('node_gn_engine_label'), type: 'gateway', description: t('node_gn_engine_desc'), x: 260, y: 150 },
+    { id: 'gn-guardian', label: t('node_gn_guardian_label'), type: 'compute', description: t('node_gn_guardian_desc'), x: 480, y: 150 },
+    { id: 'gn-cloud', label: t('node_gn_cloud_label'), type: 'database', description: t('node_gn_cloud_desc'), x: 700, y: 90 },
+    { id: 'gn-cache', label: t('node_gn_cache_label'), type: 'security', description: t('node_gn_cache_desc'), x: 700, y: 210 },
   ];
 
   const guardnetPaths: PathLine[] = [
@@ -55,11 +57,11 @@ export const ArchitectureDiagram: React.FC = () => {
 
   // Nodes for WebSniper
   const websniperNodes: ArchitectureNode[] = [
-    { id: 'ws-ext', label: 'Chrome Extension', type: 'client', description: 'React-based browser extension UI allowing users to visually build action sequences and timelines.', x: 100, y: 150 },
-    { id: 'ws-runner', label: 'FastAPI Local Runner', type: 'gateway', description: 'Local Python FastAPI coordination server managing scrape tasks and API endpoints.', x: 300, y: 150 },
-    { id: 'ws-browser', label: 'Playwright Headless', type: 'compute', description: 'Runs headless Chromium automation instances to bypass client-rendered dynamic JS structures.', x: 500, y: 150 },
-    { id: 'ws-healing', label: 'AI Selector Solver', type: 'cache', description: 'Auto-healing AI module that dynamically resolves broken CSS/XPath selectors on target pages.', x: 700, y: 90 },
-    { id: 'ws-api', label: 'Local REST Endpoints', type: 'database', description: 'Deploys successfully configured scrapers as standard local REST API paths.', x: 700, y: 210 },
+    { id: 'ws-ext', label: t('node_ws_ext_label'), type: 'client', description: t('node_ws_ext_desc'), x: 100, y: 150 },
+    { id: 'ws-runner', label: t('node_ws_runner_label'), type: 'gateway', description: t('node_ws_runner_desc'), x: 300, y: 150 },
+    { id: 'ws-browser', label: t('node_ws_browser_label'), type: 'compute', description: t('node_ws_browser_desc'), x: 500, y: 150 },
+    { id: 'ws-healing', label: t('node_ws_healing_label'), type: 'cache', description: t('node_ws_healing_desc'), x: 700, y: 90 },
+    { id: 'ws-api', label: t('node_ws_api_label'), type: 'database', description: t('node_ws_api_desc'), x: 700, y: 210 },
   ];
 
   const websniperPaths: PathLine[] = [
@@ -290,14 +292,14 @@ export const ArchitectureDiagram: React.FC = () => {
               // Welcome / default message
               <div>
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '0.75rem' }}>
-                  Interactive Pipeline Architect
+                  {t('arch_title')}
                 </h4>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                  Hover over any node in the SVG diagram to view dynamic diagnostics, component specifications, and communication pipelines.
+                  {t('arch_desc')}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginTop: '1.2rem', fontSize: '0.75rem', color: 'var(--accent-purple)', fontFamily: 'var(--font-mono)' }}>
                   <span className="dot-blink" style={{ display: 'inline-block', width: '6px', height: '6px', background: 'var(--accent-purple)', borderRadius: '50%', boxShadow: '0 0 6px var(--accent-purple)' }}></span>
-                  <span>LISTENING_FOR_NODE_SELECT</span>
+                  <span>{t('arch_listening')}</span>
                 </div>
               </div>
             )}
