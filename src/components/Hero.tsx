@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import heroImg from '../assets/hero.png';
+import heroImg from '../assets/profile.jpeg';
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -78,8 +78,8 @@ export const Hero: React.FC = () => {
         <div className="retro-titlebar">
           <span className="retro-titlebar-path">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <rect x="1" y="3" width="14" height="11" rx="1" fill="var(--border-medium)" stroke="var(--border-dark)" strokeWidth="1"/>
-              <rect x="2" y="1" width="6" height="4" rx="1" fill="var(--accent-folder-yellow)" stroke="#c4a830" strokeWidth="0.5"/>
+              <rect x="1" y="3" width="14" height="11" rx="1" fill="var(--border-medium)" stroke="var(--border-dark)" strokeWidth="1" />
+              <rect x="2" y="1" width="6" height="4" rx="1" fill="var(--accent-folder-yellow)" stroke="#c4a830" strokeWidth="0.5" />
             </svg>
             C:\ATHARV\portfolio
           </span>
