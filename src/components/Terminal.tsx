@@ -31,7 +31,6 @@ export const Terminal: React.FC = () => {
 
   useEffect(() => {
     if (terminalBodyRef.current) {
-      // Scroll the container internally without affecting window scroll
       terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
     }
   }, [history]);
@@ -71,8 +70,7 @@ export const Terminal: React.FC = () => {
 
     const lowerCmd = cmd.toLowerCase();
     const newHistory = [...history, { text: `${t('terminalPrompt')} ${cmd}`, type: 'input' as const }];
-    
-    // Add to history list
+
     setCommandHistory((prev) => [...prev, cmd]);
     setHistoryIndex(-1);
 
@@ -196,25 +194,12 @@ export const Terminal: React.FC = () => {
   };
 
   return (
-    <section id="terminal" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="terminal" className="retro-section">
       <div className="container">
-        
-        {/* Section Header */}
-        <div style={{ textAlign: 'left', marginBottom: '2.5rem' }}>
-          <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
-            {t('terminalHeader')}
-          </h3>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
-            {t('terminalTitle')}
-          </h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginTop: '0.5rem' }}>
-            {t('terminalDescription')}
-          </p>
-        </div>
 
-        {/* Terminal Window */}
-        <div 
-          className="terminal-window" 
+        {/* DOS Terminal Window */}
+        <div
+          className="terminal-window"
           onClick={handleTerminalClick}
           style={{ width: '100%', maxWidth: '900px', margin: '0 auto', textAlign: 'left' }}
           data-interactive
@@ -225,24 +210,24 @@ export const Terminal: React.FC = () => {
               <span className="terminal-dot dot-yellow"></span>
               <span className="terminal-dot dot-green"></span>
             </div>
-            <div className="terminal-title">{t('terminalSh')}</div>
-            <div style={{ width: '42px' }}></div> {/* Spacer */}
+            <div className="terminal-title">C:\ATHARV\terminal.exe</div>
+            <div style={{ width: '42px' }}></div>
           </div>
 
-          <div 
-            ref={terminalBodyRef} 
-            className="terminal-body" 
+          <div
+            ref={terminalBodyRef}
+            className="terminal-body"
             style={{ minHeight: '320px', maxHeight: '420px', overflowY: 'auto' }}
           >
             {history.map((line, idx) => (
-              <div 
-                key={idx} 
-                style={{ 
-                  color: 
-                    line.type === 'input' ? '#ffffff' : 
-                    line.type === 'error' ? 'var(--accent-pink)' : 
-                    line.type === 'success' ? 'var(--accent-cyan)' : 
-                    '#a7f3d0',
+              <div
+                key={idx}
+                style={{
+                  color:
+                    line.type === 'input' ? '#ffffff' :
+                      line.type === 'error' ? '#ff6b6b' :
+                        line.type === 'success' ? '#ffcc00' :
+                          '#33ff33',
                   fontFamily: 'var(--font-mono)',
                   marginBottom: '0.4rem',
                   whiteSpace: 'pre-wrap',
@@ -268,7 +253,6 @@ export const Terminal: React.FC = () => {
                 autoComplete="off"
                 autoCapitalize="off"
                 spellCheck="false"
-                style={{ caretColor: 'var(--accent-cyan)' }}
               />
             </div>
           </div>

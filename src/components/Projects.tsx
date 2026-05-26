@@ -34,7 +34,7 @@ export const Projects: React.FC = () => {
       tech: ['Midnight Network', 'Compact', 'Cardano', 'React 19', 'Framer Motion', 'Lace Wallet SDK'],
       github: 'https://github.com/atharvmantri/ShadowKey',
       live: '#',
-      icon: <Shield size={32} style={{ color: 'var(--accent-cyan)' }} />
+      icon: <Shield size={28} style={{ color: 'var(--bg-titlebar-active)' }} />
     },
     {
       id: 'guardnet',
@@ -50,7 +50,7 @@ export const Projects: React.FC = () => {
       tech: ['React 19', 'TypeScript', 'Firebase', 'React Leaflet', 'NASA EONET', 'Workbox PWA'],
       github: 'https://github.com/atharvmantri/Guardnet',
       live: '#',
-      icon: <Globe size={32} style={{ color: 'var(--accent-purple)' }} />
+      icon: <Globe size={28} style={{ color: 'var(--accent-green)' }} />
     },
     {
       id: 'websniper',
@@ -66,186 +66,156 @@ export const Projects: React.FC = () => {
       tech: ['FastAPI', 'Python', 'Playwright', 'Chrome Extension', 'React', 'Vite'],
       github: 'https://github.com/atharvmantri/Websniper',
       live: '#',
-      icon: <TermIcon size={32} style={{ color: 'var(--accent-pink)' }} />
+      icon: <TermIcon size={28} style={{ color: 'var(--accent-orange)' }} />
     }
   ];
 
-  // 3D Tilt Card handlers
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const box = card.getBoundingClientRect();
-    const x = e.clientX - box.left - box.width / 2;
-    const y = e.clientY - box.top - box.height / 2;
-    
-    // Rotate max 8 degrees on hover
-    const rotateX = -(y / (box.height / 2)) * 8;
-    const rotateY = (x / (box.width / 2)) * 8;
-    
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-    
-    // Move glow highlights
-    const glow = card.querySelector('.card-glow') as HTMLDivElement;
-    if (glow) {
-      const glowX = ((e.clientX - box.left) / box.width) * 100;
-      const glowY = ((e.clientY - box.top) / box.height) * 100;
-      glow.style.background = `radial-gradient(circle at ${glowX}% ${glowY}%, rgba(168, 85, 247, 0.12) 0%, transparent 60%)`;
-    }
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
-    const glow = card.querySelector('.card-glow') as HTMLDivElement;
-    if (glow) {
-      glow.style.background = 'transparent';
-    }
-  };
-
   return (
-    <section id="projects" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="projects" className="retro-section">
       <div className="container">
-        
+
         {/* Section Header & Toggle */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
           <div style={{ textAlign: 'left' }}>
-            <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
+            <h3 className="section-header">
               {t('projectsHeader')}
             </h3>
-            <h2 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: 0 }}>
+            <h2 style={{ fontSize: '2.2rem', fontWeight: 700, fontFamily: 'var(--font-serif)', marginBottom: 0 }}>
               {t('projectsTitle')} <span className="text-gradient">{t('projectsTitleAccent')}</span>
             </h2>
-            <p style={{ color: 'var(--text-muted)', maxWidth: '550px', marginTop: '0.5rem' }}>
+            <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginTop: '0.5rem', fontSize: '1.05rem' }}>
               {t('projectsDescription')}
             </p>
           </div>
 
           {/* Toggle buttons */}
-          <div style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.06)', borderRadius: '50px', padding: '0.3rem' }}>
-            <button 
+          <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-titlebar)', border: '2px solid var(--border-dark)', borderRadius: '4px', padding: '2px' }}>
+            <button
               onClick={() => setViewMode('gallery')}
-              className={`btn ${viewMode === 'gallery' ? 'btn-primary' : ''}`}
+              className="btn"
               data-interactive
-              style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem', borderRadius: '50px', boxShadow: viewMode === 'gallery' ? '0 4px 15px rgba(0, 242, 254, 0.2)' : 'none', background: viewMode !== 'gallery' ? 'transparent' : undefined, color: viewMode !== 'gallery' ? 'var(--text-muted)' : undefined }}
+              style={{
+                padding: '6px 14px',
+                fontSize: '0.78rem',
+                borderRadius: '2px',
+                background: viewMode === 'gallery' ? 'var(--bg-titlebar-active)' : 'transparent',
+                color: viewMode === 'gallery' ? 'white' : 'var(--text-body)',
+                border: viewMode === 'gallery' ? '1px solid #2a2a5e' : '1px solid transparent',
+                boxShadow: 'none'
+              }}
             >
-              <Layers size={14} />
+              <Layers size={13} />
               {t('galleryGrid')}
             </button>
-            <button 
+            <button
               onClick={() => setViewMode('architecture')}
-              className={`btn ${viewMode === 'architecture' ? 'btn-primary' : ''}`}
+              className="btn"
               data-interactive
-              style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem', borderRadius: '50px', boxShadow: viewMode === 'architecture' ? '0 4px 15px rgba(0, 242, 254, 0.2)' : 'none', background: viewMode !== 'architecture' ? 'transparent' : undefined, color: viewMode !== 'architecture' ? 'var(--text-muted)' : undefined }}
+              style={{
+                padding: '6px 14px',
+                fontSize: '0.78rem',
+                borderRadius: '2px',
+                background: viewMode === 'architecture' ? 'var(--bg-titlebar-active)' : 'transparent',
+                color: viewMode === 'architecture' ? 'white' : 'var(--text-body)',
+                border: viewMode === 'architecture' ? '1px solid #2a2a5e' : '1px solid transparent',
+                boxShadow: 'none'
+              }}
             >
-              <Cpu size={14} />
+              <Cpu size={13} />
               {t('blueprints')}
             </button>
           </div>
         </div>
 
-        {/* Dynamic Display Area */}
+        {/* Dynamic Display */}
         {viewMode === 'gallery' ? (
-          /* Cards Grid */
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px' }}>
             {projectList.map((project) => (
-              <div 
+              <div
                 key={project.id}
-                className="glass-panel project-card-3d"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{ 
-                  padding: '2.5rem 2rem', 
-                  textAlign: 'left',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  height: '100%',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  transition: 'transform 0.1s ease-out, border-color 0.3s'
-                }}
+                className="retro-window"
                 data-interactive
               >
-                {/* Visual Radial Overlay inside cards */}
-                <div className="card-glow" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', transition: 'background 0.2s', zIndex: 0 }}></div>
+                {/* Title bar */}
+                <div className="retro-titlebar">
+                  <span className="retro-titlebar-path">
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                      <rect x="1" y="3" width="14" height="11" rx="1" fill="var(--border-medium)" stroke="var(--border-dark)" strokeWidth="1"/>
+                      <rect x="2" y="1" width="6" height="4" rx="1" fill="var(--accent-folder-yellow)" stroke="#c4a830" strokeWidth="0.5"/>
+                    </svg>
+                    C:\ATHARV\{project.id}
+                  </span>
+                  <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                    <a href={project.github} target="_blank" rel="noreferrer" style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }} title="View Source">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                    </a>
+                    <div className="retro-close-btn">×</div>
+                  </div>
+                </div>
 
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.8rem' }}>
-                    <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.06)', borderRadius: '12px', padding: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {/* Progress bar */}
+                <div className="retro-progress-bar" style={{ margin: '0', borderRadius: 0, border: 'none', borderBottom: '1px solid var(--border-light)' }}>
+                  <div className="retro-progress-fill" style={{ width: '100%' }}></div>
+                </div>
+
+                {/* Content */}
+                <div className="retro-window-content" style={{ padding: '24px', textAlign: 'left' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                    <div style={{
+                      background: 'var(--bg-grid)',
+                      border: '1px solid var(--border-light)',
+                      borderRadius: '6px',
+                      padding: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
                       {project.icon}
                     </div>
-                    
-                    <div style={{ display: 'flex', gap: '0.8rem' }}>
-                      <a href={project.github} target="_blank" rel="noreferrer" className="project-link" style={{ color: 'var(--text-muted)', transition: 'color 0.3s', display: 'flex', alignItems: 'center' }} title="View Source">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                          <path d="M9 18c-4.51 2-5-2-7-2" />
-                        </svg>
-                      </a>
+                    <div>
+                      <h3 style={{ fontSize: '1.5rem', fontWeight: 700, fontFamily: 'var(--font-serif)', marginBottom: '3px', color: 'var(--text-heading)' }}>
+                        {project.name}
+                      </h3>
+                      <p style={{ fontFamily: 'var(--font-pixel)', fontSize: '0.92rem', color: 'var(--text-muted)' }}>
+                        {project.tagline}
+                      </p>
                     </div>
                   </div>
 
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>
-                    {project.name}
-                  </h3>
-                  
-                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-cyan)', marginBottom: '1rem', fontWeight: 500 }}>
-                    {project.tagline}
-                  </p>
-
-                  <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.5' }}>
+                  <p style={{ fontSize: '1rem', color: 'var(--text-body)', marginBottom: '16px', lineHeight: '1.6' }}>
                     {project.description}
                   </p>
 
-                  {/* Bullet features */}
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
+                  {/* Feature bullets */}
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '16px' }}>
                     {project.features.map((feature, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--text-main)' }}>
-                        <span style={{ color: 'var(--accent-purple)', fontWeight: 'bold', marginTop: '1px' }}>↳</span>
+                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.95rem', color: 'var(--text-body)' }}>
+                        <span style={{ color: 'var(--accent-orange)', fontWeight: 'bold', marginTop: '1px', fontFamily: 'var(--font-pixel)' }}>▸</span>
                         {feature}
                       </li>
                     ))}
                   </ul>
-                </div>
 
-                {/* Tech Badges */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', position: 'relative', zIndex: 1 }}>
-                  {project.tech.map((tag) => (
-                    <span 
-                      key={tag}
-                      style={{ 
-                        fontFamily: 'var(--font-mono)', 
-                        fontSize: '0.7rem', 
-                        padding: '0.2rem 0.6rem', 
-                        background: 'rgba(255, 255, 255, 0.04)', 
-                        border: '1px solid rgba(255, 255, 255, 0.06)', 
-                        borderRadius: '4px',
-                        color: 'var(--text-main)'
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Tech badges */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+                    {project.tech.map((tag) => (
+                      <span key={tag} className="retro-tech-badge">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-
               </div>
             ))}
           </div>
         ) : (
-          /* Architecture blueprints interactive chart */
           <ArchitectureDiagram />
         )}
 
       </div>
-      
-      <style>{`
-        .project-link:hover {
-          color: #ffffff !important;
-        }
-        .project-card-3d:hover {
-          border-color: var(--accent-purple);
-          box-shadow: 0 15px 45px rgba(168, 85, 247, 0.08);
-        }
-      `}</style>
     </section>
   );
 };

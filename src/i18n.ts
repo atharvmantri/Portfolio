@@ -13,7 +13,7 @@ const resources = {
       contact: "Contact",
       ledger: "Ledger",
       link: "Link",
-      
+
       // Hero Component
       openForCollab: "OPEN FOR COLLABORATION & CONTRACTS",
       firstName: "Atharv",
@@ -28,12 +28,9 @@ const resources = {
       tagline2: "I don't just write code. I build leverage.",
 
       // Terminal Component
-      terminalHeader: "System Console",
-      terminalTitle: "Interactive Console Interface",
-      terminalDescription: "Interact directly with my kernel shell in real-time. Query backgrounds, systems, capabilities, and logs by typing directives.",
       terminalPrompt: "atharv@portfolio:~$",
       terminalSh: "atharvmantri@terminal: ~ (sh)",
-      
+
       // Terminal output lines
       term_conn_est: "ATHARV_CORE // SECURE CONNECTION ESTABLISHED",
       term_handshake: "Initial port handshake: 200 OK",
@@ -102,7 +99,7 @@ const resources = {
       statsTitle: "Real-Time",
       statsTitleAccent: "Leverage Statistics",
       statsDescription: "Hardware specifications and system metrics validating technical leverage. I build systems that scale, and I back it up with data.",
-      
+
       stat_prizes_title: "Hackathon Prizes",
       stat_prizes_desc: "Won globally via international hackathons building systems and devtools",
       stat_age_title: "Developer Age",
@@ -113,7 +110,7 @@ const resources = {
       stat_commits_desc: "Continuous leverage deployment and open-source contributions",
       stat_uptime_title: "Core Architecture Uptime",
       stat_uptime_desc: "High-scale engineering with redundancy and fault tolerance",
-      
+
       // Projects Component
       projectsHeader: "System Repository",
       projectsTitle: "Highlighted",
@@ -149,7 +146,7 @@ const resources = {
       arch_title: "Interactive Pipeline Architect",
       arch_desc: "Hover over any node in the SVG diagram to view dynamic diagnostics, component specifications, and communication pipelines.",
       arch_listening: "LISTENING_FOR_NODE_SELECT",
-      
+
       // Node details
       node_sk_client_label: "React 19 Frontend",
       node_sk_client_desc: "Browser UI built with React, Framer Motion, and Tailwind CSS. Collects inputs and triggers proof workflows.",
@@ -203,7 +200,7 @@ const resources = {
       skill_redis_detail: "Used as shared locking state for distributed scrapers, session caching, and message queues.",
       skill_docker_detail: "Containerized systems with multi-stage builds, isolated networks, and system redundancies.",
       skill_sysarch_detail: "Designed high-throughput data streams, microservices, and fault-tolerant structures.",
-      
+
       skill_react_detail: "Built modular component systems, interactive terminal consoles, and complex SPA dashboards.",
       skill_typescript_detail: "Enforced static typings, custom generic types, and robust API contracts across front/back.",
       skill_nextjs_detail: "Implemented static site generation, server components, and SEO-optimized routes.",
@@ -225,12 +222,12 @@ const resources = {
       // Contact Component
       emailAddress: "work@atharv.me",
       contactCopiedToast: "work@atharv.me copied to clipboard!",
-      contactHeader: "Port Handshake",
-      contactTitle: "Establish",
-      contactTitleAccent: "Connection Link",
-      contactDescription: "Initiate a connection for architectural consultations, contracts, and systems building.",
-      directEndpoint: "Direct Endpoint",
-      smtpNotice: "If you prefer direct SMTP routing over contact templates, copy my primary address below:",
+      contactHeader: "Say Hello",
+      contactTitle: "Get In",
+      contactTitleAccent: "Touch",
+      contactDescription: "Have a project idea, want to collaborate, or just want to say hi? Reach out — I'd love to hear from you.",
+      directEndpoint: "Email Me",
+      smtpNotice: "Drop me an email anytime. I'll get back to you as soon as I can.",
       handshakeNameLabel: "Handshake Name",
       returnEmailPathLabel: "Return Email Path",
       packetPayloadLabel: "Packet Message Payload",
@@ -245,7 +242,7 @@ const resources = {
       successHandshake: "Payload transmitted successfully. Handshake complete!",
       transmitPayload: "Transmit Payload",
       syncing: "Syncing...",
-      
+
       // Footer Component
       footerCopyright: "© {{year}} Atharv Mantri. All rights reserved.",
       footerTagline: "↳ Building things most won't understand.",
@@ -300,9 +297,6 @@ const resources = {
       tagline2: "No solo escribo código. Construyo influencia.",
 
       // Terminal Component
-      terminalHeader: "Consola del Sistema",
-      terminalTitle: "Interfaz de Consola Interactiva",
-      terminalDescription: "Interactúe directamente con mi terminal en tiempo real. Consulte antecedentes, sistemas, capacidades y registros escribiendo directivas.",
       terminalPrompt: "atharv@portfolio:~$",
       terminalSh: "atharvmantri@terminal: ~ (sh)",
 
@@ -497,12 +491,12 @@ const resources = {
       // Contact Component
       emailAddress: "work@atharv.me",
       contactCopiedToast: "¡work@atharv.me copiado al portapapeles!",
-      contactHeader: "Apretón de Manos",
-      contactTitle: "Establecer Enlace de",
-      contactTitleAccent: "Conexión",
-      contactDescription: "Inicie una conexión para consultas arquitectónicas, contratos y construcción de sistemas.",
-      directEndpoint: "Punto Final Directo",
-      smtpNotice: "Si prefiere el enrutamiento SMTP directo sobre las plantillas de contacto, copie mi dirección principal a continuación:",
+      contactHeader: "Hola",
+      contactTitle: "Ponte en",
+      contactTitleAccent: "Contacto",
+      contactDescription: "¿Tienes una idea de proyecto, quieres colaborar o simplemente saludar? Escríbeme — me encantaría saber de ti.",
+      directEndpoint: "Envíame un Correo",
+      smtpNotice: "Envíame un correo cuando quieras. Te responderé lo antes posible.",
       handshakeNameLabel: "Nombre del Apretón de Manos",
       returnEmailPathLabel: "Ruta de Correo de Retorno",
       packetPayloadLabel: "Carga Útil del Mensaje del Paquete",

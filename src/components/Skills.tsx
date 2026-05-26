@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 interface SkillItem {
   name: string;
-  level: string; // e.g. "Expert", "Advanced"
-  detail: string; // Real-world use detail
+  level: string;
+  detail: string;
 }
 
 interface SkillCategory {
@@ -54,10 +54,10 @@ const getSkillIcon = (name: string): React.ReactNode => {
       );
     case 'System Architectures':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-purple)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="6" height="5" rx="1" fill="rgba(168, 85, 247, 0.1)" />
-          <rect x="16" y="3" width="6" height="5" rx="1" fill="rgba(168, 85, 247, 0.1)" />
-          <rect x="9" y="16" width="6" height="5" rx="1" fill="rgba(168, 85, 247, 0.1)" />
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="3" width="6" height="5" rx="1" fill="rgba(74, 111, 165, 0.1)" />
+          <rect x="16" y="3" width="6" height="5" rx="1" fill="rgba(74, 111, 165, 0.1)" />
+          <rect x="9" y="16" width="6" height="5" rx="1" fill="rgba(74, 111, 165, 0.1)" />
           <path d="M5 8v4h9v4M19 8v4h-5" />
         </svg>
       );
@@ -79,8 +79,8 @@ const getSkillIcon = (name: string): React.ReactNode => {
       );
     case 'Next.js':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.05)" />
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--text-dark)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" fill="rgba(0,0,0,0.05)" />
           <path d="M9 17V7l7.5 10M15 7v5" />
         </svg>
       );
@@ -99,10 +99,10 @@ const getSkillIcon = (name: string): React.ReactNode => {
       );
     case 'Autonomous Agents':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 2a9 9 0 00-9 9c0 2.2 1.3 4.2 3 5v4a2 2 0 002 2h8a2 2 0 002-2v-4c1.7-.8 3-2.8 3-5a9 9 0 00-9-9z" fill="rgba(0, 242, 254, 0.05)" />
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a9 9 0 00-9 9c0 2.2 1.3 4.2 3 5v4a2 2 0 002 2h8a2 2 0 002-2v-4c1.7-.8 3-2.8 3-5a9 9 0 00-9-9z" fill="rgba(74, 111, 165, 0.05)" />
           <line x1="8" y1="11" x2="16" y2="11" strokeDasharray="2 2" />
-          <circle cx="12" cy="11" r="2" fill="var(--accent-cyan)" />
+          <circle cx="12" cy="11" r="2" fill="var(--accent-blue)" />
         </svg>
       );
     case 'Agentic Workflows':
@@ -111,7 +111,7 @@ const getSkillIcon = (name: string): React.ReactNode => {
           <path d="M3 12a9 9 0 0115-6.7M21 12a9 9 0 01-15 6.7" />
           <polygon points="18 4 18 8 14 8" fill="var(--accent-purple)" />
           <polygon points="6 20 6 16 10 16" fill="var(--accent-purple)" />
-          <circle cx="12" cy="12" r="3" fill="rgba(168, 85, 247, 0.1)" />
+          <circle cx="12" cy="12" r="3" fill="rgba(90, 74, 138, 0.1)" />
         </svg>
       );
     case 'PyTorch':
@@ -124,38 +124,38 @@ const getSkillIcon = (name: string): React.ReactNode => {
     case 'Model Training':
       return (
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="5" y="5" width="14" height="14" rx="2" fill="rgba(79, 172, 254, 0.1)" />
+          <rect x="5" y="5" width="14" height="14" rx="2" fill="rgba(74, 111, 165, 0.1)" />
           <path d="M9 1H7v4h2V1zm8 0h-2v4h2V1zM9 19H7v4h2v-4zm8 0h-2v4h2v-4zM1 9v2h4V9H1zm0 4v2h4v-2H1zm18-4v2h4V9h-4zm0 4v2h4v-2h-4z" />
           <circle cx="12" cy="12" r="2" fill="var(--accent-blue)" />
         </svg>
       );
     case 'Model Fine-Tuning':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-pink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M4 8h16M4 16h16" />
-          <circle cx="9" cy="8" r="2.5" fill="var(--accent-pink)" />
-          <circle cx="15" cy="16" r="2.5" fill="var(--accent-pink)" />
+          <circle cx="9" cy="8" r="2.5" fill="var(--accent-red)" />
+          <circle cx="15" cy="16" r="2.5" fill="var(--accent-red)" />
         </svg>
       );
     case 'Compact (ZK)':
       return (
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-purple)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(168, 85, 247, 0.1)" />
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="rgba(90, 74, 138, 0.1)" />
           <circle cx="12" cy="11" r="2" fill="var(--accent-purple)" />
           <path d="M12 13v3" />
         </svg>
       );
     case 'Linux System Ops':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="2" fill="rgba(255, 255, 255, 0.05)" />
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--text-dark)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" fill="rgba(0, 0, 0, 0.05)" />
           <path d="M7 8l4 4-4 4M13 15h4" />
         </svg>
       );
     case 'Network Security':
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="5" y="11" width="14" height="10" rx="2" fill="rgba(0, 242, 254, 0.1)" />
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="11" width="14" height="10" rx="2" fill="rgba(217, 79, 92, 0.1)" />
           <path d="M8 11V7a4 4 0 018 0v4" />
         </svg>
       );
@@ -170,12 +170,12 @@ const getSkillIcon = (name: string): React.ReactNode => {
     case 'Cryptography':
       return (
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-purple)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3m-3-3l-2-2" fill="rgba(168, 85, 247, 0.1)" />
+          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3m-3-3l-2-2" fill="rgba(90, 74, 138, 0.1)" />
         </svg>
       );
     default:
       return (
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="10" />
           <path d="M12 8v8M8 12h8" />
         </svg>
@@ -192,7 +192,7 @@ export const Skills: React.FC = () => {
     {
       id: 'backend',
       name: t('cat_backend'),
-      icon: <Database size={18} />,
+      icon: <Database size={16} />,
       skills: [
         { name: 'Node.js', level: 'Expert', detail: t('skill_nodejs_detail') },
         { name: 'Python', level: 'Advanced', detail: t('skill_python_detail') },
@@ -204,7 +204,7 @@ export const Skills: React.FC = () => {
     {
       id: 'frontend',
       name: t('cat_frontend'),
-      icon: <Layers size={18} />,
+      icon: <Layers size={16} />,
       skills: [
         { name: 'React', level: 'Expert', detail: t('skill_react_detail') },
         { name: 'TypeScript', level: 'Expert', detail: t('skill_typescript_detail') },
@@ -216,7 +216,7 @@ export const Skills: React.FC = () => {
     {
       id: 'aiml',
       name: t('cat_aiml'),
-      icon: <Brain size={18} />,
+      icon: <Brain size={16} />,
       skills: [
         { name: 'Autonomous Agents', level: 'Advanced', detail: t('skill_autoagents_detail') },
         { name: 'Agentic Workflows', level: 'Expert', detail: t('skill_workflows_detail') },
@@ -228,7 +228,7 @@ export const Skills: React.FC = () => {
     {
       id: 'infra',
       name: t('cat_infra'),
-      icon: <Shield size={18} />,
+      icon: <Shield size={16} />,
       skills: [
         { name: 'Compact (ZK)', level: 'Advanced', detail: t('skill_compactzk_detail') },
         { name: 'Linux System Ops', level: 'Advanced', detail: t('skill_linux_detail') },
@@ -242,135 +242,152 @@ export const Skills: React.FC = () => {
   const activeSkills = categories.find(c => c.id === activeCategory)?.skills || [];
 
   return (
-    <section id="skills" style={{ padding: '80px 0', position: 'relative' }}>
+    <section id="skills" className="retro-section">
       <div className="container">
-        
+
         {/* Section Header */}
-        <div style={{ textAlign: 'left', marginBottom: '3.5rem' }}>
-          <h3 style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>
+        <div style={{ textAlign: 'left', marginBottom: '2rem' }}>
+          <h3 className="section-header">
             {t('skillsHeader')}
           </h3>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800 }}>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 700, fontFamily: 'var(--font-serif)' }}>
             {t('skillsTitle')} <span className="text-gradient">{t('skillsTitleAccent')}</span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', maxWidth: '600px', marginTop: '0.5rem' }}>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '650px', marginTop: '0.5rem', fontSize: '1.05rem' }}>
             {t('skillsDescription')}
           </p>
         </div>
 
-        {/* Skills Main Container */}
-        <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '3rem', alignItems: 'start' }}>
-          
-          {/* Left Column: Categories List */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-            {categories.map((cat) => {
-              const isActive = cat.id === activeCategory;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => {
-                    setActiveCategory(cat.id);
-                    setHoveredSkill(null);
-                  }}
-                  className={`btn ${isActive ? 'btn-primary' : 'btn-secondary'}`}
-                  data-interactive
-                  style={{
-                    justifyContent: 'flex-start',
-                    padding: '1rem 1.5rem',
-                    borderRadius: '12px',
-                    width: '100%',
-                    boxShadow: isActive ? '0 4px 15px rgba(0, 242, 254, 0.15)' : 'none',
-                    border: isActive ? 'none' : '1px solid rgba(255,255,255,0.05)',
-                    background: isActive ? undefined : 'rgba(255, 255, 255, 0.02)'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: '100%' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', opacity: 0.8 }}>
-                      {cat.icon}
-                    </div>
-                    <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>{cat.name}</span>
-                  </div>
-                </button>
-              );
-            })}
+        {/* Skills Main — Retro Window */}
+        <div className="retro-window" style={{ maxWidth: '900px' }}>
+          <div className="retro-titlebar">
+            <span className="retro-titlebar-path">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="3" width="14" height="11" rx="1" fill="var(--border-medium)" stroke="var(--border-dark)" strokeWidth="1"/>
+                <rect x="2" y="1" width="6" height="4" rx="1" fill="var(--accent-folder-yellow)" stroke="#c4a830" strokeWidth="0.5"/>
+              </svg>
+              C:\ATHARV\works
+            </span>
+            <div className="retro-close-btn">×</div>
+          </div>
 
-            {/* Info Diagnostics card */}
-            <div className="glass-panel" style={{ marginTop: '1.5rem', padding: '1.5rem', textAlign: 'left', background: 'rgba(255, 255, 255, 0.01)', borderColor: 'rgba(255,255,255,0.04)' }}>
+          {/* Progress bar */}
+          <div className="retro-progress-bar" style={{ margin: 0, borderRadius: 0, border: 'none', borderBottom: '1px solid var(--border-light)' }}>
+            <div className="retro-progress-fill" style={{ width: '75%' }}></div>
+          </div>
+
+          <div className="retro-window-content" style={{ padding: '20px' }}>
+
+            {/* Category Tabs (Toolbar) */}
+            <div style={{ display: 'flex', gap: '6px', marginBottom: '24px', flexWrap: 'wrap' }}>
+              {categories.map((cat) => {
+                const isActive = cat.id === activeCategory;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => {
+                      setActiveCategory(cat.id);
+                      setHoveredSkill(null);
+                    }}
+                    className="btn"
+                    data-interactive
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: '0.95rem',
+                      borderRadius: '3px',
+                      background: isActive ? 'var(--bg-titlebar-active)' : 'var(--bg-titlebar)',
+                      color: isActive ? 'white' : 'var(--text-dark)',
+                      border: isActive ? '2px solid #2a2a5e' : '2px solid var(--border-dark)',
+                      boxShadow: isActive ? 'inset 1px 1px 0 rgba(255,255,255,0.15)' : '1px 1px 0 var(--border-dark), inset -1px -1px 0 rgba(0,0,0,0.1), inset 1px 1px 0 rgba(255,255,255,0.5)'
+                    }}
+                  >
+                    {cat.icon}
+                    {cat.name}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* TOOLS Label */}
+            <h4 style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1.25rem',
+              fontWeight: 700,
+              color: 'var(--text-heading)',
+              textAlign: 'center',
+              marginBottom: '16px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase'
+            }}>
+              TOOLS
+            </h4>
+
+            {/* Skills Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+              {activeSkills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="retro-tool-chip"
+                  onMouseEnter={() => setHoveredSkill(skill)}
+                  onMouseLeave={() => setHoveredSkill(null)}
+                  data-interactive
+                >
+                  <div className="tool-icon">
+                    {getSkillIcon(skill.name)}
+                  </div>
+                  <div className="tool-name">
+                    {skill.name}
+                  </div>
+                  <div className="tool-level">
+                    {skill.level}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Hover Info Panel */}
+            <div style={{
+              background: 'var(--bg-grid)',
+              border: '1px solid var(--border-light)',
+              borderRadius: '4px',
+              padding: '14px 16px',
+              minHeight: '60px',
+              transition: 'all 0.2s'
+            }}>
               {hoveredSkill ? (
                 <div>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '0.4rem' }}>
-                    {hoveredSkill.name}
-                  </h4>
-                  <span style={{ display: 'inline-block', fontSize: '0.65rem', fontFamily: 'var(--font-mono)', padding: '0.2rem 0.5rem', background: 'rgba(168, 85, 247, 0.15)', borderRadius: '4px', color: 'var(--accent-purple)', marginBottom: '0.8rem', textTransform: 'uppercase', fontWeight: 600 }}>
-                    {hoveredSkill.level}
-                  </span>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: '1.5' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-heading)' }}>
+                      {hoveredSkill.name}
+                    </h4>
+                    <span style={{
+                      fontSize: '0.78rem',
+                      fontFamily: 'var(--font-pixel)',
+                      padding: '2px 6px',
+                      background: 'var(--bg-titlebar-active)',
+                      borderRadius: '3px',
+                      color: 'white',
+                      textTransform: 'uppercase'
+                    }}>
+                      {hoveredSkill.level}
+                    </span>
+                  </div>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-body)', lineHeight: '1.5' }}>
                     {hoveredSkill.detail}
                   </p>
                 </div>
               ) : (
                 <div>
-                  <h4 style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-muted)', marginBottom: '5px' }}>
                     {t('skillTelemetry')}
                   </h4>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
+                  <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
                     {t('skillHoverHint')}
                   </p>
                 </div>
               )}
             </div>
           </div>
-
-          {/* Right Column: Skills Grid */}
-          <div 
-            className="glass-panel" 
-            style={{ 
-              padding: '2.5rem 2rem', 
-              background: 'rgba(8, 6, 16, 0.4)', 
-              borderColor: 'rgba(255, 255, 255, 0.05)',
-              minHeight: '280px'
-            }}
-          >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '1rem' }}>
-              {activeSkills.map((skill) => {
-                const isHovered = hoveredSkill?.name === skill.name;
-                return (
-                  <div
-                    key={skill.name}
-                    onMouseEnter={() => setHoveredSkill(skill)}
-                    onMouseLeave={() => setHoveredSkill(null)}
-                    style={{
-                      background: isHovered ? 'rgba(0, 242, 254, 0.08)' : 'rgba(255, 255, 255, 0.02)',
-                      border: isHovered ? '1px solid var(--accent-cyan)' : '1px solid rgba(255, 255, 255, 0.06)',
-                      borderRadius: '10px',
-                      padding: '1.25rem 0.75rem',
-                      textAlign: 'center',
-                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                      boxShadow: isHovered ? '0 0 15px rgba(0, 242, 254, 0.15)' : 'none',
-                      transform: isHovered ? 'translateY(-2px)' : 'none',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '0.6rem'
-                    }}
-                    data-interactive
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '32px' }}>
-                      {getSkillIcon(skill.name)}
-                    </div>
-                    <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#ffffff', lineHeight: 1.2 }}>
-                      {skill.name}
-                    </div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>
-                      {skill.level}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
         </div>
 
       </div>
