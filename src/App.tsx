@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import {
   ArrowUpRight,
   Award,
@@ -143,10 +143,10 @@ const capabilities = [
 ];
 
 const stats = [
-  { value: '7x', label: 'Hackathon winner', icon: <Award size={20} /> },
-  { value: '19', label: 'Public repositories', icon: <Code2 size={20} /> },
-  { value: '15', label: 'Building age', icon: <Sparkles size={20} /> },
-  { value: '120k+', label: 'Lines shipped', icon: <Code2 size={20} /> },
+  { value: 7, suffix: 'x', label: 'Hackathon winner', icon: <Award size={20} /> },
+  { value: 19, suffix: '', label: 'Public repositories', icon: <Code2 size={20} /> },
+  { value: 15, suffix: '', label: 'Building age', icon: <Sparkles size={20} /> },
+  { value: 120, suffix: 'k+', label: 'Lines shipped', icon: <Code2 size={20} /> },
 ];
 
 const navItems = [
@@ -156,13 +156,162 @@ const navItems = [
   ['contact', 'Contact'],
 ] as const;
 
+const headlineWords = 'I build AI tools, web systems, and hackathon projects that actually run.'.split(' ');
+
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function CountUp({ end, suffix = '' }: { end: number; suffix?: string }) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const node = ref.current;
+
+    if (!node || reduceMotion) {
+      setValue(end);
+      return;
+    }
+
+    let raf = 0;
+    let startedAt = 0;
+
+    const run = (timestamp: number) => {
+      if (!startedAt) startedAt = timestamp;
+      const progress = Math.min((timestamp - startedAt) / 1150, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(end * eased));
+
+      if (progress < 1) {
+        raf = window.requestAnimationFrame(run);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        raf = window.requestAnimationFrame(run);
+        observer.disconnect();
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      if (raf) window.cancelAnimationFrame(raf);
+    };
+  }, [end]);
+
+  return (
+    <span ref={ref}>
+      {value}
+      {suffix}
+    </span>
+  );
 }
 
 function App() {
   const [copied, setCopied] = useState(false);
   const featured = useMemo(() => projects.slice(0, 4), []);
+  const horizontalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+
+    const setParallaxVars = () => {
+      frame = 0;
+
+      if (reduceMotion.matches) {
+        root.style.setProperty('--parallax-slow', '0px');
+        root.style.setProperty('--parallax-medium', '0px');
+        root.style.setProperty('--parallax-fast', '0px');
+        root.style.setProperty('--parallax-reverse', '0px');
+        root.style.setProperty('--parallax-image', '0px');
+        root.style.setProperty('--parallax-bg', '0px');
+        return;
+      }
+
+      const scrollY = window.scrollY;
+      const capped = (speed: number, limit: number) => Math.round(Math.max(Math.min(scrollY * speed, limit), -limit));
+
+      root.style.setProperty('--parallax-bg', `${capped(0.018, 46)}px`);
+      root.style.setProperty('--parallax-slow', `${capped(0.032, 62)}px`);
+      root.style.setProperty('--parallax-medium', `${capped(0.052, 84)}px`);
+      root.style.setProperty('--parallax-fast', `${capped(0.11, 132)}px`);
+      root.style.setProperty('--parallax-reverse', `${capped(-0.045, 72)}px`);
+      root.style.setProperty('--parallax-image', `${capped(-0.022, 38)}px`);
+    };
+
+    const requestParallaxUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(setParallaxVars);
+    };
+
+    setParallaxVars();
+    window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+    window.addEventListener('resize', requestParallaxUpdate);
+    reduceMotion.addEventListener('change', setParallaxVars);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestParallaxUpdate);
+      window.removeEventListener('resize', requestParallaxUpdate);
+      reduceMotion.removeEventListener('change', setParallaxVars);
+    };
+  }, []);
+
+  useEffect(() => {
+    const section = horizontalRef.current;
+    if (!section) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+
+    const setHorizontalProgress = () => {
+      frame = 0;
+
+      if (reduceMotion.matches) {
+        section.style.setProperty('--project-shift', '0px');
+        section.style.setProperty('--project-progress', '0');
+        return;
+      }
+
+      const sticky = section.querySelector<HTMLElement>('.horizontal-sticky');
+      const track = section.querySelector<HTMLElement>('.featured-grid');
+      if (!sticky || !track) return;
+
+      const rect = section.getBoundingClientRect();
+      const range = Math.max(section.offsetHeight - window.innerHeight, 1);
+      const progress = Math.min(Math.max(-rect.top / range, 0), 1);
+      const maxShift = Math.max(track.scrollWidth - sticky.clientWidth, 0);
+
+      section.style.setProperty('--project-shift', `${Math.round(maxShift * progress)}px`);
+      section.style.setProperty('--project-progress', progress.toFixed(3));
+    };
+
+    const requestHorizontalProgress = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(setHorizontalProgress);
+    };
+
+    setHorizontalProgress();
+    window.addEventListener('scroll', requestHorizontalProgress, { passive: true });
+    window.addEventListener('resize', requestHorizontalProgress);
+    reduceMotion.addEventListener('change', setHorizontalProgress);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', requestHorizontalProgress);
+      window.removeEventListener('resize', requestHorizontalProgress);
+      reduceMotion.removeEventListener('change', setHorizontalProgress);
+    };
+  }, []);
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText('work@atharv.me');
@@ -172,6 +321,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <div className="parallax-backdrop" aria-hidden="true" />
       <div className="grain" aria-hidden="true" />
       <div className="motion-field" aria-hidden="true">
         <span />
@@ -199,7 +349,18 @@ function App() {
         <section id="home" className="hero-section">
           <div className="hero-copy">
             <p className="eyebrow">Indore, India / built by Atharv Mantri</p>
-            <h1>I build AI tools, web systems, and hackathon projects that actually run.</h1>
+            <h1 className="reveal-headline" aria-label="I build AI tools, web systems, and hackathon projects that actually run.">
+              {headlineWords.map((word, index) => (
+                <span
+                  className="word-mask"
+                  key={`${word}-${index}`}
+                  style={{ '--word-index': index } as CSSProperties}
+                  aria-hidden="true"
+                >
+                  <span>{word}</span>
+                </span>
+              ))}
+            </h1>
             <p className="hero-lede">
               This site is hand-rolled in React and CSS because I wanted it to feel like my work:
               direct, technical, a little raw, and obsessed with shipping the thing.
@@ -237,7 +398,9 @@ function App() {
           {stats.map((stat) => (
             <div className="stat-cell" key={stat.label}>
               {stat.icon}
-              <strong>{stat.value}</strong>
+              <strong>
+                <CountUp end={stat.value} suffix={stat.suffix} />
+              </strong>
               <span>{stat.label}</span>
             </div>
           ))}
@@ -252,19 +415,28 @@ function App() {
             </p>
           </div>
 
-          <div className="featured-grid">
-            {featured.map((project, index) => (
-              <a className={`feature-card accent-${project.accent}`} href={project.repo} target="_blank" rel="noreferrer" key={project.name}>
-                <span className="project-index">0{index + 1}</span>
-                <span className="project-icon">{project.icon}</span>
-                <span className="project-signal">{project.signal}</span>
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <span className="project-link">
-                  Open repository <ArrowUpRight size={17} />
-                </span>
-              </a>
-            ))}
+          <div className="horizontal-showcase" ref={horizontalRef}>
+            <div className="horizontal-sticky">
+              <div className="horizontal-meta" aria-hidden="true">
+                <span>Scroll</span>
+                <i />
+                <span>Projects move sideways</span>
+              </div>
+              <div className="featured-grid">
+                {featured.map((project, index) => (
+                  <a className={`feature-card accent-${project.accent}`} href={project.repo} target="_blank" rel="noreferrer" key={project.name}>
+                    <span className="project-index">0{index + 1}</span>
+                    <span className="project-icon">{project.icon}</span>
+                    <span className="project-signal">{project.signal}</span>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <span className="project-link">
+                      Open repository <ArrowUpRight size={17} />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="repo-table" aria-label="Repository table">

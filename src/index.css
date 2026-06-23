@@ -4,6 +4,12 @@
   --page-gutter: clamp(14px, 4vw, 36px);
   --content-max: 1120px;
   --section-y: clamp(68px, 9vw, 116px);
+  --parallax-slow: 0px;
+  --parallax-medium: 0px;
+  --parallax-fast: 0px;
+  --parallax-reverse: 0px;
+  --parallax-image: 0px;
+  --parallax-bg: 0px;
   --paper: #f3eee3;
   --paper-deep: #e2d7c3;
   --ink: #15130f;
@@ -67,6 +73,19 @@ a {
   overflow: hidden;
 }
 
+.parallax-backdrop {
+  position: fixed;
+  inset: -10vh 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(211, 61, 46, 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 22%, rgba(28, 105, 184, 0.14), transparent 31rem),
+    radial-gradient(circle at 55% 78%, rgba(22, 116, 91, 0.1), transparent 34rem);
+  transform: translate3d(0, calc(var(--parallax-bg) * -1), 0);
+  will-change: transform;
+}
+
 .grain {
   position: fixed;
   inset: 0;
@@ -83,6 +102,8 @@ a {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  transform: translate3d(0, calc(var(--parallax-reverse) * 0.6), 0);
+  will-change: transform;
 }
 
 .motion-field span {
@@ -102,6 +123,7 @@ a {
   left: 6vw;
   top: 24vh;
   background-color: rgba(214, 162, 41, 0.42);
+  translate: 0 var(--parallax-fast);
 }
 
 .motion-field span:nth-child(2) {
@@ -112,6 +134,7 @@ a {
   border-color: rgba(211, 61, 46, 0.35);
   animation-delay: -4s;
   animation-duration: 15s;
+  translate: 0 calc(var(--parallax-fast) * 0.78);
 }
 
 .motion-field span:nth-child(3) {
@@ -122,6 +145,7 @@ a {
   border-color: rgba(28, 105, 184, 0.34);
   animation-delay: -8s;
   animation-duration: 18s;
+  translate: 0 calc(var(--parallax-medium) * 0.72);
 }
 
 .topbar {
@@ -242,6 +266,8 @@ main,
 .hero-copy {
   position: relative;
   animation: riseIn 700ms cubic-bezier(.2, .8, .2, 1) 120ms both;
+  translate: 0 calc(var(--parallax-slow) * 0.44);
+  will-change: transform;
 }
 
 .hero-copy::before {
@@ -257,6 +283,7 @@ main,
     var(--gold);
   z-index: -1;
   animation: plateNudge 4.8s ease-in-out infinite;
+  translate: 0 calc(var(--parallax-fast) * -0.34);
 }
 
 .eyebrow {
@@ -285,6 +312,32 @@ h1 {
   letter-spacing: 0;
   line-height: 0.9;
   animation: textTighten 900ms cubic-bezier(.2, .8, .2, 1) 180ms both;
+}
+
+.reveal-headline {
+  display: block;
+}
+
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.17em;
+  vertical-align: top;
+}
+
+.word-mask > span {
+  display: inline-block;
+  background: linear-gradient(104deg, var(--ink) 0%, var(--ink) 48%, #71342f 52%, #28475f 54%, var(--ink) 59%, var(--ink) 100%);
+  background-size: 320% 100%;
+  background-position: 0% 50%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translateY(112%) rotate(1.5deg);
+  animation:
+    wordSlideUp 760ms cubic-bezier(.16, 1, .3, 1) forwards,
+    headlineInk 7s ease-in-out infinite;
+  animation-delay: calc(220ms + (var(--word-index) * 55ms)), calc(1.2s + (var(--word-index) * 30ms));
 }
 
 .hero-lede {
@@ -334,7 +387,9 @@ h1 {
   background: var(--white);
   box-shadow: var(--shadow);
   animation: cardSlide 820ms cubic-bezier(.2, .8, .2, 1) 240ms both;
+  translate: 0 calc(var(--parallax-medium) * 0.52);
   transition: transform 260ms ease, box-shadow 260ms ease;
+  will-change: transform;
 }
 
 .hero-card:hover {
@@ -368,11 +423,15 @@ h1 {
   min-height: 320px;
   object-fit: cover;
   filter: saturate(0.86) contrast(1.04);
+  translate: 0 var(--parallax-image);
+  transform: scale(1.04);
   transition: transform 620ms cubic-bezier(.2, .8, .2, 1), filter 620ms ease;
+  will-change: transform;
 }
 
 .hero-card:hover .portrait-frame img {
-  transform: scale(1.035) translateY(-8px);
+  translate: 0 calc(var(--parallax-image) - 8px);
+  transform: scale(1.08);
   filter: saturate(1) contrast(1.08);
 }
 
@@ -458,9 +517,16 @@ h1 {
   font-family: var(--font-serif);
   font-size: 3rem;
   line-height: 0.92;
+  min-width: 3.6ch;
+  font-variant-numeric: tabular-nums;
 }
 
-.stat-cell span {
+.stat-cell strong > span {
+  display: inline-block;
+  animation: numberSettle 620ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.stat-cell > span {
   color: rgba(255, 250, 240, 0.68);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -912,6 +978,35 @@ h1 {
 @keyframes textTighten {
   from { opacity: 0; transform: translateY(18px); filter: blur(4px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes wordSlideUp {
+  from {
+    transform: translateY(112%) rotate(1.5deg);
+  }
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes headlineInk {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes numberSettle {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes plateNudge {
