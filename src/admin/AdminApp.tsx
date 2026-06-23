@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type Submission = {
@@ -36,12 +36,12 @@ export const AdminApp = () => {
     setAuthToken(token);
   };
 
-  const clearAuth = () => {
+  const clearAuth = useCallback(() => {
     sessionStorage.removeItem(AUTH_STORAGE_KEY);
     setAuthToken('');
-  };
+  }, []);
 
-  const fetchSubmissions = async (token: string, isLogin = false) => {
+  const fetchSubmissions = useCallback(async (token: string, isLogin = false) => {
     setIsLoading(true);
     setDataError(null);
     if (isLogin) setLoginError(null);
@@ -78,13 +78,17 @@ export const AdminApp = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [clearAuth, t]);
 
   useEffect(() => {
     if (authToken) {
-      void fetchSubmissions(authToken);
+      const timer = window.setTimeout(() => {
+        void fetchSubmissions(authToken);
+      }, 0);
+
+      return () => window.clearTimeout(timer);
     }
-  }, [authToken]);
+  }, [authToken, fetchSubmissions]);
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

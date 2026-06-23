@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import heroImg from '../assets/profile.jpeg';
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
-  const taglines = [
+  const taglines = useMemo(() => [
     t('tagline0'),
     t('tagline1'),
     t('tagline2')
-  ];
+  ], [t]);
 
   const [currentTaglineIndex, setCurrentTaglineIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
 
     timer = setTimeout(handleTyping, typingSpeed) as unknown as number;
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentTaglineIndex, typingSpeed]);
+  }, [displayText, isDeleting, currentTaglineIndex, typingSpeed, taglines]);
 
   return (
     <section className="hero-section" style={{
