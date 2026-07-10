@@ -1,0 +1,28 @@
+ATHARV MANTRI
+AI systems and full-stack developer
+Indore, India
+
+CONTACT
+work@atharv.me
+github.com/atharvmantri
+atharv.me
+
+PROFILE
+I build AI tools, web systems, and hackathon projects that actually run.
+Open to ideas.
+
+SELECTED WORK
+ActionPath — AI-powered executive-function tool that turns school communications into grounded action checklists, plans, and start cues.
+Lumi Assist — Local-first Windows voice assistant with wake-word activation, desktop control, and a one-line installer.
+BridgeMind — Chrome extension and agentic accessibility platform that adapts dense web content to cognitive profiles.
+ScribeMesh — Video-to-documentation platform that creates timestamped hardware component notes and maintenance guidance.
+
+CORE STACK
+TypeScript, React, Next.js, Python, FastAPI, Gemini, Playwright, Firebase, Docker, Compact ZK
+
+HIGHLIGHTS
+7x hackathon winner
+19 public repositories
+120k+ lines shipped
+
+Full project details and links: atharv.me
