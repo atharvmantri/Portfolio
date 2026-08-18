@@ -1,28 +1,57 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns# profile: https://ogp.me/ns/profile#">
 
 <head>
   <!-- Primary Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Atharv Mantri — AI Systems &amp; Full-Stack Developer</title>
   <meta name="title" content="Atharv Mantri — AI Systems &amp; Full-Stack Developer" />
   <meta name="description"
     content="Atharv Mantri is an AI systems and full-stack developer based in Indore, India. 7x hackathon winner building autonomous agents, zero-knowledge crypto systems, and real-world web apps." />
   <meta name="keywords"
-    content="Atharv Mantri, AI Systems Developer, Full-Stack Developer Indore, Zero-Knowledge Cryptography, ActionPath, Lumi Assist, BridgeMind, ScribeMesh, ShadowKey, React 19, TypeScript, Compact ZK, FastAPI, Python AI Agent, Autonomous Agents, Web Developer Portfolio" />
+    content="Atharv Mantri, AI Systems Developer, Full-Stack Developer Indore, Zero-Knowledge Cryptography, ActionPath, Lumi Assist, BridgeMind, ScribeMesh, ShadowKey, React 19, TypeScript, Compact ZK, FastAPI, Python AI Agent, Autonomous Agents, Web Developer Portfolio, Hackathon Winner India, Midnight Network Developer, Groth16 zk-SNARKs, Local-First Applications" />
   <meta name="author" content="Atharv Mantri" />
   <meta name="creator" content="Atharv Mantri" />
   <meta name="publisher" content="Atharv Mantri" />
   <meta name="application-name" content="Atharv Mantri Portfolio" />
   <meta name="theme-color" content="#080610" />
   <meta name="color-scheme" content="dark" />
+  <meta name="format-detection" content="telephone=no, address=no, email=no" />
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <meta name="rating" content="general" />
+  <meta name="generator" content="Vite 8 + React 19" />
+  <meta name="subject" content="AI Systems & Full-Stack Developer Portfolio" />
+  <meta name="classification" content="Technology, Software Development, AI Engineering" />
+  <meta name="category" content="technology" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="distribution" content="global" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!-- Geo Tags (Indore, India) -->
+  <meta name="geo.region" content="IN-MP" />
+  <meta name="geo.placename" content="Indore, Madhya Pradesh, India" />
+  <meta name="geo.position" content="22.7196;75.8577" />
+  <meta name="ICBM" content="22.7196, 75.8577" />
 
   <!-- Search Engine Crawlers & Directives -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="slurp" content="index, follow" />
   <link rel="canonical" href="https://atharv.me/" />
+
+  <!-- Performance Hints: Preconnect & DNS Prefetch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.github.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://api.github.com" />
+
+  <!-- Performance Hints: Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" as="style" />
 
   <!-- Icons & Web App Manifest -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -32,6 +61,21 @@
   <!-- AI Discovery & Machine-Readable Context -->
   <link rel="help" type="text/plain" href="/llms.txt" title="LLMs Context" />
   <link rel="alternate" type="text/plain" href="/atharv-mantri-resume.txt" title="Atharv Mantri Resume" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Context & Case Studies" />
+  <link rel="author" type="text/plain" href="/humans.txt" />
+
+  <!-- RSS Feed Discovery -->
+  <link rel="alternate" type="application/rss+xml" title="Atharv Mantri — Projects Feed" href="/feed.xml" />
+
+  <!-- OpenSearch Discovery -->
+  <link rel="search" type="application/opensearchdescription+xml" title="Atharv Mantri" href="/opensearch.xml" />
+
+  <!-- vCard Discovery -->
+  <link rel="me" type="text/vcard" href="/atharv-mantri.vcf" />
+
+  <!-- External Profile Links (rel=me for IndieWeb verification) -->
+  <link rel="me" href="https://github.com/atharvmantri" />
+  <link rel="me" href="https://www.instagram.com/atharvmantr_i" />
 
   <!-- Open Graph / Facebook / LinkedIn / Discord / WhatsApp -->
   <meta property="og:type" content="profile" />
@@ -47,9 +91,13 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Atharv Mantri — AI Systems &amp; Full-Stack Developer Portfolio" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:see_also" content="https://github.com/atharvmantri" />
+  <meta property="og:see_also" content="https://actionpath.atharv.me" />
+  <meta property="og:see_also" content="https://lumiassist.xyz" />
   <meta property="profile:first_name" content="Atharv" />
   <meta property="profile:last_name" content="Mantri" />
   <meta property="profile:username" content="atharvmantri" />
+  <meta property="article:author" content="https://atharv.me/" />
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -59,6 +107,7 @@
   <meta name="twitter:image" content="https://atharv.me/og-image.png" />
   <meta name="twitter:image:alt" content="Atharv Mantri — AI Systems &amp; Full-Stack Developer Portfolio" />
   <meta name="twitter:creator" content="@atharvmantri" />
+  <meta name="twitter:site" content="@atharvmantri" />
 
   <!-- Structured Data: JSON-LD Schema.org Knowledge Graph -->
   <script type="application/ld+json">
@@ -76,11 +125,24 @@
         "jobTitle": "AI Systems & Full-Stack Developer",
         "description": "Atharv Mantri is an AI systems and full-stack developer specializing in autonomous agent workflows, zero-knowledge cryptography protocols, local-first applications, and high-performance web systems.",
         "email": "mailto:work@atharv.me",
+        "nationality": {
+          "@type": "Country",
+          "name": "India"
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Indore",
           "addressRegion": "Madhya Pradesh",
           "addressCountry": "IN"
+        },
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "AI Systems & Full-Stack Developer",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "Indore"
+          },
+          "skills": "TypeScript, React 19, Next.js 15, Python, FastAPI, Zero-Knowledge Cryptography, Compact ZK, Groth16, Google Gemini API, Playwright, Docker, Firebase, PostgreSQL"
         },
         "sameAs": [
           "https://github.com/atharvmantri",
@@ -101,8 +163,17 @@
           "Playwright Web Automation",
           "Google Gemini API",
           "Full-Stack Web Development",
-          "Offline-First PWAs"
+          "Offline-First PWAs",
+          "Local-First Applications",
+          "Multi-Agent Orchestration",
+          "On-Device Machine Learning",
+          "Chrome Extension Development",
+          "Vite",
+          "Docker",
+          "Firebase",
+          "PostgreSQL"
         ],
+        "knowsLanguage": ["en", "hi"],
         "award": [
           "7x Hackathon Winner",
           "STEMINATE Hackathon (AI for a Better World) Finalist",
@@ -118,7 +189,19 @@
         "publisher": {
           "@id": "https://atharv.me/#person"
         },
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "copyrightHolder": {
+          "@id": "https://atharv.me/#person"
+        },
+        "copyrightYear": 2025,
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://atharv.me/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "ProfilePage",
@@ -136,7 +219,101 @@
         },
         "dateCreated": "2025-01-01T00:00:00+05:30",
         "dateModified": "2026-08-18T17:55:00+05:30",
-        "inLanguage": "en-US"
+        "inLanguage": "en-US",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-copy h1", ".hero-lede", ".now-copy h2"]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://atharv.me/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://atharv.me/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://atharv.me/#work"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Now",
+            "item": "https://atharv.me/#now"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Stack",
+            "item": "https://atharv.me/#stack"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Contact",
+            "item": "https://atharv.me/#contact"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://atharv.me/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is Atharv Mantri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Atharv Mantri is a 15-year-old AI systems and full-stack developer based in Indore, India. He is a 7x hackathon winner who has shipped over 120,000 lines of production code across 19+ public repositories, specializing in autonomous AI agents, zero-knowledge cryptography, and high-performance web applications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What projects has Atharv Mantri built?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Atharv's flagship projects include ActionPath (AI executive-function tool), Lumi Assist (local-first Windows voice assistant with 260+ tools), BridgeMind (cognitive accessibility Chrome extension), ScribeMesh (video-to-documentation platform), ShadowKey (zero-knowledge identity verification with Groth16 circuits), Guardnet (real-time disaster risk PWA), Websniper (visual web scraper builder), and Cognitive (attention-aware operating system)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What technologies does Atharv Mantri use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Atharv works with TypeScript, React 19, Next.js 15, Python, FastAPI, Google Gemini AI, Compact ZK (Midnight Network), Groth16 zk-SNARKs, Playwright, Docker, Firebase, PostgreSQL, and on-device machine learning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I contact Atharv Mantri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can reach Atharv Mantri via email at work@atharv.me, through his portfolio website at https://atharv.me, or on GitHub at github.com/atharvmantri."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What hackathons has Atharv Mantri won?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Atharv is a 7x hackathon winner. His notable achievements include being a finalist at the STEMINATE Hackathon (AI for a Better World) with BridgeMind, and winning WeatherWise 2026 with Guardnet, a real-time disaster risk intelligence PWA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is zero-knowledge cryptography?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zero-knowledge cryptography allows one party to prove knowledge of information without revealing the information itself. Atharv implements this through ShadowKey, which runs 9 Groth16 zk-SNARK circuits written in the Compact language on the Midnight Network for privacy-preserving identity verification."
+            }
+          }
+        ]
       },
       {
         "@type": "ItemList",
@@ -152,8 +329,16 @@
             "operatingSystem": "Web",
             "url": "https://actionpath.atharv.me",
             "codeRepository": "https://github.com/atharvmantri/ActionPath",
+            "datePublished": "2026-06-21",
+            "programmingLanguage": "TypeScript",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
             }
           },
           {
@@ -165,8 +350,16 @@
             "operatingSystem": "Windows 11",
             "url": "https://lumiassist.xyz",
             "codeRepository": "https://github.com/atharvmantri/Lumi-Assist",
+            "datePublished": "2026-06-10",
+            "programmingLanguage": ["Python", "TypeScript"],
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
             }
           },
           {
@@ -177,9 +370,13 @@
             "applicationCategory": "AccessibilityApplication",
             "operatingSystem": "Web Browser (Chrome)",
             "codeRepository": "https://github.com/atharvmantri/BridgeMind",
+            "datePublished": "2026-06-12",
+            "programmingLanguage": "JavaScript",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
-            }
+            },
+            "award": "STEMINATE Hackathon (AI for a Better World) Finalist"
           },
           {
             "@type": "SoftwareApplication",
@@ -189,6 +386,9 @@
             "applicationCategory": "MultimediaApplication",
             "operatingSystem": "Web",
             "codeRepository": "https://github.com/atharvmantri/ScribeMesh",
+            "datePublished": "2026-06-06",
+            "programmingLanguage": "TypeScript",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
             }
@@ -201,6 +401,9 @@
             "applicationCategory": "SecurityApplication",
             "operatingSystem": "Cross-Platform",
             "codeRepository": "https://github.com/atharvmantri/ShadowKey",
+            "datePublished": "2026-05-17",
+            "programmingLanguage": ["TypeScript", "Compact"],
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
             }
@@ -213,9 +416,13 @@
             "applicationCategory": "UtilityApplication",
             "operatingSystem": "Web / PWA",
             "codeRepository": "https://github.com/atharvmantri/Guardnet",
+            "datePublished": "2026-05-15",
+            "programmingLanguage": "TypeScript",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
-            }
+            },
+            "award": "WeatherWise 2026 Winner"
           },
           {
             "@type": "SoftwareApplication",
@@ -225,6 +432,9 @@
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Web / Node.js",
             "codeRepository": "https://github.com/atharvmantri/Websniper",
+            "datePublished": "2026-05-10",
+            "programmingLanguage": "TypeScript",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
             }
@@ -237,6 +447,9 @@
             "applicationCategory": "ProductivityApplication",
             "operatingSystem": "Cross-Platform",
             "codeRepository": "https://github.com/atharvmantri/Cognitive",
+            "datePublished": "2026-05-18",
+            "programmingLanguage": "Python",
+            "license": "https://opensource.org/licenses/MIT",
             "author": {
               "@id": "https://atharv.me/#person"
             }
@@ -275,12 +488,24 @@
         <li><a href="https://github.com/atharvmantri/Cognitive" style="color: #a855f7;">Cognitive</a> — Local attention operating system with on-device ML overload detection.</li>
       </ul>
 
+      <h2>Frequently Asked Questions</h2>
+      <dl>
+        <dt><strong>Who is Atharv Mantri?</strong></dt>
+        <dd>A 15-year-old AI systems and full-stack developer based in Indore, India. 7x hackathon winner with 120k+ lines shipped across 19+ repositories.</dd>
+        <dt><strong>What does Atharv build?</strong></dt>
+        <dd>Autonomous AI agent pipelines, zero-knowledge cryptography systems, local-first desktop apps, and high-performance web applications.</dd>
+        <dt><strong>How to contact Atharv?</strong></dt>
+        <dd>Email <a href="mailto:work@atharv.me" style="color: #00f2fe;">work@atharv.me</a> or visit <a href="https://atharv.me" style="color: #00f2fe;">atharv.me</a>.</dd>
+      </dl>
+
       <h2>Contact &amp; Discovery</h2>
       <p>Email: <a href="mailto:work@atharv.me" style="color: #00f2fe;">work@atharv.me</a></p>
       <p>GitHub: <a href="https://github.com/atharvmantri" style="color: #00f2fe;">github.com/atharvmantri</a></p>
       <p>Instagram: <a href="https://www.instagram.com/atharvmantr_i" style="color: #00f2fe;">@atharvmantr_i</a></p>
       <p>AI Engine Context: <a href="/llms.txt" style="color: #00f2fe;">/llms.txt</a> | <a href="/llms-full.txt" style="color: #00f2fe;">/llms-full.txt</a></p>
       <p>Plaintext Resume: <a href="/atharv-mantri-resume.txt" style="color: #00f2fe;">/atharv-mantri-resume.txt</a></p>
+      <p>RSS Feed: <a href="/feed.xml" style="color: #00f2fe;">/feed.xml</a></p>
+      <p>Contact Card: <a href="/atharv-mantri.vcf" style="color: #00f2fe;">Download vCard</a></p>
     </div>
   </noscript>
 

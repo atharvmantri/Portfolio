@@ -172,8 +172,13 @@ const githubProjectsEndpoint = 'https://api.github.com/users/atharvmantri/repos?
 const githubCacheKey = 'atharv-github-projects-v1';
 const githubCacheLifetime = 1000 * 60 * 15;
 
-const formatProjectDate = (date: string) =>
-  `Updated ${new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(date))}`;
+const formatProjectDate = (date: string) => {
+  const d = new Date(date);
+  const formatted = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(d);
+  return `Updated ${formatted}`;
+};
+
+const formatProjectDateISO = (date: string) => new Date(date).toISOString().split('T')[0];
 
 const githubProjectToPortfolioProject = (repository: GitHubRepository, index: number): Project => {
   const knownProject = projects.find((project) => project.name.toLowerCase() === repository.name.toLowerCase());
@@ -526,10 +531,10 @@ function App() {
           ))}
         </section>
 
-        <section id="work" className="section work-section">
+        <section id="work" className="section work-section" aria-labelledby="work-title">
           <div className="section-heading">
             <p className="eyebrow">Pulled from my GitHub</p>
-            <h2>Stuff I have been building lately.</h2>
+            <h2 id="work-title">Stuff I have been building lately.</h2>
             <p>
               No fake case studies. These public repositories are synced directly from GitHub, newest first.
             </p>
@@ -564,7 +569,7 @@ function App() {
                   <em>{project.description}</em>
                 </span>
                 <span className="repo-stack">{project.stack.join(' / ')}</span>
-                <span className="repo-date">{project.updated}</span>
+                <time className="repo-date" dateTime={formatProjectDateISO(project.updated.replace('Updated ', ''))}>{project.updated}</time>
                 <ArrowUpRight size={18} />
               </a>
             ))}
@@ -593,10 +598,10 @@ function App() {
           </div>
         </section>
 
-        <section id="lab" className="section lab-section">
+        <section id="lab" className="section lab-section" aria-labelledby="lab-title">
           <div className="section-heading narrow">
             <p className="eyebrow">How I think</p>
-            <h2>I like problems where the input is messy and the output is obvious.</h2>
+            <h2 id="lab-title">I like problems where the input is messy and the output is obvious.</h2>
           </div>
           <div className="lab-board">
             <div className="lab-statement">
@@ -615,10 +620,10 @@ function App() {
           </div>
         </section>
 
-        <section id="stack" className="section stack-section">
+        <section id="stack" className="section stack-section" aria-labelledby="stack-title">
           <div className="section-heading">
             <p className="eyebrow">Stack</p>
-            <h2>The parts I keep reaching for.</h2>
+            <h2 id="stack-title">The parts I keep reaching for.</h2>
           </div>
           <div className="capability-grid">
             {capabilities.map((capability) => (
@@ -636,10 +641,10 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="contact-section">
+        <section id="contact" className="contact-section" aria-labelledby="contact-title" role="complementary">
           <div>
             <p className="eyebrow">Contact</p>
-            <h2>Send me the sharp version.</h2>
+            <h2 id="contact-title">Send me the sharp version.</h2>
             <p>
               What are you building, what is broken, and where do you need help? That is enough to start.
             </p>
