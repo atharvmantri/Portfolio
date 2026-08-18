@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Atharv Mantri
+Site: https://atharv.me
+Email: work@atharv.me
+GitHub: https://github.com/atharvmantri
+Location: Indore, India
+
+/* THANKS */
+React 19, Vite, TypeScript, Lenis, Lucide Icons
+
+/* SITE */
+Last update: 2026-08-18
+Standards: HTML5, CSS3, ES2024
+Language: English
+Doctype: HTML5
+Software: React 19, Vite 8, TypeScript 5

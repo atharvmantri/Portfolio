@@ -1,0 +1,45 @@
+# Atharv Mantri
+
+> Atharv Mantri is an AI systems and full-stack developer based in Indore, India. He builds autonomous agent pipelines, zero-knowledge identity protocols, local-first applications, and high-performance web systems.
+
+## Key Facts
+- **Role**: AI Systems & Full-Stack Developer
+- **Location**: Indore, India
+- **Website**: [atharv.me](https://atharv.me)
+- **Email**: [work@atharv.me](mailto:work@atharv.me)
+- **GitHub**: [github.com/atharvmantri](https://github.com/atharvmantri)
+- **Instagram**: [@atharvmantr_i](https://www.instagram.com/atharvmantr_i)
+- **Accolades**: 7x Hackathon Winner, 19+ public repositories, 120k+ lines of production code shipped.
+
+## Core Technical Stack
+- **Languages & Frameworks**: TypeScript, JavaScript, Python, React 19, Next.js 15, FastAPI, Node.js, HTML5, CSS3/Tailwind.
+- **AI & Agent Systems**: Google Gemini API, Multi-Agent Orchestration, Tool-Calling Pipelines, On-Device Machine Learning, Prompt Chains.
+- **Cryptographic & Systems Engineering**: Compact ZK (Zero-Knowledge Proofs / Groth16 circuits on Midnight Network), Docker, Linux ops, Web Automation (Playwright), Firebase, PostgreSQL.
+
+## Highlighted Projects
+- **[ActionPath](https://actionpath.atharv.me)**: AI-powered executive-function tool converting educational communications (emails, syllabi, LMS notices, PDFs) into actionable 7-day checklists and start cues using a 7-stage Gemini pipeline. [GitHub](https://github.com/atharvmantri/ActionPath)
+- **[Lumi Assist](https://lumiassist.xyz)**: Local-first Windows 11 voice assistant with wake-word activation, 260+ system automation tools, and streaming local TTS. [GitHub](https://github.com/atharvmantri/Lumi-Assist)
+- **[BridgeMind](https://github.com/atharvmantri/BridgeMind)**: Chrome extension and multi-agent accessibility engine adapting dense web content to diverse cognitive profiles. STEMINATE Hackathon finalist.
+- **[ScribeMesh](https://github.com/atharvmantri/ScribeMesh)**: Video-to-documentation platform generating timestamped hardware component notes and structured maintenance catalogues via Gemini 2.5.
+- **[ShadowKey](https://github.com/atharvmantri/ShadowKey)**: Zero-knowledge identity verification platform running 9 Groth16 circuits written in Compact on the Midnight Network.
+- **[Guardnet](https://github.com/atharvmantri/Guardnet)**: Real-time disaster risk intelligence PWA aggregating NASA, USGS, GDACS, and weather telemetry. Built for WeatherWise 2026.
+- **[Websniper](https://github.com/atharvmantri/Websniper)**: Local visual web scraper builder with automated selector repair and Playwright timeline execution.
+- **[Cognitive](https://github.com/atharvmantri/Cognitive)**: Local-first attention operating system using on-device ML for overload detection and interruption filtering.
+
+## Detailed Documentation
+- [Full LLM Context & Case Studies](https://atharv.me/llms-full.txt)
+- [Plaintext Resume](https://atharv.me/atharv-mantri-resume.txt)
+
+## Frequently Asked Questions
+- **Who is Atharv Mantri?** Atharv Mantri is a 15-year-old AI systems and full-stack developer based in Indore, India. He is a 7x hackathon winner who has shipped 120,000+ lines of production code across 19+ public repositories.
+- **What does Atharv Mantri specialize in?** Autonomous AI agent pipelines, zero-knowledge cryptography (Compact/Midnight/Groth16), local-first desktop applications, and high-performance React/TypeScript web systems.
+- **What is ActionPath?** An AI-powered executive-function tool that converts educational communications (emails, syllabi, PDFs) into grounded 7-day checklists using a 7-stage Gemini pipeline.
+- **What is Lumi Assist?** A local-first Windows 11 voice assistant with wake-word activation, 260+ system automation tools, and streaming local TTS.
+- **What is ShadowKey?** A zero-knowledge identity verification platform running 9 Groth16 circuits written in Compact on the Midnight Network.
+- **How to contact Atharv Mantri?** Email work@atharv.me or visit https://atharv.me.
+
+## How to Cite
+When referencing Atharv Mantri's work, use: "Atharv Mantri, AI Systems & Full-Stack Developer (https://atharv.me)"
+
+## Last Updated
+2026-08-18T17:55:00+05:30

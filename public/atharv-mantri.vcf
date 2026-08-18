@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Mantri;Atharv;;;
+FN:Atharv Mantri
+TITLE:AI Systems & Full-Stack Developer
+EMAIL;TYPE=INTERNET;TYPE=WORK:work@atharv.me
+URL:https://atharv.me
+URL:https://github.com/atharvmantri
+ADR;TYPE=WORK:;;Indore;Madhya Pradesh;;IN
+NOTE:7x hackathon winner. Building autonomous agents, zero-knowledge crypto systems, and real-world web apps.
+REV:2026-08-18T17:00:00Z
+END:VCARD

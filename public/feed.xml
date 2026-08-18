@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Atharv Mantri — Projects &amp; Systems</title>
+    <link>https://atharv.me/</link>
+    <description>AI systems, zero-knowledge protocols, and full-stack web projects by Atharv Mantri.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Aug 2026 17:00:00 +0530</lastBuildDate>
+    <atom:link href="https://atharv.me/feed.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>work@atharv.me (Atharv Mantri)</managingEditor>
+    <webMaster>work@atharv.me (Atharv Mantri)</webMaster>
+    <copyright>© 2026 Atharv Mantri. All rights reserved.</copyright>
+    <image>
+      <url>https://atharv.me/og-image.png</url>
+      <title>Atharv Mantri</title>
+      <link>https://atharv.me/</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <item>
+      <title>ActionPath — AI Executive-Function Tool</title>
+      <link>https://actionpath.atharv.me</link>
+      <description>AI-powered executive-function tool converting educational communications into grounded action checklists, 7-day plans, and start cues using Gemini pipelines.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/ActionPath</guid>
+      <pubDate>Sat, 21 Jun 2026 00:00:00 +0530</pubDate>
+      <category>AI</category>
+      <category>Productivity</category>
+      <category>TypeScript</category>
+    </item>
+    <item>
+      <title>Lumi Assist — Local-First Voice Assistant</title>
+      <link>https://lumiassist.xyz</link>
+      <description>Local-first Windows 11 voice assistant with wake-word activation, 260+ desktop automation tools, and streaming local TTS.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/Lumi-Assist</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0530</pubDate>
+      <category>Voice AI</category>
+      <category>Python</category>
+      <category>Desktop</category>
+    </item>
+    <item>
+      <title>BridgeMind — Cognitive Accessibility Engine</title>
+      <link>https://github.com/atharvmantri/BridgeMind</link>
+      <description>Chrome extension and multi-agent accessibility engine adapting dense web content to diverse cognitive profiles. STEMINATE Hackathon finalist.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/BridgeMind</guid>
+      <pubDate>Thu, 12 Jun 2026 00:00:00 +0530</pubDate>
+      <category>Accessibility</category>
+      <category>Multi-Agent AI</category>
+    </item>
+    <item>
+      <title>ScribeMesh — Video-to-Documentation Platform</title>
+      <link>https://github.com/atharvmantri/ScribeMesh</link>
+      <description>Video-to-documentation platform generating timestamped hardware component notes and structured maintenance catalogues via Gemini 2.5 multimodal AI.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/ScribeMesh</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 +0530</pubDate>
+      <category>Multimodal AI</category>
+      <category>Documentation</category>
+    </item>
+    <item>
+      <title>ShadowKey — Zero-Knowledge Identity Verification</title>
+      <link>https://github.com/atharvmantri/ShadowKey</link>
+      <description>Zero-knowledge identity verification platform running 9 Groth16 circuits written in Compact on the Midnight Network.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/ShadowKey</guid>
+      <pubDate>Sat, 17 May 2026 00:00:00 +0530</pubDate>
+      <category>Zero-Knowledge</category>
+      <category>Cryptography</category>
+    </item>
+    <item>
+      <title>Guardnet — Disaster Risk Intelligence PWA</title>
+      <link>https://github.com/atharvmantri/Guardnet</link>
+      <description>Real-time disaster risk intelligence PWA compressing NASA, USGS, GDACS, weather, and community telemetry into a unified risk score. WeatherWise 2026 Winner.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/Guardnet</guid>
+      <pubDate>Thu, 15 May 2026 00:00:00 +0530</pubDate>
+      <category>PWA</category>
+      <category>Disaster Response</category>
+    </item>
+    <item>
+      <title>Websniper — Visual Web Scraper Builder</title>
+      <link>https://github.com/atharvmantri/Websniper</link>
+      <description>Local visual web scraper builder with automated selector repair and Playwright timeline execution.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/Websniper</guid>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0530</pubDate>
+      <category>Developer Tools</category>
+      <category>Playwright</category>
+    </item>
+    <item>
+      <title>Cognitive — Attention-Aware Operating Subsystem</title>
+      <link>https://github.com/atharvmantri/Cognitive</link>
+      <description>Local-first attention operating system using on-device ML for cognitive overload detection and notification interruption control.</description>
+      <dc:creator>Atharv Mantri</dc:creator>
+      <guid isPermaLink="false">https://github.com/atharvmantri/Cognitive</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0530</pubDate>
+      <category>Machine Learning</category>
+      <category>Focus</category>
+    </item>
+  </channel>
+</rss>

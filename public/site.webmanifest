@@ -1,0 +1,43 @@
+{
+  "name": "Atharv Mantri — AI Systems & Full-Stack Developer",
+  "short_name": "Atharv Mantri",
+  "description": "Portfolio and system builds by Atharv Mantri — AI tools, zero-knowledge protocols, and high-performance web systems.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "background_color": "#080610",
+  "theme_color": "#080610",
+  "prefer_related_applications": false,
+  "categories": ["portfolio", "developer", "technology", "ai"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "url": "/#work",
+      "description": "Browse Atharv's featured projects and repositories"
+    },
+    {
+      "name": "Contact Atharv",
+      "short_name": "Contact",
+      "url": "/#contact",
+      "description": "Get in touch with Atharv Mantri"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Security Policy for atharv.me
+# https://securitytxt.org/
+Contact: mailto:work@atharv.me
+Preferred-Languages: en
+Canonical: https://atharv.me/.well-known/security.txt
+Expires: 2027-08-18T00:00:00.000Z
+Policy: https://github.com/atharvmantri/Portfolio/security/policy

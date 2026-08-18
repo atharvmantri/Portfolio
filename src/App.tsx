@@ -451,7 +451,7 @@ function App() {
             </button>
           ))}
         </nav>
-        <a className="nav-cta" href="https://github.com/atharvmantri" target="_blank" rel="noreferrer">
+        <a className="nav-cta" href="https://github.com/atharvmantri" target="_blank" rel="noopener noreferrer">
           <Code2 size={18} />
           GitHub
         </a>
@@ -491,7 +491,15 @@ function App() {
 
           <aside className="hero-card" aria-label="Atharv profile summary">
             <div className="portrait-frame">
-              <img src={profileImg} alt="Atharv Mantri" />
+              <img
+                src={profileImg}
+                alt="Atharv Mantri — AI Systems &amp; Full-Stack Developer"
+                width="400"
+                height="400"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
             </div>
             <div className="card-kicker">Current read</div>
             <h2>7x hackathon winner. Still writing the code myself.</h2>
@@ -549,7 +557,7 @@ function App() {
 
           <div className="repo-table" aria-label="Repository table">
             {githubProjects.slice(4).map((project) => (
-              <a className="repo-row" href={project.repo} target="_blank" rel="noreferrer" key={project.name}>
+              <a className="repo-row" href={project.repo} target="_blank" rel="noopener noreferrer" key={project.name}>
                 <span className="repo-icon">{project.icon}</span>
                 <span>
                   <strong>{project.name}</strong>
@@ -642,12 +650,12 @@ function App() {
               <span>work@atharv.me</span>
               {copied ? <Check size={18} /> : <Copy size={18} />}
             </button>
-            <a href="https://github.com/atharvmantri" target="_blank" rel="noreferrer">
+            <a href="https://github.com/atharvmantri" target="_blank" rel="noopener noreferrer">
               <Code2 size={19} />
               github.com/atharvmantri
               <ArrowUpRight size={17} />
             </a>
-            <a href="https://www.instagram.com/atharvmantr_i" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/atharvmantr_i" target="_blank" rel="noopener noreferrer">
               <Sparkles size={19} />
               @atharvmantr_i
               <ArrowUpRight size={17} />
@@ -681,8 +689,8 @@ function App() {
             </div>
             <p className="case-proof"><Award size={18} /> {selectedProject.proof}</p>
             <div className="case-actions">
-              {selectedProject.live && <a className="button primary" href={selectedProject.live} target="_blank" rel="noreferrer"><Zap size={17} /> View live product <ArrowUpRight size={16} /></a>}
-              <a className="button ghost" href={selectedProject.repo} target="_blank" rel="noreferrer"><Code2 size={17} /> Source code <ArrowUpRight size={16} /></a>
+              {selectedProject.live && <a className="button primary" href={selectedProject.live} target="_blank" rel="noopener noreferrer"><Zap size={17} /> View live product <ArrowUpRight size={16} /></a>}
+              <a className="button ghost" href={selectedProject.repo} target="_blank" rel="noopener noreferrer"><Code2 size={17} /> Source code <ArrowUpRight size={16} /></a>
             </div>
           </article>
         </div>
