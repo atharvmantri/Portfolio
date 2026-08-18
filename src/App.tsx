@@ -447,7 +447,7 @@ function App() {
       </div>
       <header className="topbar">
         <button className="brand-mark" onClick={() => scrollTo('home')} aria-label="Go to top">
-          <span>AM</span>
+          <img src="/favicon.svg" alt="Atharv Mantri" width="28" height="28" />
         </button>
         <nav className="nav-links" aria-label="Primary navigation">
           {navItems.map(([id, label]) => (

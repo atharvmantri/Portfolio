@@ -189,14 +189,12 @@ a {
   height: 44px;
   place-items: center;
   background: var(--ink);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
   overflow: hidden;
 }
 
-.brand-mark span {
+.brand-mark img {
+  width: 28px;
+  height: 28px;
   animation: markPulse 2.4s ease-in-out infinite;
 }
 
