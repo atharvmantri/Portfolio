@@ -677,6 +677,9 @@ function App() {
               <a className="button ghost" href="/demos/service-enquiry-starter.html">
                 View a local-service sample <ArrowUpRight size={17} />
               </a>
+              <a className="button ghost" href="/demos/futureaim-concept.html">
+                View an education-enquiry sample <ArrowUpRight size={17} />
+              </a>
               <a className="button ghost" href="/demos/prismaa-concept.html">
                 View an appointment-flow sample <ArrowUpRight size={17} />
               </a>
