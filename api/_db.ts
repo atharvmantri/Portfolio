@@ -1,7 +1,9 @@
 import { config as loadEnv } from 'dotenv';
-import { Pool } from 'pg';
+import pg from 'pg';
 
-type GlobalPool = typeof globalThis & { __dbPool?: Pool };
+const { Pool } = pg;
+
+type GlobalPool = typeof globalThis & { __dbPool?: InstanceType<typeof Pool> };
 
 const globalForDb = globalThis as GlobalPool;
 

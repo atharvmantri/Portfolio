@@ -1,4 +1,4 @@
-import { getPool } from '../_db';
+import { getPool } from '../_db.js';
 
 type ApiRequest = {
   method?: string;
