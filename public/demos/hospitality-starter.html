@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A sample hospitality landing page built by Atharv Mantri." />
+    <title>Harbor House — Sample Hospitality Website</title>
+    <style>
+      :root {
+        --ink: #18242d;
+        --muted: #64727a;
+        --paper: #f5f1ea;
+        --card: #fffdf9;
+        --line: #e1ddd4;
+        --blue: #245a70;
+        --blue-dark: #173d4c;
+        --sand: #d8ab72;
+        --shadow: 0 22px 70px rgba(26, 53, 65, .12);
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+      a { color: inherit; }
+      .shell { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+      .notice { background: var(--blue-dark); color: #f9f4eb; font-size: .8rem; letter-spacing: .04em; padding: 10px 0; }
+      .notice strong { color: #f2c98f; }
+      header { align-items: center; display: flex; justify-content: space-between; padding: 25px 0; }
+      .brand { align-items: center; display: flex; gap: 12px; font-weight: 850; letter-spacing: -.04em; text-decoration: none; }
+      .mark { align-items: center; background: var(--sand); border-radius: 14px; color: white; display: grid; font-size: 1.05rem; height: 42px; place-items: center; width: 42px; }
+      nav { display: flex; gap: 24px; }
+      nav a { color: var(--muted); font-size: .9rem; text-decoration: none; }
+      nav a:hover { color: var(--blue); }
+      .button { border: 1px solid var(--blue); border-radius: 999px; display: inline-flex; font-weight: 750; gap: 8px; padding: 12px 18px; text-decoration: none; }
+      .button.primary { background: var(--blue); color: #fff; }
+      .button.secondary { color: var(--blue); }
+      .hero { align-items: center; display: grid; gap: 55px; grid-template-columns: 1fr 1fr; padding: 58px 0 82px; }
+      .eyebrow { color: var(--blue); font-size: .75rem; font-weight: 850; letter-spacing: .16em; margin: 0 0 14px; text-transform: uppercase; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { font-size: clamp(3rem, 6vw, 5.8rem); letter-spacing: -.08em; line-height: .94; margin-bottom: 24px; max-width: 650px; }
+      h2 { font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.06em; line-height: 1.03; }
+      .lede { color: var(--muted); font-size: 1.12rem; max-width: 560px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .hero-art { background: #d9e4e1; border-radius: 34px; min-height: 465px; overflow: hidden; padding: 22px; position: relative; }
+      .hero-art::before { background: linear-gradient(140deg, rgba(255,255,255,.5), transparent 45%), linear-gradient(155deg, #89a9a6, #234c5b); border-radius: 24px; content: ""; inset: 22px; position: absolute; }
+      .hero-art::after { background: rgba(242, 201, 143, .92); border-radius: 50%; content: ""; height: 165px; position: absolute; right: 10%; top: 11%; width: 165px; }
+      .stay-card { backdrop-filter: blur(10px); background: rgba(255,253,249,.91); border: 1px solid rgba(255,255,255,.7); border-radius: 18px; bottom: 42px; box-shadow: var(--shadow); left: 46px; padding: 22px; position: absolute; width: min(340px, 76%); z-index: 1; }
+      .stay-card p { color: var(--muted); font-size: .9rem; margin-bottom: 12px; }
+      .line { background: var(--blue); border-radius: 999px; height: 9px; margin: 8px 0; width: 72%; }
+      .line.short { background: #c2d1cd; width: 46%; }
+      .section { padding: 78px 0; }
+      .section-head { align-items: end; display: flex; gap: 24px; justify-content: space-between; margin-bottom: 30px; }
+      .section-head h2 { margin-bottom: 0; max-width: 610px; }
+      .section-head p { color: var(--muted); margin-bottom: 4px; max-width: 330px; }
+      .grid { display: grid; gap: 18px; }
+      .room-grid, .feature-grid { grid-template-columns: repeat(3, 1fr); }
+      .card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 25px; }
+      .card:hover { border-color: #acc4c1; box-shadow: var(--shadow); transform: translateY(-3px); transition: .2s ease; }
+      .room { overflow: hidden; padding: 0; }
+      .room-image { align-items: end; background: linear-gradient(145deg, #d9bc8c, #4c7480); color: white; display: flex; height: 190px; padding: 20px; }
+      .room-image.two { background: linear-gradient(145deg, #9fbeba, #2f586a); }
+      .room-image.three { background: linear-gradient(145deg, #cfa785, #6b5141); }
+      .room-image span { background: rgba(20, 38, 45, .72); border-radius: 999px; font-size: .73rem; font-weight: 800; padding: 7px 10px; }
+      .room-body { padding: 22px; }
+      .room-body h3 { margin-bottom: 5px; }
+      .room-body p, .feature p { color: var(--muted); font-size: .94rem; }
+      .meta { color: var(--muted); display: flex; font-size: .84rem; gap: 12px; margin: 12px 0 20px; }
+      .meta span + span { border-left: 1px solid var(--line); padding-left: 12px; }
+      .room-footer { align-items: center; display: flex; justify-content: space-between; }
+      .price { color: var(--blue-dark); font-weight: 850; }
+      .card-link { color: var(--blue); font-size: .9rem; font-weight: 800; text-decoration: none; }
+      .icon { align-items: center; background: #e5efec; border-radius: 13px; color: var(--blue); display: grid; font-size: 1.35rem; height: 48px; margin-bottom: 22px; place-items: center; width: 48px; }
+      .process { background: var(--blue-dark); color: #f6f1e8; }
+      .process .eyebrow { color: #f2c98f; }
+      .process-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
+      .step { border-left: 1px solid rgba(255,255,255,.28); padding-left: 18px; }
+      .step b { color: #f2c98f; display: block; font-size: .8rem; margin-bottom: 18px; }
+      .step h3 { font-size: 1.1rem; }
+      .step p { color: #c9d4d1; font-size: .9rem; }
+      .quote { align-items: center; background: #e4eeeb; border-radius: 28px; display: flex; gap: 30px; justify-content: space-between; padding: 42px; }
+      .quote h2 { margin-bottom: 10px; }
+      .quote p { color: var(--muted); margin-bottom: 0; }
+      footer { border-top: 1px solid var(--line); color: var(--muted); display: flex; font-size: .85rem; justify-content: space-between; padding: 28px 0 44px; }
+      @media (max-width: 800px) {
+        nav { display: none; }
+        .hero, .room-grid, .feature-grid { grid-template-columns: 1fr; }
+        .hero { gap: 32px; padding-top: 34px; }
+        .hero-art { min-height: 365px; }
+        .section-head, .quote, footer { align-items: start; flex-direction: column; }
+        .section-head { gap: 12px; }
+        .process-grid { grid-template-columns: repeat(2, 1fr); }
+        .quote { padding: 30px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><div class="shell"><strong>Sample build concept</strong> — replace the name, copy, photos, rates, and enquiry destination with the real property details.</div></div>
+    <div class="shell">
+      <header>
+        <a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">H</span><span>Harbor House</span></a>
+        <nav aria-label="Main navigation"><a href="#rooms">Rooms</a><a href="#features">Experience</a><a href="#scope">Pilot scope</a><a href="#process">How it works</a></nav>
+        <a class="button secondary" href="mailto:work@atharv.me?subject=Hospitality%20website%20demo">Discuss a build</a>
+      </header>
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Stay a little closer to what matters</p>
+            <h1>A calmer way to choose your next stay.</h1>
+            <p class="lede">A focused hospitality front door for rooms, amenities, dining, and the next booking conversation — designed to make the useful details easy to find on mobile.</p>
+            <div class="actions"><a class="button primary" href="#rooms">Explore rooms →</a><a class="button secondary" href="mailto:work@atharv.me?subject=Hospitality%20enquiry">Start an enquiry</a></div>
+          </div>
+          <div class="hero-art" aria-label="Abstract sample hospitality artwork"><div class="stay-card"><p class="eyebrow">A better first impression</p><h3>Rooms, details, and the next step in one calm path.</h3><div class="line"></div><div class="line short"></div><p>Availability, amenities, location, and booking contact — without making guests hunt.</p></div></div>
+        </section>
+        <section id="rooms" class="section">
+          <div class="section-head"><h2>Rooms people can understand at a glance.</h2><p>Sample room cards can be replaced with real photos, amenities, rates, and the booking route you already use.</p></div>
+          <div class="grid room-grid">
+            <article class="card room"><div class="room-image"><span>Popular</span></div><div class="room-body"><h3>Garden King Room</h3><p>Warm light, a quiet workspace, and a simple stay for business or leisure.</p><div class="meta"><span>2 guests</span><span>1 king bed</span></div><div class="room-footer"><span class="price">From INR 3,200</span><a class="card-link" href="mailto:work@atharv.me?subject=Garden%20King%20Room%20enquiry">Enquire →</a></div></div></article>
+            <article class="card room"><div class="room-image two"><span>Long stay</span></div><div class="room-body"><h3>Riverline Suite</h3><p>More space for visiting teams, longer stays, and unhurried mornings.</p><div class="meta"><span>4 guests</span><span>2 rooms</span></div><div class="room-footer"><span class="price">From INR 4,800</span><a class="card-link" href="mailto:work@atharv.me?subject=Riverline%20Suite%20enquiry">Enquire →</a></div></div></article>
+            <article class="card room"><div class="room-image three"><span>Quiet corner</span></div><div class="room-body"><h3>Courtyard Room</h3><p>A practical, comfortable base with the details guests need before arrival.</p><div class="meta"><span>2 guests</span><span>1 queen bed</span></div><div class="room-footer"><span class="price">From INR 2,400</span><a class="card-link" href="mailto:work@atharv.me?subject=Courtyard%20Room%20enquiry">Enquire →</a></div></div></article>
+          </div>
+        </section>
+        <section id="features" class="section">
+          <div class="section-head"><h2>Show the experience before the guest arrives.</h2><p>Small content blocks can answer the questions that usually slow down a booking conversation.</p></div>
+          <div class="grid feature-grid">
+            <article class="card feature"><div class="icon">✦</div><h3>Stay details</h3><p>Make rooms, amenities, check-in, parking, and location easy to scan on any screen.</p></article>
+            <article class="card feature"><div class="icon">⌁</div><h3>Dining & events</h3><p>Give restaurants, banquets, and packages a clear path without hiding the booking action.</p></article>
+            <article class="card feature"><div class="icon">↗</div><h3>One next step</h3><p>Route guests to the existing phone, email, WhatsApp, or booking system your team already uses.</p></article>
+          </div>
+        </section>
+        <section id="scope" class="section"><div class="quote"><div><p class="eyebrow">Indicative pilot</p><h2>Start with one useful page.</h2><p>From INR 5,000 · typically 2–3 days after content is ready. Fixed scope, tested handoff, and no unpaid test.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Hospitality%20pilot%20scope">Request a scoped quote ↗</a></div></section>
+        <section id="process" class="section process">
+          <div class="shell"><p class="eyebrow">A low-friction build</p><h2>Useful first. Fancy second.</h2><div class="process-grid"><div class="step"><b>01</b><h3>Agree the shape</h3><p>Pages, content, enquiry actions, and what should stay editable.</p></div><div class="step"><b>02</b><h3>Build the path</h3><p>Responsive layouts, clear content blocks, and the right booking destination.</p></div><div class="step"><b>03</b><h3>Test the handoff</h3><p>Mobile checks, link checks, content review, and an operating note.</p></div><div class="step"><b>04</b><h3>Keep it yours</h3><p>Handoff files and a documented next step so the site is not a black box.</p></div></div></div>
+        </section>
+        <section class="section"><div class="quote"><div><p class="eyebrow">Have a real property brief?</p><h2>Make the next booking easier.</h2><p>Share the property, the content, and the action you want guests to take.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Hospitality%20website%20brief">Send the brief ↗</a></div></section>
+      </main>
+      <footer><span>Sample build by Atharv Mantri</span><a href="/">Back to portfolio ↗</a></footer>
+    </div>
+  </body>
+</html>
