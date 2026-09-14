@@ -658,6 +658,7 @@ function App() {
                 <li>Small AI integration with tests — from INR 5,000 · 3 days</li>
               </ul>
               <p>Final scope and quote are agreed before work starts.</p>
+              <p>Every sprint ends with a tested handoff: exact files changed, checks run, and the next step documented.</p>
               <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request">
                 Request a paid scope <ArrowUpRight size={17} />
               </a>
