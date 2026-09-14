@@ -648,6 +648,20 @@ function App() {
             <p>
               What are you building, what is broken, and where do you need help? That is enough to start.
             </p>
+            <div className="contact-panel paid-offer" aria-label="Paid build sprint offer">
+              <p className="eyebrow">PAID BUILD SPRINTS</p>
+              <h3>Need a working prototype or a stubborn bug fixed?</h3>
+              <p>Small, clearly scoped React/TypeScript, FastAPI, browser-automation, and AI-integration work.</p>
+              <ul>
+                <li>Landing-page polish — from INR 2,500 · 2 days</li>
+                <li>API or browser-automation fix — from INR 3,500 · 2 days</li>
+                <li>Small AI integration with tests — from INR 5,000 · 3 days</li>
+              </ul>
+              <p>Final scope and quote are agreed before work starts.</p>
+              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request">
+                Request a paid scope <ArrowUpRight size={17} />
+              </a>
+            </div>
           </div>
           <div className="contact-panel">
             <button className="email-copy" onClick={copyEmail}>
