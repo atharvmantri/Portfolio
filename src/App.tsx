@@ -487,13 +487,17 @@ function App() {
               direct, technical, a little raw, and obsessed with shipping the thing.
             </p>
             <div className="hero-actions">
-              <button className="button primary" onClick={() => scrollTo('work')}>
+              <a
+                className="button primary"
+                href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20"
+                aria-label="Request a paid micro-sprint"
+              >
                 <Zap size={18} />
+                Request a paid micro-sprint
+              </a>
+              <button className="button ghost" onClick={() => scrollTo('work')}>
+                <Code2 size={18} />
                 See the work
-              </button>
-              <button className="button ghost" onClick={() => scrollTo('contact')}>
-                <Mail size={18} />
-                Contact
               </button>
             </div>
           </div>
