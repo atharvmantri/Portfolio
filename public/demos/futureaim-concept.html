@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="Private concept preview for a coaching batch enquiry page." />
+    <title>Future Aim — private batch-enquiry concept</title>
+    <style>
+      :root { --ink:#242328; --muted:#706d79; --paper:#f8f6fb; --card:#fff; --line:#e5deed; --violet:#5a3c8c; --deep:#2d1f4e; --lilac:#e8def4; --gold:#efc66c; --shadow:0 22px 65px rgba(45,31,78,.14); }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.55; }
+      a { color:inherit; }
+      .shell { max-width:1120px; margin:0 auto; padding:0 24px; }
+      .notice { background:var(--deep); color:#faf8fc; font-size:.78rem; padding:12px 0; }
+      .notice strong { color:#f7d27d; }
+      header { align-items:center; display:flex; justify-content:space-between; padding:25px 0; }
+      .brand { align-items:center; display:flex; gap:11px; font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+      .mark { align-items:center; background:var(--gold); border-radius:14px; color:var(--deep); display:grid; height:42px; place-items:center; width:42px; }
+      nav { display:flex; gap:22px; }
+      nav a { color:var(--muted); font-size:.88rem; text-decoration:none; }
+      .button { border:1px solid var(--violet); border-radius:999px; display:inline-flex; font-weight:780; padding:12px 18px; text-decoration:none; }
+      .button.primary { background:var(--violet); color:#fff; }
+      .button.secondary { color:var(--violet); }
+      .hero { align-items:center; display:grid; gap:54px; grid-template-columns:1.05fr .95fr; padding:54px 0 76px; }
+      .eyebrow { color:var(--violet); font-size:.74rem; font-weight:850; letter-spacing:.16em; margin:0 0 14px; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { font-size:clamp(3rem,6vw,5.7rem); letter-spacing:-.085em; line-height:.94; margin-bottom:23px; max-width:650px; }
+      h2 { font-size:clamp(2rem,4vw,3.25rem); letter-spacing:-.065em; line-height:1.02; }
+      .lede { color:var(--muted); font-size:1.1rem; max-width:560px; }
+      .actions { display:flex; flex-wrap:wrap; gap:11px; margin-top:29px; }
+      .hero-art { background:#d8cbea; border-radius:32px; min-height:430px; overflow:hidden; padding:22px; position:relative; }
+      .hero-art::before { background:linear-gradient(140deg,rgba(255,255,255,.7),transparent 45%),linear-gradient(155deg,#aa8bc8,#5a3c8c); border-radius:23px; content:""; inset:22px; position:absolute; }
+      .hero-art::after { background:rgba(239,198,108,.93); border-radius:50%; content:""; height:155px; position:absolute; right:10%; top:11%; width:155px; }
+      .request-card { backdrop-filter:blur(10px); background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.8); border-radius:18px; bottom:35px; box-shadow:var(--shadow); left:40px; padding:23px; position:absolute; width:min(360px,80%); z-index:1; }
+      .request-card p { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+      .request-card h3 { margin-bottom:7px; }
+      .rule { background:var(--violet); border-radius:999px; height:9px; margin:9px 0; width:73%; }
+      .rule.short { background:#c8b6df; width:47%; }
+      .section { padding:72px 0; }
+      .section-head { align-items:end; display:flex; gap:22px; justify-content:space-between; margin-bottom:28px; }
+      .section-head h2 { margin-bottom:0; max-width:600px; }
+      .section-head p { color:var(--muted); margin-bottom:4px; max-width:330px; }
+      .grid { display:grid; gap:17px; }
+      .card-grid { grid-template-columns:repeat(3,1fr); }
+      .card { background:var(--card); border:1px solid var(--line); border-radius:21px; padding:23px; }
+      .card h3 { margin-bottom:7px; }
+      .card p { color:var(--muted); font-size:.93rem; }
+      .icon { align-items:center; background:var(--lilac); border-radius:13px; color:var(--violet); display:grid; font-size:1.3rem; height:47px; margin-bottom:20px; place-items:center; width:47px; }
+      .scope { background:var(--deep); color:#f9f7fc; }
+      .scope .eyebrow { color:#f7d27d; }
+      .scope p { color:#d6cce5; }
+      .scope-grid { display:grid; gap:25px; grid-template-columns:1.1fr .9fr; }
+      .scope ul { color:#e9e1f2; margin:0; padding-left:20px; }
+      .quote { align-items:center; background:var(--lilac); border-radius:26px; display:flex; gap:24px; justify-content:space-between; padding:36px; }
+      .quote h2 { margin-bottom:9px; }
+      .quote p { color:var(--muted); margin-bottom:0; }
+      footer { border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:.83rem; justify-content:space-between; padding:27px 0 42px; }
+      @media (max-width:780px) { nav{display:none;} .hero,.scope-grid,.card-grid{grid-template-columns:1fr;} .hero{gap:30px;padding-top:32px;} .hero-art{min-height:350px;} .section-head,.quote,footer{align-items:start;flex-direction:column;} .section-head{gap:11px;} }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><div class="shell"><strong>PRIVATE CONCEPT PREVIEW</strong> — not affiliated with or approved by Future Aim. No enrolment request is sent from this page. Replace all content, images, destinations, and batch details after written approval.</div></div>
+    <div class="shell">
+      <header><a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">F</span><span>Future Aim</span></a><nav aria-label="Main navigation"><a href="#questions">Questions</a><a href="#path">Path</a><a href="#scope">Pilot</a></nav><a class="button secondary" href="#scope">Review the idea</a></header>
+      <main>
+        <section class="hero"><div><p class="eyebrow">Coaching · batch enquiry</p><h1>Let parents ask the right question first.</h1><p class="lede">A focused mobile front door for Future Aim’s batch pages: class, board, subject, preferred batch, and one clear next step.</p><div class="actions"><a class="button primary" href="#questions">See the enquiry path →</a><a class="button secondary" href="#scope">View the pilot scope</a></div></div><div class="hero-art" aria-label="Abstract coaching concept artwork"><div class="request-card"><p class="eyebrow">A clearer first step</p><h3>Class, board, subject, batch — enough context for a useful reply.</h3><div class="rule"></div><div class="rule short"></div><p>Designed to make an “Enroll Now” conversation more specific before it reaches the team.</p></div></div></section>
+        <section id="questions" class="section"><div class="section-head"><h2>Replace a generic form with a useful first request.</h2><p>The official site offers multiple Enroll Now paths; this preview shows a more qualified mobile enquiry structure.</p></div><div class="grid card-grid"><article class="card"><div class="icon">01</div><h3>Student context</h3><p>Ask for class and board so the team knows which learner the enquiry concerns.</p></article><article class="card"><div class="icon">02</div><h3>Learning need</h3><p>Capture subject and preferred batch instead of making parents explain everything from scratch.</p></article><article class="card"><div class="icon">03</div><h3>Next conversation</h3><p>Route the request to Future Aim’s approved email, phone, or WhatsApp destination.</p></article></div></section>
+        <section id="path" class="section"><div class="section-head"><h2>One calm path from interest to a qualified reply.</h2><p>Short, editable blocks can become real batches, subjects, schedules, fees, and counsellor actions.</p></div><div class="grid card-grid"><article class="card"><h3>Choose a class</h3><p>Make the relevant class or grade the first easy choice.</p></article><article class="card"><h3>Choose a batch</h3><p>Show approved board, subject, timing, and batch information.</p></article><article class="card"><h3>Request a callback</h3><p>Set a clear expectation for the next response without promising an automatic admission.</p></article></div></section>
+        <section id="scope" class="section scope"><div class="scope-grid"><div><p class="eyebrow">Indicative fixed-scope pilot</p><h2>Start with one page that improves the next conversation.</h2><p>INR 3,500–5,000 indicative · typically 2–3 days after approved content is ready. No work starts without written scope, acceptance criteria, and payment terms.</p></div><div><ul><li>Responsive batch-enquiry page</li><li>Approved course/batch content</li><li>Class, board, subject, and batch fields</li><li>Approved email/phone/WhatsApp CTA</li><li>Mobile/link checks and one review round</li><li>No unpaid trial work</li></ul></div></div></section>
+        <section class="section"><div class="quote"><div><p class="eyebrow">Review copy only</p><h2>Reply YES for the exact scope.</h2><p>This is not a live enrolment page; it is a private concept for discussion.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Future%20Aim%20concept%20review">Discuss the pilot →</a></div></section>
+      </main>
+      <footer><span>Private concept by Atharv Mantri · no affiliation implied</span><a href="/">Back to portfolio →</a></footer>
+    </div>
+  </body>
+</html>
