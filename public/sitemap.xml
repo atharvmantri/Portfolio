@@ -5,7 +5,7 @@
   <url>
     <loc>https://atharv.me/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://atharv.me/"/>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,6 +13,12 @@
       <image:title>Atharv Mantri — AI Systems and Full-Stack Developer</image:title>
       <image:caption>Personal portfolio and system builds by Atharv Mantri.</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.atharv.me/paid-work.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://atharv.me/llms.txt</loc>
