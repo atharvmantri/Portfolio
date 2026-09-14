@@ -35,6 +35,64 @@ export const Contact: React.FC = () => {
           </p>
         </div>
 
+        {/* Paid-work conversion path */}
+        <div
+          className="paid-scope-callout"
+          style={{
+            display: 'grid',
+            gap: '18px',
+            margin: '0 auto 28px',
+            padding: '22px',
+            border: '1px solid var(--ink)',
+            background: 'var(--paper-deep)',
+            boxShadow: '6px 6px 0 rgba(21, 19, 15, 0.08)',
+            textAlign: 'left'
+          }}
+        >
+          <div>
+            <p style={{
+              margin: '0 0 8px',
+              color: 'var(--red)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.72rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em'
+            }}>
+              {t('paidScopeEyebrow', { defaultValue: 'PAID BUILD SPRINTS' })}
+            </p>
+            <h3 style={{
+              margin: '0 0 10px',
+              color: 'var(--ink)',
+              fontFamily: 'var(--font-serif)',
+              fontSize: '1.8rem',
+              lineHeight: 1
+            }}>
+              {t('paidScopeTitle', { defaultValue: 'Need a working prototype or a stubborn bug fixed?' })}
+            </h3>
+            <p style={{
+              maxWidth: '620px',
+              margin: 0,
+              color: 'var(--ink-soft)',
+              fontSize: '0.98rem',
+              lineHeight: 1.55
+            }}>
+              {t('paidScopeDescription', {
+                defaultValue: 'For small, clearly scoped React/TypeScript, FastAPI, browser-automation, and AI-integration work, send the goal and current state. Scope, price, and delivery are agreed before work begins.'
+              })}
+            </p>
+          </div>
+          <a
+            href="mailto:work@atharv.me?subject=Paid%20build%20request"
+            className="button button-primary"
+            data-interactive
+            aria-label="Request a paid build scope"
+            style={{ justifySelf: 'start' }}
+          >
+            {t('paidScopeCta', { defaultValue: 'Request a paid scope' })}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
         {/* Contact Window — Email Only */}
         <div className="retro-window" style={{ maxWidth: '520px', margin: '0 auto' }}>
           <div className="retro-titlebar">
