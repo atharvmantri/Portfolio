@@ -674,6 +674,9 @@ function App() {
               <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request">
                 Request a paid scope <ArrowUpRight size={17} />
               </a>
+              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief">
+                Request a 2–4 hour micro-sprint <ArrowUpRight size={17} />
+              </a>
             </div>
           </div>
           <div className="contact-panel">
