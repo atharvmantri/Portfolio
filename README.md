@@ -5,9 +5,11 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue?logo=typescript)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8.0-blue?logo=vite)](https://vite.dev)
 
-This repository contains the architecture, source pipelines, and interactive console frontend for my personal portfolio. Built from scratch with a strict focus on offline resiliency, visual metrics, and self-contained asset pipelines. 
+This repository contains the architecture, source pipelines, and interactive console frontend for my personal portfolio. Built from scratch with a strict focus on offline resiliency, visual metrics, and self-contained asset pipelines.
 
 I build **systems**, not side projects. This portfolio reflects that philosophy—designed for maximum performance, minimal bundle size, and completely self-contained elements (e.g., local inline vector SVGs instead of third-party network fetches).
+
+For a concise, evidence-based project résumé and engagement details, see [PROJECT_PROFILE.md](PROJECT_PROFILE.md).
 
 ---
 
@@ -34,10 +36,10 @@ Portfolio/
 │   │   ├── App.tsx        # Entry router & scroll section trackers
 │   │   ├── Hero.tsx       # Glowing Neural Core SVG particle animation
 │   │   ├── Terminal.tsx   # Custom interactive kernel shell interpreter
-│   │   ├── Stats.tsx      # Performance metrics and hackathon logs
+│   │   ├── Stats.tsx       # Performance metrics and hackathon logs
 │   │   ├── Projects.tsx   # Project cards & 3D tilt interaction handlers
 │   │   ├── Skills.tsx     # Vector SVG technology grid (offline-first)
-│   │   └── Contact.tsx    # Connection endpoint and form payload handler
+│   │   └── Contact.tsx     # Connection endpoint and form payload handler
 │   ├── index.css          # Design system variables, typography & layout utilities
 │   └── main.tsx           # React bootstrapping + developer console greetings
 ```
@@ -104,4 +106,5 @@ When inspecting the site's network traffic or standard outputs, developers will 
 ---
 
 ## 📝 License
+
 This project is open-source and licensed under the [MIT License](LICENSE).
