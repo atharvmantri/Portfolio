@@ -665,6 +665,9 @@ function App() {
               <a className="button ghost" href="/demos/hospitality-starter.html">
                 View a hospitality sample <ArrowUpRight size={17} />
               </a>
+              <a className="button ghost" href="/demos/venue-starter.html">
+                View an event-venue sample <ArrowUpRight size={17} />
+              </a>
               <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request">
                 Request a paid scope <ArrowUpRight size={17} />
               </a>
