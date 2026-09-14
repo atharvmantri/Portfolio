@@ -17,6 +17,8 @@
 - **Cryptographic & Systems Engineering**: Compact ZK (Zero-Knowledge Proofs / Groth16 circuits on Midnight Network), Docker, Linux ops, Web Automation (Playwright), Firebase, PostgreSQL.
 
 ## Paid Micro-Sprints
+- **Lower-friction paid entry**: One bounded diagnosis of a reproducible bug, UI issue, or QA concern, up to 45 minutes, producing a written finding/reproduction/checklist rather than an unlimited fix.
+- **Diagnosis indicative range**: INR 750–1,500, agreed only after the written scope, acceptance check, and payout terms are clear.
 - **Offer**: One bounded 2–4 hour React/TypeScript frontend fix, small frontend section, or QA pass.
 - **Indicative range**: INR 2,500–5,000, agreed only after the written scope, acceptance check, and payout terms are clear.
 - **Handoff**: Exact files changed, browser/mobile checks, known limitations, and a concise delivery note.

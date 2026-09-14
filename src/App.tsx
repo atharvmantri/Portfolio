@@ -657,10 +657,11 @@ function App() {
               <h3>Need a working prototype or a stubborn bug fixed?</h3>
               <p>Small, clearly scoped React/TypeScript, FastAPI, browser-automation, and AI-integration work.</p>
               <ul>
+                <li>Quick paid diagnosis — one reproducible bug, UI issue, or bounded QA concern · up to 45 minutes · INR 750–1,500 indicative</li>
                 <li>Fast micro-sprint — one React/TypeScript fix, small section, or QA pass · 2–4 hours · INR 2,500–5,000 indicative</li>
                 <li>Larger milestone — frontend, API, browser-automation, or AI-integration slice · 2–3 days · quote after brief</li>
               </ul>
-              <p>Start with a small paid slice; larger work is scoped separately so the price and acceptance criteria stay clear.</p>
+              <p>Start with a small paid diagnosis or micro-sprint; larger work is scoped separately so the price and acceptance criteria stay clear.</p>
               <p>Every sprint ends with a tested handoff: exact files changed, checks run, and the next step documented.</p>
               <a className="button ghost" href="/demos/business-group-starter.html">
                 View a business-group sample <ArrowUpRight size={17} />
@@ -682,6 +683,9 @@ function App() {
               </a>
               <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
                 Request a 2–4 hour micro-sprint <ArrowUpRight size={17} />
+              </a>
+              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20diagnosis%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
+                Request a paid diagnosis <ArrowUpRight size={17} />
               </a>
             </div>
           </div>
