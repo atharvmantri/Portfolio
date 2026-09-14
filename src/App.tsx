@@ -670,10 +670,10 @@ function App() {
               <a className="button ghost" href="/demos/agency-overflow.html">
                 View the agency overflow milestone <ArrowUpRight size={17} />
               </a>
-              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request">
+              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
                 Request a paid scope <ArrowUpRight size={17} />
               </a>
-              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief">
+              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
                 Request a 2–4 hour micro-sprint <ArrowUpRight size={17} />
               </a>
             </div>
