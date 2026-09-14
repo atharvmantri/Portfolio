@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="Illustrative paid diagnosis and QA report sample by Atharv Mantri." />
+    <title>Paid diagnosis sample - Atharv Mantri</title>
+    <style>
+      :root { --ink:#17212b; --muted:#61707c; --paper:#f3f6f4; --card:#fff; --line:#dce5e1; --navy:#17344d; --mint:#d9eee4; --gold:#f1c56c; --red:#b4473e; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.55; }
+      a { color:inherit; }
+      .shell { max-width:1040px; margin:0 auto; padding:0 24px; }
+      .notice { background:var(--navy); color:#f8fbfa; font-size:.8rem; padding:12px 0; }
+      .notice strong { color:var(--gold); }
+      header { align-items:center; display:flex; justify-content:space-between; padding:26px 0; }
+      .brand { font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+      nav { display:flex; gap:20px; }
+      nav a { color:var(--muted); font-size:.86rem; text-decoration:none; }
+      .button { border:1px solid var(--navy); border-radius:999px; display:inline-flex; font-weight:780; padding:11px 17px; text-decoration:none; }
+      .button.primary { background:var(--navy); color:#fff; }
+      .button.secondary { color:var(--navy); }
+      .hero { padding:55px 0 35px; max-width:760px; }
+      .eyebrow { color:var(--red); font-size:.74rem; font-weight:850; letter-spacing:.16em; margin:0 0 14px; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { font-size:clamp(2.7rem,7vw,5.4rem); letter-spacing:-.085em; line-height:.95; margin-bottom:22px; }
+      h2 { font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.065em; line-height:1.02; }
+      .lede { color:var(--muted); font-size:1.08rem; max-width:660px; }
+      .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+      .section { padding:52px 0; }
+      .grid { display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+      .card { background:var(--card); border:1px solid var(--line); border-radius:20px; padding:22px; }
+      .card h3 { margin-bottom:7px; }
+      .card p { color:var(--muted); font-size:.93rem; margin-bottom:0; }
+      .report { background:var(--navy); border-radius:24px; color:#f5fbf8; padding:30px; }
+      .report .eyebrow { color:var(--gold); }
+      .report p { color:#c8d8df; }
+      .report-grid { display:grid; gap:20px; grid-template-columns:1fr 1fr; }
+      .finding { background:#fff; border-left:5px solid var(--red); border-radius:13px; color:var(--ink); padding:18px; }
+      .finding strong { display:block; margin-bottom:6px; }
+      .finding p { color:var(--muted); font-size:.92rem; margin:0; }
+      .report ul { color:#dcebe5; margin:0; padding-left:20px; }
+      .scope { background:var(--mint); border-radius:24px; padding:30px; }
+      .scope-grid { display:grid; gap:25px; grid-template-columns:1.1fr .9fr; }
+      .scope p { color:var(--muted); }
+      .scope ul { margin:0; padding-left:20px; }
+      footer { border-top:1px solid var(--line); color:var(--muted); display:flex; justify-content:space-between; padding:25px 0 42px; }
+      @media (max-width:720px) { nav{display:none;} .grid,.report-grid,.scope-grid{grid-template-columns:1fr;} .hero{padding-top:28px;} footer{align-items:start; flex-direction:column; gap:9px;} }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><div class="shell"><strong>ILLUSTRATIVE SAMPLE</strong> - no client site, credentials, personal data, or production result is represented here.</div></div>
+    <div class="shell">
+      <header><a class="brand" href="/">Atharv Mantri / paid diagnosis</a><nav aria-label="Main navigation"><a href="#report">Report shape</a><a href="#scope">Scope</a></nav><a class="button secondary" href="/">Back to portfolio</a></header>
+      <main>
+        <section class="hero"><p class="eyebrow">A decision-ready 45-minute review</p><h1>Find the sharpest friction first.</h1><p class="lede">A paid diagnosis is a bounded investigation of one reproducible bug, UI issue, or QA concern. The output is a written finding, evidence, and a next-step recommendation - not an unlimited promise to fix everything.</p><div class="actions"><a class="button primary" href="mailto:work@atharv.me?subject=Paid%20diagnosis%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">Request a paid diagnosis</a><a class="button secondary" href="#report">See the sample output</a></div></section>
+        <section id="report" class="section report"><p class="eyebrow">Illustrative report / mobile booking flow</p><div class="report-grid"><div><h2>One clear finding. Three useful next steps.</h2><p>Sample brief: review one mobile booking page where visitors report dropping before sending an enquiry. The review checks the stated flow, one mobile viewport, and the agreed acceptance question.</p><div class="finding"><strong>Finding: the request is too generic to qualify.</strong><p>The page asks for a free-form message but does not capture service, preferred date, or approximate budget. A visitor can submit, but the team cannot quickly decide what to answer.</p></div></div><div><p class="eyebrow">Evidence and handoff</p><ul><li>Reproduction path: landing page - contact action - generic message field</li><li>Impact: extra back-and-forth before a useful reply</li><li>Confidence: high within the agreed page and viewport</li><li>Recommended next step: add three qualifying prompts and keep one obvious CTA</li><li>Out of scope: implementation, analytics claims, and unrelated pages</li></ul></div></div></section>
+        <section class="section"><div class="grid"><article class="card"><h3>What you send</h3><p>One reproducible bug, UI concern, page, repository, or bounded QA question with the expected check.</p></article><article class="card"><h3>What you receive</h3><p>A concise written finding, reproduction/checklist, confidence level, limitation, and recommended next action.</p></article><article class="card"><h3>What stays protected</h3><p>No production credentials or client data before an authorized written engagement. No unpaid trial.</p></article></div></section>
+        <section id="scope" class="section"><div class="scope scope-grid"><div><p class="eyebrow">Indicative paid entry</p><h2>Up to 45 minutes. INR 750-1,500 indicative.</h2><p>Written scope, acceptance check, payout terms, and guardian consent are agreed before work begins because Atharv is 15.</p></div><div><ul><li>One issue, page, or bounded QA concern</li><li>One agreed environment or viewport</li><li>Written diagnosis and next-step note</li><li>No unlimited fix or open-ended audit</li></ul></div></div></section>
+      </main>
+      <footer><span>Paid diagnosis sample by Atharv Mantri</span><a href="/">Back to atharv.me</a></footer>
+    </div>
+  </body>
+</html>
