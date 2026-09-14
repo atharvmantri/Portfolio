@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="Private concept preview for a venue availability and tour enquiry page." />
+    <title>Khelaghar Baganbari — private concept preview</title>
+    <style>
+      :root { --ink:#1c2723; --muted:#66736d; --paper:#f5f7f2; --card:#fff; --line:#dce5de; --forest:#184b3c; --leaf:#d9eadb; --sun:#e6b95d; --shadow:0 24px 70px rgba(24,75,60,.13); }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.55; }
+      a { color:inherit; }
+      .shell { max-width:1120px; margin:0 auto; padding:0 24px; }
+      .notice { background:#172b25; color:#f6faf5; font-size:.79rem; letter-spacing:.02em; padding:12px 0; }
+      .notice strong { color:#f6cb70; }
+      header { align-items:center; display:flex; justify-content:space-between; padding:25px 0; }
+      .brand { align-items:center; display:flex; gap:11px; font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+      .mark { align-items:center; background:var(--sun); border-radius:14px; color:var(--forest); display:grid; font-size:1.05rem; height:42px; place-items:center; width:42px; }
+      nav { display:flex; gap:22px; }
+      nav a { color:var(--muted); font-size:.88rem; text-decoration:none; }
+      .button { border:1px solid var(--forest); border-radius:999px; display:inline-flex; font-weight:780; gap:8px; padding:12px 18px; text-decoration:none; }
+      .button.primary { background:var(--forest); color:#fff; }
+      .button.secondary { color:var(--forest); }
+      .hero { align-items:center; display:grid; gap:54px; grid-template-columns:1.05fr .95fr; padding:54px 0 78px; }
+      .eyebrow { color:var(--forest); font-size:.74rem; font-weight:850; letter-spacing:.16em; margin:0 0 14px; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { font-size:clamp(2.9rem,6vw,5.7rem); letter-spacing:-.085em; line-height:.94; margin-bottom:23px; max-width:650px; }
+      h2 { font-size:clamp(2rem,4vw,3.25rem); letter-spacing:-.065em; line-height:1.02; }
+      .lede { color:var(--muted); font-size:1.1rem; max-width:560px; }
+      .actions { display:flex; flex-wrap:wrap; gap:11px; margin-top:29px; }
+      .hero-art { background:#c5dcca; border-radius:32px; min-height:430px; overflow:hidden; padding:22px; position:relative; }
+      .hero-art::before { background:linear-gradient(140deg,rgba(255,255,255,.66),transparent 45%),linear-gradient(155deg,#78a981,#184b3c); border-radius:23px; content:""; inset:22px; position:absolute; }
+      .hero-art::after { background:rgba(242,198,104,.9); border-radius:50%; content:""; height:150px; position:absolute; right:9%; top:10%; width:150px; }
+      .availability-card { backdrop-filter:blur(10px); background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.8); border-radius:18px; bottom:35px; box-shadow:var(--shadow); left:40px; padding:23px; position:absolute; width:min(360px,80%); z-index:1; }
+      .availability-card p { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+      .availability-card h3 { margin-bottom:7px; }
+      .rule { background:var(--forest); border-radius:999px; height:9px; margin:9px 0; width:73%; }
+      .rule.short { background:#b6d5bb; width:47%; }
+      .section { padding:72px 0; }
+      .section-head { align-items:end; display:flex; gap:22px; justify-content:space-between; margin-bottom:28px; }
+      .section-head h2 { margin-bottom:0; max-width:600px; }
+      .section-head p { color:var(--muted); margin-bottom:4px; max-width:330px; }
+      .grid { display:grid; gap:17px; }
+      .date-grid { grid-template-columns:repeat(3,1fr); }
+      .card { background:var(--card); border:1px solid var(--line); border-radius:21px; padding:23px; }
+      .date { min-height:142px; }
+      .date b { color:var(--forest); display:block; font-size:1.25rem; margin-bottom:7px; }
+      .date span { color:var(--muted); font-size:.9rem; }
+      .feature-grid { grid-template-columns:repeat(3,1fr); }
+      .icon { align-items:center; background:var(--leaf); border-radius:13px; color:var(--forest); display:grid; font-size:1.3rem; height:47px; margin-bottom:20px; place-items:center; width:47px; }
+      .feature p { color:var(--muted); font-size:.93rem; }
+      .scope { background:var(--forest); color:#f7fbf5; }
+      .scope .eyebrow { color:#f6cb70; }
+      .scope-grid { display:grid; gap:25px; grid-template-columns:1.1fr .9fr; }
+      .scope p { color:#c8ddd0; }
+      .scope ul { color:#e6f2e8; margin:0; padding-left:20px; }
+      .quote { align-items:center; background:var(--leaf); border-radius:26px; display:flex; gap:24px; justify-content:space-between; padding:36px; }
+      .quote h2 { margin-bottom:9px; }
+      .quote p { color:var(--muted); margin-bottom:0; }
+      footer { border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:.83rem; justify-content:space-between; padding:27px 0 42px; }
+      @media (max-width:780px) { nav{display:none;} .hero,.scope-grid,.date-grid,.feature-grid{grid-template-columns:1fr;} .hero{gap:30px;padding-top:32px;} .hero-art{min-height:350px;} .section-head,.quote,footer{align-items:start;flex-direction:column;} .section-head{gap:11px;} }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><div class="shell"><strong>PRIVATE CONCEPT PREVIEW</strong> — not affiliated with or approved by Khelaghar Baganbari. No enquiry is sent from this page. Replace all copy, images, destinations, and availability after written approval.</div></div>
+    <div class="shell">
+      <header>
+        <a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">K</span><span>Khelaghar Baganbari</span></a>
+        <nav aria-label="Main navigation"><a href="#dates">Dates</a><a href="#details">Details</a><a href="#scope">Pilot</a></nav>
+        <a class="button secondary" href="#scope">Review the idea</a>
+      </header>
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">Wedding venue · Kolkata</p>
+            <h1>Let couples picture the day before they enquire.</h1>
+            <p class="lede">A focused mobile front door for Khelaghar’s remaining winter availability: event type, guest count, preferred date, and a clear next step for a venue tour.</p>
+            <div class="actions"><a class="button primary" href="#dates">See the availability path →</a><a class="button secondary" href="#scope">View the pilot scope</a></div>
+          </div>
+          <div class="hero-art" aria-label="Abstract garden venue concept artwork"><div class="availability-card"><p class="eyebrow">A clearer first step</p><h3>One calm path from “is my date possible?” to a venue conversation.</h3><div class="rule"></div><div class="rule short"></div><p>Date, guest count, event type, and tour request — structured for a busy phone screen.</p></div></div>
+        </section>
+        <section id="dates" class="section">
+          <div class="section-head"><h2>Make limited dates useful, not hidden.</h2><p>The official page currently says nine prime winter 2026–2027 dates remain. This preview shows how that urgency could become a qualified enquiry.</p></div>
+          <div class="grid date-grid">
+            <article class="card date"><b>Winter dates</b><span>Show remaining availability as a simple, editable set of date chips.</span></article>
+            <article class="card date"><b>Guest count</b><span>Ask for the approximate gathering size before a call or tour.</span></article>
+            <article class="card date"><b>Event type</b><span>Separate wedding, reception, engagement, and other celebrations.</span></article>
+          </div>
+        </section>
+        <section id="details" class="section">
+          <div class="section-head"><h2>Answer the questions that move a tour forward.</h2><p>Short content blocks keep the page practical for couples and the venue team.</p></div>
+          <div class="grid feature-grid">
+            <article class="card feature"><div class="icon">✦</div><h3>Spaces & capacity</h3><p>Turn approved hall, lawn, seating, parking, and access details into quick mobile answers.</p></article>
+            <article class="card feature"><div class="icon">◇</div><h3>Packages & moments</h3><p>Give ceremonies, receptions, décor, and catering conversations a clear starting point.</p></article>
+            <article class="card feature"><div class="icon">↗</div><h3>Tour request</h3><p>Route qualified requests to the contact method Khelaghar already uses, after approval.</p></article>
+          </div>
+        </section>
+        <section id="scope" class="section scope"><div class="scope-grid"><div><p class="eyebrow">Indicative fixed-scope pilot</p><h2>Start with one page that earns the next conversation.</h2><p>INR 5,000 indicative · typically 2–3 days after approved content is ready. No work starts without written scope, acceptance criteria, and payment terms.</p></div><div><ul><li>Responsive availability and venue-tour page</li><li>Approved copy, date blocks, and contact destination</li><li>Mobile/link checks and tested handoff</li><li>One review round inside the agreed scope</li><li>No unpaid trial work</li></ul></div></div></section>
+        <section class="section"><div class="quote"><div><p class="eyebrow">Review copy only</p><h2>If useful, reply YES.</h2><p>I can send the exact one-page scope and milestone for approval. This preview is not a live booking page.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Khelaghar%20concept%20review">Discuss the pilot →</a></div></section>
+      </main>
+      <footer><span>Private concept by Atharv Mantri · no affiliation implied</span><a href="/">Back to portfolio →</a></footer>
+    </div>
+  </body>
+</html>
