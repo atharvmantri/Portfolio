@@ -456,9 +456,13 @@ function App() {
             </button>
           ))}
         </nav>
-        <a className="nav-cta" href="https://github.com/atharvmantri" target="_blank" rel="noopener noreferrer">
-          <Code2 size={18} />
-          GitHub
+        <a
+          className="nav-cta"
+          href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20"
+          aria-label="Request a paid micro-sprint"
+        >
+          <Zap size={18} />
+          Request a paid micro-sprint
         </a>
       </header>
 
