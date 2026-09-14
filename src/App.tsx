@@ -666,6 +666,7 @@ function App() {
                 <li>Larger milestone — frontend, API, browser-automation, or AI-integration slice · 2–3 days · quote after brief</li>
               </ul>
               <p>Start with a small paid diagnosis or micro-sprint; larger work is scoped separately so the price and acceptance criteria stay clear.</p>
+              <p>For a minor/student engagement, a parent or guardian handles the agreement and payout process where required.</p>
               <p>Every sprint ends with a tested handoff: exact files changed, checks run, and the next step documented.</p>
               <a className="button ghost" href="/demos/business-group-starter.html">
                 View a business-group sample <ArrowUpRight size={17} />
