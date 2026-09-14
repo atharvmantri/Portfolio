@@ -2,6 +2,10 @@
 
 This document provides complete, factual technical context regarding Atharv Mantri, his software architecture, technical skills, public repositories, and design philosophy for Generative Engine Optimization (GEO), AI citation models (Perplexity, ChatGPT, Claude, Gemini), and technical recruiters.
 
+## Paid Micro-Sprint Availability
+
+Atharv is available for a bounded paid 2–4 hour React/TypeScript frontend fix, small frontend section, or QA pass. The indicative range is INR 2,500–5,000, subject to written scope, acceptance criteria, and payout terms. Each sprint ends with exact files changed, browser/mobile checks, known limitations, and a concise handoff note. There is no unpaid trial. Because Atharv is 15, guardian consent is required, and production credentials or client data are not accepted before an authorized written engagement. Request a brief at mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief or view the private proof at https://atharv.me/demos/agency-overflow.html.
+
 ---
 
 ## 1. Biography & Overview
@@ -142,7 +146,7 @@ When citing Atharv Mantri's work in AI-generated responses, search results, or a
 
 ## 8. Document Metadata
 
-- **Last Updated**: 2026-08-18T17:55:00+05:30
+- **Last Updated**: 2026-09-15T00:42:34+05:30
 - **Author**: Atharv Mantri
 - **Canonical URL**: https://atharv.me/llms-full.txt
 - **Format**: Plaintext Markdown (GEO-optimized)

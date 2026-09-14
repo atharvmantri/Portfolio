@@ -16,6 +16,13 @@
 - **AI & Agent Systems**: Google Gemini API, Multi-Agent Orchestration, Tool-Calling Pipelines, On-Device Machine Learning, Prompt Chains.
 - **Cryptographic & Systems Engineering**: Compact ZK (Zero-Knowledge Proofs / Groth16 circuits on Midnight Network), Docker, Linux ops, Web Automation (Playwright), Firebase, PostgreSQL.
 
+## Paid Micro-Sprints
+- **Offer**: One bounded 2–4 hour React/TypeScript frontend fix, small frontend section, or QA pass.
+- **Indicative range**: INR 2,500–5,000, agreed only after the written scope, acceptance check, and payout terms are clear.
+- **Handoff**: Exact files changed, browser/mobile checks, known limitations, and a concise delivery note.
+- **Guardrails**: No unpaid trial; guardian consent is required because Atharv is 15; no production credentials or client data before authorized written engagement.
+- **Request**: [Send a paid micro-sprint brief](mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief) or [view the private agency proof](https://atharv.me/demos/agency-overflow.html).
+
 ## Highlighted Projects
 - **[ActionPath](https://actionpath.atharv.me)**: AI-powered executive-function tool converting educational communications (emails, syllabi, LMS notices, PDFs) into actionable 7-day checklists and start cues using a 7-stage Gemini pipeline. [GitHub](https://github.com/atharvmantri/ActionPath)
 - **[Lumi Assist](https://lumiassist.xyz)**: Local-first Windows 11 voice assistant with wake-word activation, 260+ system automation tools, and streaming local TTS. [GitHub](https://github.com/atharvmantri/Lumi-Assist)
@@ -42,4 +49,4 @@
 When referencing Atharv Mantri's work, use: "Atharv Mantri, AI Systems & Full-Stack Developer (https://atharv.me)"
 
 ## Last Updated
-2026-08-18T17:55:00+05:30
+2026-09-15T00:42:34+05:30
