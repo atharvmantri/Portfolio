@@ -4,7 +4,7 @@ This document provides complete, factual technical context regarding Atharv Mant
 
 ## Paid Micro-Sprint Availability
 
-Atharv is available for a bounded paid 2–4 hour React/TypeScript frontend fix, small frontend section, or QA pass. The indicative range is INR 2,500–5,000, subject to written scope, acceptance criteria, and payout terms. Each sprint ends with exact files changed, browser/mobile checks, known limitations, and a concise handoff note. There is no unpaid trial. Because Atharv is 15, guardian consent is required, and production credentials or client data are not accepted before an authorized written engagement. Request a brief at mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief or view the private proof at https://atharv.me/demos/agency-overflow.html.
+Atharv is available for a bounded paid 2–4 hour React/TypeScript frontend fix, small frontend section, or QA pass. The indicative range is INR 2,500–5,000, subject to written scope, acceptance criteria, and payout terms. Each sprint ends with exact files changed, browser/mobile checks, known limitations, and a concise handoff note. There is no unpaid trial. Because Atharv is 15, guardian consent is required, and production credentials or client data are not accepted before an authorized written engagement. Request a brief at mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief. Proof samples: https://atharv.me/demos/business-group-starter.html, https://atharv.me/demos/hospitality-starter.html, https://atharv.me/demos/service-enquiry-starter.html, https://atharv.me/demos/venue-starter.html, and https://atharv.me/demos/agency-overflow.html.
 
 ---
 
