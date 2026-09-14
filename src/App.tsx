@@ -653,11 +653,10 @@ function App() {
               <h3>Need a working prototype or a stubborn bug fixed?</h3>
               <p>Small, clearly scoped React/TypeScript, FastAPI, browser-automation, and AI-integration work.</p>
               <ul>
-                <li>Landing-page polish — from INR 2,500 · 2 days</li>
-                <li>API or browser-automation fix — from INR 3,500 · 2 days</li>
-                <li>Small AI integration with tests — from INR 5,000 · 3 days</li>
+                <li>Fast micro-sprint — one React/TypeScript fix, small section, or QA pass · 2–4 hours · INR 2,500–5,000 indicative</li>
+                <li>Larger milestone — frontend, API, browser-automation, or AI-integration slice · 2–3 days · quote after brief</li>
               </ul>
-              <p>Final scope and quote are agreed before work starts.</p>
+              <p>Start with a small paid slice; larger work is scoped separately so the price and acceptance criteria stay clear.</p>
               <p>Every sprint ends with a tested handoff: exact files changed, checks run, and the next step documented.</p>
               <a className="button ghost" href="/demos/business-group-starter.html">
                 View a business-group sample <ArrowUpRight size={17} />
