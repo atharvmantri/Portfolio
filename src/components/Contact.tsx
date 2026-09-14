@@ -80,6 +80,15 @@ export const Contact: React.FC = () => {
                 defaultValue: 'For small, clearly scoped React/TypeScript, FastAPI, browser-automation, and AI-integration work, send the goal and current state. Scope, price, and delivery are agreed before work begins.'
               })}
             </p>
+            <p style={{
+              maxWidth: '620px',
+              margin: 0,
+              color: 'var(--ink-soft)',
+              fontSize: '0.92rem',
+              lineHeight: 1.5
+            }}>
+              <strong>Good starter scopes:</strong> one landing-page polish pass, one API or automation fix, or one small AI integration with tests. Share the goal, current state, and deadline; I’ll reply with a fixed scope, price, and delivery window before work starts.
+            </p>
           </div>
           <a
             href="mailto:work@atharv.me?subject=Paid%20build%20request"
