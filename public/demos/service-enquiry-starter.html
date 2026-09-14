@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="description" content="Sample mobile enquiry page for a local service business." />
+    <title>Common Ground — sample service enquiry page</title>
+    <style>
+      :root { --ink:#202225; --muted:#6e7076; --paper:#f7f7f4; --card:#fff; --line:#e1e1dc; --blue:#274c77; --blue-dark:#172d47; --mint:#dcebe5; --yellow:#efc56c; --shadow:0 22px 65px rgba(23,45,71,.13); }
+      * { box-sizing:border-box; }
+      body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.55; }
+      a { color:inherit; }
+      .shell { max-width:1120px; margin:0 auto; padding:0 24px; }
+      .notice { background:var(--blue-dark); color:#f6f7f7; font-size:.78rem; padding:12px 0; }
+      .notice strong { color:#f6cf7a; }
+      header { align-items:center; display:flex; justify-content:space-between; padding:25px 0; }
+      .brand { align-items:center; display:flex; gap:11px; font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+      .mark { align-items:center; background:var(--yellow); border-radius:14px; color:var(--blue-dark); display:grid; height:42px; place-items:center; width:42px; }
+      nav { display:flex; gap:22px; }
+      nav a { color:var(--muted); font-size:.88rem; text-decoration:none; }
+      .button { border:1px solid var(--blue); border-radius:999px; display:inline-flex; font-weight:780; padding:12px 18px; text-decoration:none; }
+      .button.primary { background:var(--blue); color:#fff; }
+      .button.secondary { color:var(--blue); }
+      .hero { align-items:center; display:grid; gap:55px; grid-template-columns:1.05fr .95fr; padding:54px 0 76px; }
+      .eyebrow { color:var(--blue); font-size:.74rem; font-weight:850; letter-spacing:.16em; margin:0 0 14px; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { font-size:clamp(3rem,6vw,5.7rem); letter-spacing:-.085em; line-height:.94; margin-bottom:23px; max-width:650px; }
+      h2 { font-size:clamp(2rem,4vw,3.25rem); letter-spacing:-.065em; line-height:1.02; }
+      .lede { color:var(--muted); font-size:1.1rem; max-width:560px; }
+      .actions { display:flex; flex-wrap:wrap; gap:11px; margin-top:29px; }
+      .hero-art { background:#c8dce6; border-radius:32px; min-height:430px; overflow:hidden; padding:22px; position:relative; }
+      .hero-art::before { background:linear-gradient(140deg,rgba(255,255,255,.7),transparent 45%),linear-gradient(155deg,#6c9bb4,#274c77); border-radius:23px; content:""; inset:22px; position:absolute; }
+      .hero-art::after { background:rgba(239,197,108,.92); border-radius:50%; content:""; height:155px; position:absolute; right:10%; top:11%; width:155px; }
+      .request-card { backdrop-filter:blur(10px); background:rgba(255,255,255,.94); border:1px solid rgba(255,255,255,.8); border-radius:18px; bottom:35px; box-shadow:var(--shadow); left:40px; padding:23px; position:absolute; width:min(360px,80%); z-index:1; }
+      .request-card p { color:var(--muted); font-size:.9rem; margin-bottom:12px; }
+      .request-card h3 { margin-bottom:7px; }
+      .rule { background:var(--blue); border-radius:999px; height:9px; margin:9px 0; width:73%; }
+      .rule.short { background:#acd2c3; width:47%; }
+      .section { padding:72px 0; }
+      .section-head { align-items:end; display:flex; gap:22px; justify-content:space-between; margin-bottom:28px; }
+      .section-head h2 { margin-bottom:0; max-width:600px; }
+      .section-head p { color:var(--muted); margin-bottom:4px; max-width:330px; }
+      .grid { display:grid; gap:17px; }
+      .card-grid { grid-template-columns:repeat(3,1fr); }
+      .card { background:var(--card); border:1px solid var(--line); border-radius:21px; padding:23px; }
+      .card h3 { margin-bottom:7px; }
+      .card p { color:var(--muted); font-size:.93rem; }
+      .icon { align-items:center; background:var(--mint); border-radius:13px; color:var(--blue); display:grid; font-size:1.3rem; height:47px; margin-bottom:20px; place-items:center; width:47px; }
+      .scope { background:var(--blue-dark); color:#f7faf9; }
+      .scope .eyebrow { color:#f6cf7a; }
+      .scope p { color:#cad8e2; }
+      .scope-grid { display:grid; gap:25px; grid-template-columns:1.1fr .9fr; }
+      .scope ul { color:#e5f0ed; margin:0; padding-left:20px; }
+      .quote { align-items:center; background:var(--mint); border-radius:26px; display:flex; gap:24px; justify-content:space-between; padding:36px; }
+      .quote h2 { margin-bottom:9px; }
+      .quote p { color:var(--muted); margin-bottom:0; }
+      footer { border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:.83rem; justify-content:space-between; padding:27px 0 42px; }
+      @media (max-width:780px) { nav{display:none;} .hero,.scope-grid,.card-grid{grid-template-columns:1fr;} .hero{gap:30px;padding-top:32px;} .hero-art{min-height:350px;} .section-head,.quote,footer{align-items:start;flex-direction:column;} .section-head{gap:11px;} }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><div class="shell"><strong>SAMPLE BUILD CONCEPT</strong> — replace the business name, copy, images, service details, and enquiry destination with approved information.</div></div>
+    <div class="shell">
+      <header><a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">C</span><span>Common Ground</span></a><nav aria-label="Main navigation"><a href="#services">Services</a><a href="#details">Details</a><a href="#scope">Pilot</a></nav><a class="button secondary" href="#scope">Discuss the idea</a></header>
+      <main>
+        <section class="hero"><div><p class="eyebrow">Local service · mobile first</p><h1>Make the first enquiry easier to answer.</h1><p class="lede">A focused front door for businesses that need to turn scattered calls and generic messages into a clear request the team can act on.</p><div class="actions"><a class="button primary" href="#services">See the structure →</a><a class="button secondary" href="#scope">View pilot scope</a></div></div><div class="hero-art" aria-label="Abstract sample local service artwork"><div class="request-card"><p class="eyebrow">A clearer first step</p><h3>Service, preferred time, budget, and one useful request — in one calm path.</h3><div class="rule"></div><div class="rule short"></div><p>Designed for the phone screen where most local enquiries begin.</p></div></div></section>
+        <section id="services" class="section"><div class="section-head"><h2>Give visitors a reason to send a useful request.</h2><p>Approved cards can become courses, treatments, packages, repairs, consultations, or service areas.</p></div><div class="grid card-grid"><article class="card"><div class="icon">✦</div><h3>What you offer</h3><p>Make the core service, audience, location, and starting information easy to understand.</p></article><article class="card"><div class="icon">◇</div><h3>What they need</h3><p>Ask for the service, preferred date/time, approximate budget, and one relevant detail.</p></article><article class="card"><div class="icon">↗</div><h3>What happens next</h3><p>Route the request to the contact method your team already uses, with a clear expectation.</p></article></div></section>
+        <section id="details" class="section"><div class="section-head"><h2>Less back-and-forth. Better first conversations.</h2><p>A small page can make a busy team’s next reply faster and more relevant.</p></div><div class="grid card-grid"><article class="card"><h3>Mobile clarity</h3><p>Short sections, readable type, and one obvious action for visitors on a phone.</p></article><article class="card"><h3>Qualified fields</h3><p>Capture the minimum context needed to answer without making a long form.</p></article><article class="card"><h3>Easy handoff</h3><p>Keep the destination simple: approved email, phone, WhatsApp, or existing form.</p></article></div></section>
+        <section id="scope" class="section scope"><div class="scope-grid"><div><p class="eyebrow">Indicative fixed-scope pilot</p><h2>Start with one page that earns the next conversation.</h2><p>INR 3,500–5,000 indicative · typically 2–3 days after approved content is ready. No work starts without written scope, acceptance criteria, and payment terms.</p></div><div><ul><li>Responsive mobile enquiry page</li><li>Approved service and contact copy</li><li>Useful request fields and clear CTA</li><li>Mobile/link checks and handoff note</li><li>One review round; no unpaid trial</li></ul></div></div></section>
+        <section class="section"><div class="quote"><div><p class="eyebrow">Have a real service brief?</p><h2>Reply YES for the exact scope.</h2><p>Share the service, the customer question, and the destination for enquiries.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Service%20enquiry%20pilot">Discuss the pilot →</a></div></section>
+      </main>
+      <footer><span>Sample build by Atharv Mantri</span><a href="/">Back to portfolio →</a></footer>
+    </div>
+  </body>
+</html>
