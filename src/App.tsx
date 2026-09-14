@@ -707,6 +707,9 @@ function App() {
               <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20diagnosis%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
                 Request a paid diagnosis <ArrowUpRight size={17} />
               </a>
+              <a className="button ghost" href="/paid-work.html">
+                Open the paid-work page <ArrowUpRight size={17} />
+              </a>
             </div>
           </div>
           <div className="contact-panel">
