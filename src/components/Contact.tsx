@@ -87,7 +87,11 @@ export const Contact: React.FC = () => {
               fontSize: '0.92rem',
               lineHeight: 1.5
             }}>
-              <strong>Good starter scopes:</strong> one landing-page polish pass, one API or automation fix, or one small AI integration with tests. Share the goal, current state, and deadline; I’ll reply with a fixed scope, price, and delivery window before work starts.
+              <strong>Starter scopes and typical starting prices:</strong><br />
+              Landing-page polish — INR 2,500, delivered in 2 days.<br />
+              API or browser-automation fix — INR 3,500, delivered in 2 days.<br />
+              Small AI integration with tests — INR 5,000, delivered in 3 days.<br />
+              Share the goal, current state, and deadline; the final fixed scope and quote are agreed before work starts.
             </p>
           </div>
           <a
