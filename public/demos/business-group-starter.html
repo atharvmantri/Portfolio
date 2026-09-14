@@ -72,6 +72,12 @@
       .meta span + span { border-left: 1px solid var(--line); padding-left: 12px; }
       .property-footer { align-items: center; display: flex; justify-content: space-between; }
       .price { color: var(--leaf-dark); font-weight: 850; }
+      .quote-grid { grid-template-columns: repeat(3, 1fr); }
+      .quote-card { display: flex; flex-direction: column; gap: 14px; }
+      .quote-card p { margin-bottom: 0; }
+      .quote-card .button { align-self: flex-start; margin-top: auto; }
+      .quote-tag { color: var(--leaf); font-size: .78rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+      .quote-note { color: var(--muted); font-size: .88rem; }
       .process { background: var(--leaf-dark); color: #f7f5ef; }
       .process .eyebrow { color: #f2c66b; }
       .process-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
@@ -85,7 +91,7 @@
       footer { border-top: 1px solid var(--line); color: var(--muted); display: flex; font-size: .85rem; justify-content: space-between; padding: 28px 0 44px; }
       @media (max-width: 800px) {
         nav { display: none; }
-        .hero, .business-grid, .property-grid { grid-template-columns: 1fr; }
+        .hero, .business-grid, .property-grid, .quote-grid { grid-template-columns: 1fr; }
         .hero { gap: 32px; padding-top: 34px; }
         .hero-art { min-height: 370px; }
         .section-head, .contact, footer { align-items: start; flex-direction: column; }
@@ -100,7 +106,7 @@
     <div class="shell">
       <header>
         <a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">N</span><span>Northstar Group</span></a>
-        <nav aria-label="Main navigation"><a href="#businesses">Businesses</a><a href="#stays">Properties</a><a href="#process">How it works</a></nav>
+        <nav aria-label="Main navigation"><a href="#businesses">Businesses</a><a href="#stays">Properties</a><a href="#quote">Pilot scope</a><a href="#process">How it works</a></nav>
         <a class="button secondary" href="mailto:work@atharv.me?subject=Business%20group%20website%20demo">Discuss a build</a>
       </header>
 
@@ -130,6 +136,15 @@
             <article class="card property"><div class="property-image"><span>Available this week</span></div><div class="property-body"><h3>Garden View Suite</h3><p>Quiet light, a private sitting area, and an easy check-in conversation.</p><div class="meta"><span>2 guests</span><span>1 bedroom</span></div><div class="property-footer"><span class="price">From ₹3,200 / night</span><a class="card-link" href="mailto:work@atharv.me?subject=Garden%20View%20Suite%20enquiry">Enquire →</a></div></div></article>
             <article class="card property"><div class="property-image two"><span>Popular</span></div><div class="property-body"><h3>Riverline Apartment</h3><p>A flexible apartment for longer stays, remote work, and visiting teams.</p><div class="meta"><span>4 guests</span><span>2 bedrooms</span></div><div class="property-footer"><span class="price">From ₹4,800 / night</span><a class="card-link" href="mailto:work@atharv.me?subject=Riverline%20Apartment%20enquiry">Enquire →</a></div></div></article>
             <article class="card property"><div class="property-image three"><span>Long stay welcome</span></div><div class="property-body"><h3>Courtyard Rooms</h3><p>A practical, comfortable base close to the places your itinerary actually needs.</p><div class="meta"><span>2 guests</span><span>1 bedroom</span></div><div class="property-footer"><span class="price">From ₹2,400 / night</span><a class="card-link" href="mailto:work@atharv.me?subject=Courtyard%20Rooms%20enquiry">Enquire →</a></div></div></article>
+          </div>
+        </section>
+
+        <section id="quote" class="section">
+          <div class="section-head"><h2>Start with a useful first milestone.</h2><p>A focused pilot can prove the structure before a larger group site is scoped.</p></div>
+          <div class="grid quote-grid">
+            <article class="card quote-card"><span class="quote-tag">Indicative pilot</span><h3>Group front door</h3><p>Responsive homepage, three business/service cards, property preview cards, and clear enquiry CTAs.</p><p class="quote-note">From INR 5,000 · typically 2–3 days after content is ready.</p><a class="button secondary" href="mailto:work@atharv.me?subject=Business%20group%20pilot%20scope">Ask about the pilot</a></article>
+            <article class="card quote-card"><span class="quote-tag">Scope next</span><h3>Property detail path</h3><p>Room or apartment detail pages with photos, amenities, pricing, and a structured booking enquiry route.</p><p class="quote-note">Quoted after the property content and enquiry destination are confirmed.</p><a class="button secondary" href="mailto:work@atharv.me?subject=Property%20website%20scope">Define the property scope</a></article>
+            <article class="card quote-card"><span class="quote-tag">Clear handoff</span><h3>Own the next step</h3><p>Every milestone includes a tested handoff, exact files changed, checks run, and a short operating note.</p><p class="quote-note">Final price and timeline are agreed before work starts; no unpaid test is required.</p><a class="button secondary" href="mailto:work@atharv.me?subject=Tested%20handoff%20quote">Request a scoped quote</a></article>
           </div>
         </section>
 
