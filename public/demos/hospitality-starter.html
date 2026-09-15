@@ -79,6 +79,20 @@
       .quote { align-items: center; background: #e4eeeb; border-radius: 28px; display: flex; gap: 30px; justify-content: space-between; padding: 42px; }
       .quote h2 { margin-bottom: 10px; }
       .quote p { color: var(--muted); margin-bottom: 0; }
+      .enquiry-panel { background: var(--card); border: 1px solid var(--line); border-radius: 28px; padding: clamp(24px, 5vw, 46px); }
+      .enquiry-form { display: grid; gap: 16px; margin-top: 28px; max-width: 760px; }
+      .enquiry-form label, .enquiry-form legend { font-size: .9rem; font-weight: 800; }
+      .enquiry-form input, .enquiry-form select { background: #fff; border: 1px solid #cfd7d4; border-radius: 10px; display: block; font: inherit; margin-top: 7px; padding: 12px; width: 100%; }
+      .enquiry-form input[aria-invalid="true"], .enquiry-form select[aria-invalid="true"] { border-color: #b94136; }
+      .enquiry-form small { color: #b94136; display: block; font-weight: 600; margin-top: 5px; }
+      .enquiry-dates { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+      .enquiry-form fieldset { border: 0; margin: 0; padding: 0; }
+      .enquiry-choices { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+      .enquiry-choices label { align-items: center; background: #e5efec; border-radius: 999px; display: inline-flex; gap: 7px; padding: 8px 12px; }
+      .enquiry-choices input { margin: 0; width: auto; }
+      .enquiry-form button { background: var(--blue); border: 0; border-radius: 999px; color: #fff; cursor: pointer; font: inherit; font-weight: 800; padding: 13px 18px; }
+      .enquiry-result { color: var(--blue-dark); font-weight: 750; margin: 0; }
+      .enquiry-note { color: var(--muted); font-size: .85rem; margin: 0; }
       footer { border-top: 1px solid var(--line); color: var(--muted); display: flex; font-size: .85rem; justify-content: space-between; padding: 28px 0 44px; }
       @media (max-width: 800px) {
         nav { display: none; }
@@ -88,6 +102,7 @@
         .section-head, .quote, footer { align-items: start; flex-direction: column; }
         .section-head { gap: 12px; }
         .process-grid { grid-template-columns: repeat(2, 1fr); }
+        .enquiry-dates { grid-template-columns: 1fr; }
         .quote { padding: 30px; }
       }
     </style>
@@ -97,7 +112,7 @@
     <div class="shell">
       <header>
         <a class="brand" href="/" aria-label="Back to Atharv Mantri portfolio"><span class="mark">H</span><span>Harbor House</span></a>
-        <nav aria-label="Main navigation"><a href="#rooms">Rooms</a><a href="#features">Experience</a><a href="#scope">Pilot scope</a><a href="#process">How it works</a></nav>
+        <nav aria-label="Main navigation"><a href="#rooms">Rooms</a><a href="#features">Experience</a><a href="#enquiry">Enquiry</a><a href="#scope">Pilot scope</a><a href="#process">How it works</a></nav>
         <a class="button secondary" href="/paid-work.html#brief">Discuss a build</a>
       </header>
       <main>
@@ -126,6 +141,24 @@
             <article class="card feature"><div class="icon">↗</div><h3>One next step</h3><p>Route guests to the existing phone, email, WhatsApp, or booking system your team already uses.</p></article>
           </div>
         </section>
+        <section id="enquiry" class="section">
+          <div class="enquiry-panel">
+            <p class="eyebrow">A clearer booking conversation</p>
+            <h2>Share the details that help the team respond well.</h2>
+            <p class="lede">This sample captures the useful first message on mobile. In a real build, the approved reservations or WhatsApp destination would be wired in after scope and privacy review.</p>
+            <form class="enquiry-form" id="hospitality-enquiry" novalidate>
+              <label>Preferred property or resort<select name="property" required><option value="">Select one</option><option>Garden King Room</option><option>Riverline Suite</option><option>Courtyard Room</option></select><small data-error="property"></small></label>
+              <div class="enquiry-dates"><label>Arrival<input name="arrival" type="date" required><small data-error="arrival"></small></label><label>Departure<input name="departure" type="date" required><small data-error="departure"></small></label></div>
+              <label>Guests<input name="guests" type="number" min="1" max="20" value="2" required><small data-error="guests"></small></label>
+              <fieldset><legend>What are you interested in?</legend><div class="enquiry-choices"><label><input name="interest" type="radio" value="stay" checked> Stay</label><label><input name="interest" type="radio" value="experience"> Experience</label><label><input name="interest" type="radio" value="event"> Event</label></div></fieldset>
+              <label>Preferred callback route<select name="callback"><option value="whatsapp">WhatsApp</option><option value="phone">Phone</option><option value="email">Email</option></select></label>
+              <label>Callback detail<input name="callbackValue" type="text" placeholder="Number or email" required><small data-error="callbackValue"></small></label>
+              <button type="submit">Prepare enquiry</button>
+              <p class="enquiry-result" id="enquiry-result" role="status" hidden></p>
+              <p class="enquiry-note">Demo safeguard: nothing is sent or stored. A production handoff would use only the destination approved by the property.</p>
+            </form>
+          </div>
+        </section>
         <section id="scope" class="section"><div class="quote"><div><p class="eyebrow">Indicative pilot</p><h2>Start with one useful page.</h2><p>From INR 5,000 · typically 2–3 days after content is ready. Fixed scope, tested handoff, and no unpaid test.</p></div><a class="button primary" href="/paid-work.html#brief">Request a scoped quote ↗</a></div></section>
         <section id="process" class="section process">
           <div class="shell"><p class="eyebrow">A low-friction build</p><h2>Useful first. Fancy second.</h2><div class="process-grid"><div class="step"><b>01</b><h3>Agree the shape</h3><p>Pages, content, enquiry actions, and what should stay editable.</p></div><div class="step"><b>02</b><h3>Build the path</h3><p>Responsive layouts, clear content blocks, and the right booking destination.</p></div><div class="step"><b>03</b><h3>Test the handoff</h3><p>Mobile checks, link checks, content review, and an operating note.</p></div><div class="step"><b>04</b><h3>Keep it yours</h3><p>Handoff files and a documented next step so the site is not a black box.</p></div></div></div>
@@ -134,5 +167,30 @@
       </main>
       <footer><span>Sample build by Atharv Mantri</span><a href="/">Back to portfolio ↗</a></footer>
     </div>
+    <script>
+      (() => {
+        const form = document.querySelector("#hospitality-enquiry");
+        const result = document.querySelector("#enquiry-result");
+        const today = new Date().toISOString().slice(0, 10);
+        form.querySelector('[name="arrival"]').min = today;
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const data = new FormData(form);
+          const values = Object.fromEntries(data.entries());
+          const errors = {};
+          if (!values.property) errors.property = "Choose a property or resort.";
+          if (!values.arrival || values.arrival < today) errors.arrival = "Choose a future arrival date.";
+          if (!values.departure || values.departure <= values.arrival) errors.departure = "Departure must be after arrival.";
+          if (!Number.isInteger(Number(values.guests)) || Number(values.guests) < 1 || Number(values.guests) > 20) errors.guests = "Enter 1–20 guests.";
+          if (!String(values.callbackValue || "").trim()) errors.callbackValue = "Add the best contact detail.";
+          form.querySelectorAll("[data-error]").forEach((node) => { node.textContent = errors[node.dataset.error] || ""; });
+          form.querySelectorAll("[name]").forEach((node) => node.removeAttribute("aria-invalid"));
+          Object.keys(errors).forEach((key) => { const node = form.querySelector(`[name="${key}"]`); if (node) node.setAttribute("aria-invalid", "true"); });
+          if (Object.keys(errors).length) { result.hidden = true; return; }
+          result.textContent = "Demo enquiry prepared — a production version would now hand this to the approved reservations destination.";
+          result.hidden = false;
+        });
+      })();
+    </script>
   </body>
 </html>
