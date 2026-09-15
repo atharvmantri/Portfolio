@@ -24,7 +24,7 @@
 - **Handoff**: Exact files changed, browser/mobile checks, known limitations, and a concise delivery note.
 - **Guardrails**: No unpaid trial; guardian consent is required because Atharv is 15; no production credentials or client data before authorized written engagement.
 - **Proof**: [paid diagnosis sample](https://atharv.me/demos/paid-diagnosis-sample.html), [business-group](https://atharv.me/demos/business-group-starter.html), [hospitality](https://atharv.me/demos/hospitality-starter.html), [local-service](https://atharv.me/demos/service-enquiry-starter.html), [event-venue](https://atharv.me/demos/venue-starter.html), and [private agency overflow](https://atharv.me/demos/agency-overflow.html) samples.
-- **Request**: [Send a paid micro-sprint brief](mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief).
+- **Request**: [Send a paid micro-sprint brief](https://atharv.me/paid-work.html#brief).
 
 ## Highlighted Projects
 
