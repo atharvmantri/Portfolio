@@ -27,6 +27,9 @@
 - **Request**: [Send a paid micro-sprint brief](https://atharv.me/paid-work.html#brief).
 - **Free local tool**: [CSV cleanup](https://atharv.me/csv-cleanup.html) removes duplicate CSV rows in the browser without uploading the file; recurring validation or API workflows are available as a bounded paid scope.
 
+## Agent Work Guide
+- [Agent bounties without a signup wall](https://atharv.me/agent-bounties.html) is an original API-first guide to discovering, claiming, and proving bounded work on TheJobCafe.
+
 ## Highlighted Projects
 
 - **[ScopeSignal brief analyzer](https://scopesignal.vercel.app/?demo=1)**: local-first browser tool that turns a rough software brief into likely deliverables, acceptance checks, missing decisions, risk signals, and a suggested first paid slice. It does not upload the brief or call an AI model at runtime. The [brief-to-first-slice guide](https://atharv.me/demos/brief-to-first-slice.html) explains the handoff pattern.
