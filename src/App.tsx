@@ -489,7 +489,7 @@ function App() {
         </nav>
         <a
           className="nav-cta"
-          href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20"
+          href="/paid-work.html#brief"
           aria-label="Request a paid micro-sprint"
         >
           <Zap size={18} />
@@ -520,7 +520,7 @@ function App() {
             <div className="hero-actions">
               <a
                 className="button primary"
-                href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20"
+                href="/paid-work.html#brief"
                 aria-label="Request a paid micro-sprint"
               >
                 <Zap size={18} />
@@ -729,13 +729,13 @@ function App() {
               <a className="button ghost" href="https://github.com/atharvmantri/ScopeSignal/releases/download/demo-2026-09-15/ScopeSignal-demo.mp4" target="_blank" rel="noopener noreferrer">
                 Watch the ScopeSignal demo <Video size={17} />
               </a>
-              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20build%20request&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
+              <a className="button ghost" href="/paid-work.html#brief">
                 Request a paid scope <ArrowUpRight size={17} />
               </a>
-              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
+              <a className="button ghost" href="/paid-work.html#brief">
                 Request a 2–4 hour micro-sprint <ArrowUpRight size={17} />
               </a>
-              <a className="button ghost" href="mailto:work@atharv.me?subject=Paid%20diagnosis%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">
+              <a className="button ghost" href="/paid-work.html#reserve">
                 Request a paid diagnosis <ArrowUpRight size={17} />
               </a>
               <a className="button ghost" href="/paid-work.html">
