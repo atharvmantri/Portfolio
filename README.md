@@ -108,3 +108,7 @@ When inspecting the site's network traffic or standard outputs, developers will 
 ## 📝 License
 
 This project is open-source and licensed under the [MIT License](LICENSE).
+
+## Paid conversion rescue
+
+For one public CTA, form, confirmation, or mobile conversion leak, see the [one-business-day Conversion rescue offer](https://www.atharv.me/conversion-rescue.html) at INR 1,500–3,000 indicative. You can [email a prefilled brief](mailto:work@atharv.me?subject=Conversion%20rescue%20brief&body=Page%20or%20repo%3A%20%0AObserved%20leak%3A%20%0AAcceptance%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20).
