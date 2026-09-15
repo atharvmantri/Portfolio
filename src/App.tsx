@@ -225,7 +225,7 @@ const capabilities = [
 
 const stats = [
   { value: 7, suffix: 'x', label: 'Hackathon winner', icon: <Award size={20} /> },
-  { value: 12, suffix: '', label: 'Public repositories', icon: <Code2 size={20} /> },
+  { value: 15, suffix: '', label: 'Public repositories', icon: <Code2 size={20} /> },
   { value: 15, suffix: '', label: 'Year old', icon: <Sparkles size={20} /> },
   { value: 120, suffix: 'k+', label: 'Lines shipped', icon: <Code2 size={20} /> },
 ];
