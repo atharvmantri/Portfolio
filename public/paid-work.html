@@ -74,6 +74,9 @@
       .contact { align-items:center; background:var(--mint); border-radius:26px; display:flex; gap:24px; justify-content:space-between; padding:34px; }
       .contact h2 { margin-bottom:9px; }
       .contact p { color:var(--muted); margin-bottom:0; }
+      .payment-actions { align-items:center; display:flex; flex-wrap:wrap; gap:12px; }
+      .payment-actions button { background:transparent; cursor:pointer; font:inherit; }
+      .payment-note { color:var(--muted); font-size:.84rem; margin:10px 0 0; }
       .brief-form { background:var(--card); border:1px solid var(--line); border-radius:26px; box-shadow:var(--shadow); display:grid; gap:15px; padding:28px; }
       .brief-form-grid { display:grid; gap:15px; grid-template-columns:repeat(2,minmax(0,1fr)); }
       .brief-form label { color:var(--blue); display:grid; font-size:.76rem; font-weight:850; gap:7px; letter-spacing:.08em; text-transform:uppercase; }
@@ -101,6 +104,7 @@
         <section class="section"><div class="contact"><div><p class="eyebrow">Have a contained brief?</p><h2>Send the sharp version.</h2><p>Include the repo or page, what “done” means, deadline, and payout terms.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Paid%20work%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">Email the brief →</a></div></section>
         <section class="section"><div class="contact"><div><p class="eyebrow">Start with a rough brief</p><h2>See the scope before you request the build.</h2><p>ScopeSignal separates deliverables, acceptance checks, missing decisions, and a bounded first paid slice. Nothing is uploaded.</p></div><a class="button primary" href="https://scopesignal.vercel.app/?demo=1" target="_blank" rel="noopener noreferrer">Try the worked brief â†’</a></div></section>
         <section class="section" id="brief"><div class="section-head"><h2>Or send the brief here.</h2><p>The short version is enough. I will reply with scope, acceptance, timing, and payout terms.</p></div><form class="brief-form" id="paid-brief-form"><div class="brief-form-grid"><label>Name<input required maxlength="100" name="name" autocomplete="name" placeholder="Your name" /></label><label>Email<input required maxlength="200" name="email" type="email" autocomplete="email" placeholder="you@company.com" /></label></div><label>Brief<textarea required minlength="10" maxlength="4000" name="message" placeholder="What should be built or fixed? Include the URL/repo, expected check, deadline, and payout terms."></textarea></label><div class="brief-submit"><button type="submit">Send paid-work brief →</button><p class="brief-status" id="brief-status" role="status" aria-live="polite">No credentials, sensitive customer data, or unpaid trial work.</p></div></form></section>
+        <section class="section" id="reserve"><div class="contact"><div><p class="eyebrow">Fixed first step</p><h2>Reserve a paid diagnosis.</h2><p>INR 750 covers one bounded issue, up to 45 minutes, and a short written finding. Pay only after written scope and an authorized contact confirm the engagement.</p><p class="payment-note">UPI receiving address: <code>atharv50@ptyes</code> · This is not an automatic order or a request for sensitive data.</p></div><div class="payment-actions"><a class="button primary" href="upi://pay?pa=atharv50@ptyes&amp;pn=Atharv%20Mantri&amp;am=750&amp;cu=INR&amp;tn=Paid%20diagnosis%20after%20written%20acceptance">Reserve via UPI →</a><button class="button secondary" id="copy-upi" type="button">Copy UPI address</button><p class="brief-status" id="upi-status" role="status" aria-live="polite"></p></div></div></section>
       </main>
       <footer><span>Paid work by Atharv Mantri</span><a href="/">Back to portfolio →</a></footer>
     </div>
@@ -108,6 +112,16 @@
       (() => {
         const form = document.getElementById('paid-brief-form');
         const status = document.getElementById('brief-status');
+        const copyUpi = document.getElementById('copy-upi');
+        const upiStatus = document.getElementById('upi-status');
+        copyUpi?.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText('atharv50@ptyes');
+            if (upiStatus) upiStatus.textContent = 'UPI address copied.';
+          } catch {
+            if (upiStatus) upiStatus.textContent = 'Copy failed; use atharv50@ptyes.';
+          }
+        });
         if (!form || !status) return;
         const messageField = form.querySelector('textarea[name="message"]');
         const hashQuery = window.location.hash.includes('?') ? window.location.hash.slice(window.location.hash.indexOf('?') + 1) : '';
