@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A practical guide to turning a rough software brief into one bounded, reviewable first implementation slice." />
+    <link rel="canonical" href="https://www.atharv.me/demos/brief-to-first-slice.html" />
+    <meta property="og:title" content="From rough brief to bounded first slice" />
+    <meta property="og:description" content="A practical, local-first way to clarify deliverables, acceptance, access, and payout before implementation." />
+    <meta property="og:url" content="https://www.atharv.me/demos/brief-to-first-slice.html" />
+    <title>From rough brief to bounded first slice | Atharv Mantri</title>
+    <style>
+      :root { --ink:#17212b; --muted:#68777c; --paper:#f4f7f5; --card:#fff; --line:#dce7e1; --navy:#183b52; --mint:#d9eee3; --gold:#f1c86f; --red:#b44d45; --shadow:0 24px 70px rgba(24,59,82,.12); }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.6; }
+      a { color:inherit; }
+      .shell { width:min(980px,calc(100% - 40px)); margin:0 auto; }
+      header { align-items:center; display:flex; justify-content:space-between; padding:28px 0; }
+      .brand { font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+      .nav { color:var(--muted); display:flex; gap:18px; font-size:.86rem; }
+      .hero { max-width:760px; padding:72px 0 42px; }
+      .eyebrow { color:var(--red); font-size:.72rem; font-weight:850; letter-spacing:.16em; margin:0 0 12px; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; }
+      h1 { font-size:clamp(2.9rem,7vw,5.7rem); letter-spacing:-.09em; line-height:.95; margin-bottom:22px; }
+      h2 { font-size:clamp(1.7rem,3.5vw,2.8rem); letter-spacing:-.07em; line-height:1.05; }
+      h3 { font-size:1.05rem; margin-bottom:8px; }
+      .lede { color:var(--muted); font-size:1.12rem; max-width:650px; }
+      .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+      .button { border:1px solid var(--navy); border-radius:999px; display:inline-flex; font-weight:820; padding:11px 16px; text-decoration:none; }
+      .primary { background:var(--navy); color:#fff; }
+      .section { padding:46px 0; }
+      .grid { display:grid; gap:16px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .card { background:var(--card); border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow); padding:24px; }
+      .card p, .card li { color:var(--muted); }
+      .card ul { margin:0; padding-left:19px; }
+      .card li + li { margin-top:7px; }
+      .callout { background:var(--navy); border-radius:24px; color:#fff; padding:30px; }
+      .callout p { color:#d9e6e6; }
+      .callout a { color:var(--gold); font-weight:800; }
+      .footer { border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; padding:25px 0 40px; }
+      @media (max-width:700px) { .grid { grid-template-columns:1fr; } .nav { display:none; } .hero { padding-top:42px; } }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header><a class="brand" href="/">Atharv Mantri</a><nav class="nav"><a href="/paid-work.html">Paid work</a><a href="https://scopesignal.vercel.app/?demo=1">Worked brief</a></nav></header>
+      <main>
+        <section class="hero"><p class="eyebrow">Before implementation</p><h1>Turn a rough brief into one clear first slice.</h1><p class="lede">A useful brief does not need every future feature. It needs one reviewable outcome, a way to prove it is done, and the decisions that make the first handoff safe.</p><div class="actions"><a class="button primary" href="https://scopesignal.vercel.app/?demo=1">Try the worked example</a><a class="button" href="/paid-work.html">See bounded paid work</a></div></section>
+        <section class="section"><p class="eyebrow">01 / Find the outcome</p><h2>Write what should exist at handoff.</h2><div class="grid"><article class="card"><h3>Weak starting point</h3><p>“Make the booking experience better and connect WhatsApp soon.”</p><p>It names a direction, but not a deliverable a reviewer can open and accept.</p></article><article class="card"><h3>Reviewable first slice</h3><p>“Ship one mobile booking page with service selection, preferred date, and a prepared WhatsApp message on the staging URL.”</p><p>It is still small enough to inspect and split before implementation.</p></article></div></section>
+        <section class="section"><p class="eyebrow">02 / Define done</p><h2>Turn promises into checks.</h2><div class="grid"><article class="card"><h3>Acceptance checklist</h3><ul><li>The page works on the agreed mobile and desktop targets.</li><li>A reviewer can select a service and preferred date.</li><li>The generated message contains the agreed fields.</li><li>The reviewer can test it on the named staging URL.</li></ul></article><article class="card"><h3>Decisions to surface</h3><ul><li>Who reviews and approves the handoff?</li><li>Which content, assets, and test data are supplied?</li><li>What access is actually required?</li><li>What is the deadline, budget, and payout checkpoint?</li></ul></article></div></section>
+        <section class="section"><div class="callout"><p class="eyebrow">03 / Keep the boundary</p><h2>Do not hide the second milestone inside the first.</h2><p>Payments, authentication, integrations, production credentials, extra pages, and analytics may all be valid later work. Name them as later decisions instead of silently promising them in a small first slice.</p><p><a href="https://scopesignal.vercel.app/?demo=1">ScopeSignal</a> performs a deterministic browser-side reading of a rough brief and produces deliverables, acceptance checks, missing decisions, risk signals, and a suggested first paid slice. It does not upload the brief or create a contract.</p></div></section>
+        <section class="section"><p class="eyebrow">A practical handoff</p><h2>Send the sharp version.</h2><p class="lede">For a real implementation request, include the repo or page, the expected check, the deadline, and payout terms. A bounded diagnosis or 2–4 hour micro-sprint is easier to approve than an undefined “full build.”</p><div class="actions"><a class="button primary" href="mailto:work@atharv.me?subject=Paid%20work%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">Send a paid brief</a><a class="button" href="/paid-work.html">Review the terms</a></div></section>
+      </main>
+      <footer class="footer">An educational guide from Atharv Mantri. Samples are illustrative, not claimed client work.</footer>
+    </div>
+  </body>
+</html>
