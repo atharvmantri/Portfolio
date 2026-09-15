@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react';
 import Lenis from 'lenis';
 import {
   ArrowUpRight,
@@ -301,7 +301,38 @@ function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [githubProjects, setGithubProjects] = useState<Project[]>(projects);
   const [githubStatus, setGithubStatus] = useState<'loading' | 'live' | 'cached' | 'fallback'>('loading');
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [contactStatus, setContactStatus] = useState<{ kind: 'idle' | 'sending' | 'success' | 'error'; message: string }>({
+    kind: 'idle',
+    message: '',
+  });
   const featured = useMemo(() => githubProjects.slice(0, 4), [githubProjects]);
+
+  const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setContactStatus({ kind: 'sending', message: 'Sending your brief...' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(contactForm),
+      });
+      const payload = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'The inbox endpoint is unavailable.');
+      }
+
+      setContactForm({ name: '', email: '', message: '' });
+      setContactStatus({ kind: 'success', message: 'Brief received. I will reply with scope, acceptance, and timing.' });
+    } catch {
+      setContactStatus({
+        kind: 'error',
+        message: 'Could not save the brief. Email work@atharv.me instead; include the same details.',
+      });
+    }
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -713,6 +744,54 @@ function App() {
             </div>
           </div>
           <div className="contact-panel">
+            <form className="contact-form" onSubmit={submitContactForm}>
+              <div className="form-field-row">
+                <label>
+                  Name
+                  <input
+                    required
+                    maxLength={100}
+                    name="name"
+                    value={contactForm.name}
+                    onChange={(event) => setContactForm({ ...contactForm, name: event.target.value })}
+                    placeholder="Your name"
+                  />
+                </label>
+                <label>
+                  Email
+                  <input
+                    required
+                    maxLength={200}
+                    name="email"
+                    type="email"
+                    value={contactForm.email}
+                    onChange={(event) => setContactForm({ ...contactForm, email: event.target.value })}
+                    placeholder="you@company.com"
+                  />
+                </label>
+              </div>
+              <label>
+                Brief
+                <textarea
+                  required
+                  minLength={10}
+                  maxLength={4000}
+                  name="message"
+                  value={contactForm.message}
+                  onChange={(event) => setContactForm({ ...contactForm, message: event.target.value })}
+                  placeholder="What is broken or what should be built? Include the relevant URL/repo, expected check, deadline, and payout terms."
+                />
+              </label>
+              <div className="form-submit-row">
+                <button className="button primary" type="submit" disabled={contactStatus.kind === 'sending'}>
+                  {contactStatus.kind === 'sending' ? 'Sending...' : 'Send paid-work brief'} <ArrowUpRight size={17} />
+                </button>
+                <p className={`form-status ${contactStatus.kind}`} role="status" aria-live="polite">
+                  {contactStatus.message}
+                </p>
+              </div>
+              <p className="form-status">No credentials, sensitive customer data, or unpaid trial work.</p>
+            </form>
             <button className="email-copy" onClick={copyEmail}>
               <Mail size={20} />
               <span>work@atharv.me</span>
