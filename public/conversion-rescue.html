@@ -78,5 +78,16 @@
       </main>
       <footer><span>Conversion rescue by Atharv Mantri</span><a href="/">Back to portfolio →</a></footer>
     </div>
+    <script>
+      (() => {
+        const actions = document.querySelector('.actions');
+        if (!actions) return;
+        const directEmail = document.createElement('a');
+        directEmail.className = 'button secondary';
+        directEmail.href = 'mailto:work@atharv.me?subject=Conversion%20rescue%20brief&body=Hello%2C%0A%0APage%20or%20repo%3A%20%0AObserved%20conversion%20leak%3A%20%0AExpected%20acceptance%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20%0A%0AI%20understand%20the%20first%20slice%20is%20scoped%20and%20agreed%20in%20writing%20before%20work%20starts.';
+        directEmail.textContent = 'Email the brief directly';
+        actions.append(directEmail);
+      })();
+    </script>
   </body>
 </html>
