@@ -110,10 +110,12 @@
         const status = document.getElementById('brief-status');
         if (!form || !status) return;
         const messageField = form.querySelector('textarea[name="message"]');
-        const scopeHandoff = new URLSearchParams(window.location.search).get('scope');
+        const hashQuery = window.location.hash.includes('?') ? window.location.hash.slice(window.location.hash.indexOf('?') + 1) : '';
+        const scopeHandoff = new URLSearchParams(hashQuery).get('scope');
         if (messageField && scopeHandoff) {
           messageField.value = scopeHandoff.slice(0, 4000);
           status.textContent = 'ScopeSignal handoff loaded. Add your name and email, then confirm the brief.';
+          document.getElementById('brief')?.scrollIntoView({ block: 'start' });
         }
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
