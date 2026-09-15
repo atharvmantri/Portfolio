@@ -109,6 +109,12 @@
         const form = document.getElementById('paid-brief-form');
         const status = document.getElementById('brief-status');
         if (!form || !status) return;
+        const messageField = form.querySelector('textarea[name="message"]');
+        const scopeHandoff = new URLSearchParams(window.location.search).get('scope');
+        if (messageField && scopeHandoff) {
+          messageField.value = scopeHandoff.slice(0, 4000);
+          status.textContent = 'ScopeSignal handoff loaded. Add your name and email, then confirm the brief.';
+        }
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
           const submit = form.querySelector('button');
