@@ -74,8 +74,19 @@
       .contact { align-items:center; background:var(--mint); border-radius:26px; display:flex; gap:24px; justify-content:space-between; padding:34px; }
       .contact h2 { margin-bottom:9px; }
       .contact p { color:var(--muted); margin-bottom:0; }
+      .brief-form { background:var(--card); border:1px solid var(--line); border-radius:26px; box-shadow:var(--shadow); display:grid; gap:15px; padding:28px; }
+      .brief-form-grid { display:grid; gap:15px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .brief-form label { color:var(--blue); display:grid; font-size:.76rem; font-weight:850; gap:7px; letter-spacing:.08em; text-transform:uppercase; }
+      .brief-form input, .brief-form textarea { background:#fff; border:1px solid var(--line); border-radius:12px; color:var(--ink); font:inherit; letter-spacing:normal; padding:12px 13px; text-transform:none; width:100%; }
+      .brief-form textarea { min-height:125px; resize:vertical; }
+      .brief-submit { align-items:center; display:flex; flex-wrap:wrap; gap:14px; }
+      .brief-submit button { background:var(--blue); border:1px solid var(--blue); border-radius:999px; color:#fff; cursor:pointer; font:inherit; font-weight:800; padding:12px 18px; }
+      .brief-submit button:disabled { cursor:wait; opacity:.7; }
+      .brief-status { color:var(--muted); font-size:.86rem; margin:0; }
+      .brief-status.success { color:#1c6b4d; }
+      .brief-status.error { color:#a13a31; }
       footer { border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:.83rem; justify-content:space-between; padding:27px 0 42px; }
-      @media (max-width:780px) { nav{display:none;} .section-head,.contact,footer{align-items:start; flex-direction:column;} .section-head{gap:10px;} .price-grid,.proof-grid{grid-template-columns:1fr;} }
+      @media (max-width:780px) { nav{display:none;} .section-head,.contact,footer{align-items:start; flex-direction:column;} .section-head{gap:10px;} .price-grid,.proof-grid,.brief-form-grid{grid-template-columns:1fr;} }
     </style>
   </head>
   <body>
@@ -89,8 +100,41 @@
         <section id="terms" class="section"><div class="guard"><p class="eyebrow">Before work starts</p><h2>Small scope. Clean handoff.</h2><p>Every engagement needs a written brief, authorized contact, acceptance checklist, deadline, and payout terms. The first milestone does not require production credentials, sensitive customer data, or an unpaid test.</p><ul><li>For a minor/student engagement, a parent or guardian handles agreement and payout where required.</li><li>No work begins before written approval and the agreed payment terms.</li><li>Only approved content, destinations, and data fields are used.</li><li>Each handoff lists files changed, checks run, and known exclusions.</li></ul></div></section>
         <section class="section"><div class="contact"><div><p class="eyebrow">Have a contained brief?</p><h2>Send the sharp version.</h2><p>Include the repo or page, what “done” means, deadline, and payout terms.</p></div><a class="button primary" href="mailto:work@atharv.me?subject=Paid%20work%20brief&body=Brief%3A%20%0ARepo%20or%20page%3A%20%0AExpected%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20">Email the brief →</a></div></section>
         <section class="section"><div class="contact"><div><p class="eyebrow">Start with a rough brief</p><h2>See the scope before you request the build.</h2><p>ScopeSignal separates deliverables, acceptance checks, missing decisions, and a bounded first paid slice. Nothing is uploaded.</p></div><a class="button primary" href="https://scopesignal.vercel.app/?demo=1" target="_blank" rel="noopener noreferrer">Try the worked brief â†’</a></div></section>
+        <section class="section" id="brief"><div class="section-head"><h2>Or send the brief here.</h2><p>The short version is enough. I will reply with scope, acceptance, timing, and payout terms.</p></div><form class="brief-form" id="paid-brief-form"><div class="brief-form-grid"><label>Name<input required maxlength="100" name="name" autocomplete="name" placeholder="Your name" /></label><label>Email<input required maxlength="200" name="email" type="email" autocomplete="email" placeholder="you@company.com" /></label></div><label>Brief<textarea required minlength="10" maxlength="4000" name="message" placeholder="What should be built or fixed? Include the URL/repo, expected check, deadline, and payout terms."></textarea></label><div class="brief-submit"><button type="submit">Send paid-work brief →</button><p class="brief-status" id="brief-status" role="status" aria-live="polite">No credentials, sensitive customer data, or unpaid trial work.</p></div></form></section>
       </main>
       <footer><span>Paid work by Atharv Mantri</span><a href="/">Back to portfolio →</a></footer>
     </div>
+    <script>
+      (() => {
+        const form = document.getElementById('paid-brief-form');
+        const status = document.getElementById('brief-status');
+        if (!form || !status) return;
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const submit = form.querySelector('button');
+          if (submit) submit.disabled = true;
+          status.className = 'brief-status';
+          status.textContent = 'Sending your brief...';
+          const data = new FormData(form);
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name: data.get('name'), email: data.get('email'), message: data.get('message') }),
+            });
+            const payload = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(payload.error || 'The brief could not be saved.');
+            form.reset();
+            status.className = 'brief-status success';
+            status.textContent = 'Brief received. I will reply with scope, acceptance, and timing.';
+          } catch {
+            status.className = 'brief-status error';
+            status.textContent = 'Could not save the brief. Email work@atharv.me instead; include the same details.';
+          } finally {
+            if (submit) submit.disabled = false;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
