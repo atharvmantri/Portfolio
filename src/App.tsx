@@ -302,6 +302,7 @@ function App() {
   const [githubProjects, setGithubProjects] = useState<Project[]>(projects);
   const [githubStatus, setGithubStatus] = useState<'loading' | 'live' | 'cached' | 'fallback'>('loading');
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [contactFallbackUrl, setContactFallbackUrl] = useState('');
   const [contactStatus, setContactStatus] = useState<{ kind: 'idle' | 'sending' | 'success' | 'error'; message: string }>({
     kind: 'idle',
     message: '',
@@ -310,6 +311,7 @@ function App() {
 
   const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setContactFallbackUrl('');
     setContactStatus({ kind: 'sending', message: 'Sending your brief...' });
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 10_000);
@@ -328,11 +330,15 @@ function App() {
       }
 
       setContactForm({ name: '', email: '', message: '' });
+      setContactFallbackUrl('');
       setContactStatus({ kind: 'success', message: 'Brief received. I will reply with scope, acceptance, and timing.' });
     } catch {
+      const subject = `Paid work brief from ${contactForm.name}`;
+      const body = `Name: ${contactForm.name}\nReply email: ${contactForm.email}\n\nBrief:\n${contactForm.message}`;
+      setContactFallbackUrl(`mailto:work@atharv.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
       setContactStatus({
         kind: 'error',
-        message: 'Could not save the brief. Email work@atharv.me instead; include the same details.',
+        message: 'The form endpoint is unavailable. Use the prefilled email fallback below.',
       });
     } finally {
       window.clearTimeout(timeout);
@@ -795,6 +801,11 @@ function App() {
                   {contactStatus.message}
                 </p>
               </div>
+              {contactFallbackUrl && (
+                <a className="form-fallback" href={contactFallbackUrl}>
+                  Open prefilled email fallback →
+                </a>
+              )}
               <p className="form-status">No credentials, sensitive customer data, or unpaid trial work.</p>
             </form>
             <button className="email-copy" onClick={copyEmail}>

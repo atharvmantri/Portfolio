@@ -88,6 +88,7 @@
       .brief-status { color:var(--muted); font-size:.86rem; margin:0; }
       .brief-status.success { color:#1c6b4d; }
       .brief-status.error { color:#a13a31; }
+      .brief-fallback { color:var(--blue); display:none; font-size:.86rem; font-weight:800; text-decoration:underline; }
       footer { border-top:1px solid var(--line); color:var(--muted); display:flex; font-size:.83rem; justify-content:space-between; padding:27px 0 42px; }
       @media (max-width:780px) { nav{display:none;} .section-head,.contact,footer{align-items:start; flex-direction:column;} .section-head{gap:10px;} .price-grid,.proof-grid,.brief-form-grid{grid-template-columns:1fr;} }
     </style>
@@ -131,6 +132,11 @@
           status.textContent = 'ScopeSignal handoff loaded. Add your name and email, then confirm the brief.';
           document.getElementById('brief')?.scrollIntoView({ block: 'start' });
         }
+        const fallback = document.createElement('a');
+        fallback.className = 'brief-fallback';
+        fallback.textContent = 'Open prefilled email fallback →';
+        fallback.setAttribute('aria-label', 'Open a prefilled email fallback for this paid-work brief');
+        form.querySelector('.brief-submit')?.appendChild(fallback);
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
           const submit = form.querySelector('button');
@@ -150,11 +156,17 @@
             const payload = await response.json().catch(() => ({}));
             if (!response.ok) throw new Error(payload.error || 'The brief could not be saved.');
             form.reset();
+            fallback.removeAttribute('href');
+            fallback.style.display = 'none';
             status.className = 'brief-status success';
             status.textContent = 'Brief received. I will reply with scope, acceptance, and timing.';
           } catch {
+            const subject = `Paid work brief from ${data.get('name') || 'prospect'}`;
+            const body = `Name: ${data.get('name') || ''}\nReply email: ${data.get('email') || ''}\n\nBrief:\n${data.get('message') || ''}`;
+            fallback.href = `mailto:work@atharv.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            fallback.style.display = 'inline-block';
             status.className = 'brief-status error';
-            status.textContent = 'Could not save the brief. Email work@atharv.me instead; include the same details.';
+            status.textContent = 'The form endpoint is unavailable. Use the prefilled email fallback below.';
           } finally {
             window.clearTimeout(timeout);
             if (submit) submit.disabled = false;
