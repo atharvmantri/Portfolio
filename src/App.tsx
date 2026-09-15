@@ -625,20 +625,20 @@ function App() {
             <span className="live-dot" aria-hidden="true" />
             <span>Now</span>
             <i />
-            <span>July 2026</span>
+            <span>September 2026</span>
           </div>
           <div className="now-copy">
-            <p className="eyebrow">Currently in the lab</p>
-            <h2 id="now-title">Building an autonomous system for the NSE.</h2>
+            <p className="eyebrow">Currently shipping</p>
+            <h2 id="now-title">Turning rough software briefs into bounded paid slices.</h2>
             <p>
-              I’m making an autonomous trading algorithm that trades on the National Stock Exchange of India.
-              It is up 4% over its first 16 days.
+              ScopeSignal is live, local-first, and built to turn an unclear request into deliverables, acceptance checks,
+              and a sensible first milestone. The paid-work path now carries that clarity into a written brief and guarded diagnosis reservation.
             </p>
           </div>
-          <div className="now-metric" aria-label="4 percent up in 16 days">
-            <strong>+4%</strong>
-            <span>first 16 days</span>
-            <small>Personal research system. Not investment advice.</small>
+          <div className="now-metric" aria-label="Live paid-work conversion path">
+            <strong>LIVE</strong>
+            <span>paid-work path</span>
+            <small>Written scope first. No unpaid trial or production credentials.</small>
           </div>
         </section>
 
