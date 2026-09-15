@@ -109,6 +109,10 @@ When inspecting the site's network traffic or standard outputs, developers will 
 
 This project is open-source and licensed under the [MIT License](LICENSE).
 
+## Free local CSV cleanup
+
+The [private CSV cleanup tool](https://www.atharv.me/csv-cleanup.html) removes duplicate rows in the browser without uploading the file. For recurring feeds, validation rules, API delivery, or tests, request a bounded [paid CSV automation scope](https://www.atharv.me/paid-work.html#brief?scope=CSV%20automation%3A%20dedupe%2C%20validation%2C%20summary%2C%20tests%2C%20written%20acceptance).
+
 ## Paid conversion rescue
 
 For one public CTA, form, confirmation, or mobile conversion leak, see the [one-business-day Conversion rescue offer](https://www.atharv.me/conversion-rescue.html) at INR 1,500–3,000 indicative. You can [email a prefilled brief](mailto:work@atharv.me?subject=Conversion%20rescue%20brief&body=Page%20or%20repo%3A%20%0AObserved%20leak%3A%20%0AAcceptance%20check%3A%20%0ADeadline%3A%20%0APayout%20terms%3A%20).
