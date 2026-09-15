@@ -311,12 +311,15 @@ function App() {
   const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setContactStatus({ kind: 'sending', message: 'Sending your brief...' });
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 10_000);
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(contactForm),
+        signal: controller.signal,
       });
       const payload = (await response.json().catch(() => ({}))) as { error?: string };
 
@@ -331,6 +334,8 @@ function App() {
         kind: 'error',
         message: 'Could not save the brief. Email work@atharv.me instead; include the same details.',
       });
+    } finally {
+      window.clearTimeout(timeout);
     }
   };
 
