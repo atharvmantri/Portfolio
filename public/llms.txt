@@ -27,6 +27,8 @@
 - **Request**: [Send a paid micro-sprint brief](mailto:work@atharv.me?subject=Paid%20micro-sprint%20brief).
 
 ## Highlighted Projects
+
+- **[ScopeSignal brief analyzer](https://scopesignal.vercel.app/?demo=1)**: local-first browser tool that turns a rough software brief into likely deliverables, acceptance checks, missing decisions, risk signals, and a suggested first paid slice. It does not upload the brief or call an AI model at runtime. The [brief-to-first-slice guide](https://atharv.me/demos/brief-to-first-slice.html) explains the handoff pattern.
 - **[ActionPath](https://actionpath.atharv.me)**: AI-powered executive-function tool converting educational communications (emails, syllabi, LMS notices, PDFs) into actionable 7-day checklists and start cues using a 7-stage Gemini pipeline. [GitHub](https://github.com/atharvmantri/ActionPath)
 - **[Lumi Assist](https://lumiassist.xyz)**: Local-first Windows 11 voice assistant with wake-word activation, 260+ system automation tools, and streaming local TTS. [GitHub](https://github.com/atharvmantri/Lumi-Assist)
 - **[BridgeMind](https://github.com/atharvmantri/BridgeMind)**: Chrome extension and multi-agent accessibility engine adapting dense web content to diverse cognitive profiles. STEMINATE Hackathon finalist.
@@ -52,4 +54,4 @@
 When referencing Atharv Mantri's work, use: "Atharv Mantri, AI Systems & Full-Stack Developer (https://atharv.me)"
 
 ## Last Updated
-2026-09-15T00:42:34+05:30
+2026-09-15T07:01:00+05:30
